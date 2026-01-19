@@ -370,6 +370,20 @@
             z-index: 100;
         }
 
+        /* LUCK INDICATOR POP & FLASH */
+        @keyframes luck-pop {
+            0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+            70% { transform: scale(1.2) rotate(5deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        @keyframes luck-flash {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 5px gold); }
+            50% { filter: brightness(1.5) drop-shadow(0 0 15px white); }
+        }
+        .animate-luck-pop {
+            animation: luck-pop 0.4s cubic-bezier(0.17, 0.89, 0.32, 1.49) forwards, luck-flash 0.8s infinite ease-in-out;
+        }
+
         /* LANTERN FESTIVAL MODE EFFECTS */
         .lantern-festival-overlay {
             position: absolute;
@@ -881,12 +895,15 @@
         <div id="sakura-container" class="absolute inset-0 pointer-events-none -z-10"></div>
 
         <div class="relative w-full max-w-xl mx-auto px-4 z-10">
-            <div id="multiplier-badge" class="hidden absolute -top-6 left-1/2 transform -translate-x-1/2 z-30 animate-pulse">
-                <div id="multiplier-text" class="bg-gradient-to-r from-yellow-400 to-red-500 text-white font-black px-6 py-2 rounded-full border-4 border-white shadow-[0_0_20px_white] whitespace-nowrap text-sm"></div>
-            </div>
-
+            
             <!-- DRAW WINDOW (UP) -->
             <div id="rot-screen" class="bg-black border-4 border-gray-700 rounded-xl h-56 md:h-72 flex items-center justify-center mb-0 overflow-hidden relative shadow-[inset_0_0_30px_rgba(0,0,0,1)]">
+                
+                <!-- NEW LUCK MULTIPLIER BADGE (TOP LEFT OF WINDOW) -->
+                <div id="multiplier-badge" class="hidden absolute top-2 left-2 z-50">
+                    <div id="multiplier-text" class="bg-gradient-to-br from-yellow-400 via-white to-yellow-600 text-black font-black px-3 py-1 rounded-lg border-2 border-white shadow-[0_0_15px_rgba(255,215,0,0.8)] whitespace-nowrap text-[10px] md:text-xs uppercase brand-font italic tracking-tighter"></div>
+                </div>
+
                 <div id="rot-content" class="text-center w-full px-4 flex items-center justify-center flex-wrap gap-4">
                     <div class="text-center">
                         <div class="text-6xl md:text-7xl mb-4 animate-bounce">❓</div>
@@ -1595,7 +1612,7 @@
     { name: "Nooo My Hotspot", icon: "😱📶", cost: 45000000000, sell: 22500000000, income: 50000000, goldIncome: 39000000, currency: "silver", description: "The tragic cry of losing internet connection." },
     { name: "Garamarama Dung Dung", icon: "drums💩", cost: 50000000000, sell: 25000000000, income: 55000000, goldIncome: 39500000, currency: "silver", description: "A drum beat so dirty it smells." },
     { name: "Pirulitoita Bicicleteira", icon: "lollipop🚲", cost: 55000000000, sell: 27500000000, income: 60000000, goldIncome: 39800000, currency: "silver", description: "Riding a bicycle while eating a lollipop." },
-    { name: "Il Sacro Cabrospaghetti", icon: "GOAT🍝", cost: 60000000000, sell: 30000000000, income: 65000000, goldIncome: 39900000, currency: "silver", description: "The holy goat tangled in pasta." },
+    { name: "Il Sacro Cabrospaghetti", icon: "GOAT Spaghetti🍝", cost: 60000000000, sell: 30000000000, income: 65000000, goldIncome: 39900000, currency: "silver", description: "The holy goat tangled in pasta." },
     { name: "Chicleteirina Bicicleteirina", icon: "candy🚲", cost: 65000000000, sell: 32500000000, income: 70000000, goldIncome: 39950000, currency: "silver", description: "Riding a bike while chewing bubblegum." },
     { name: "La Grande Combinacion", icon: "🧩👑", cost: 100000000000, sell: 50000000000, income: 100000000, goldIncome: 40000000, currency: "silver", description: "The ultimate combo of all things brainrot." },
     { name: "Los Chicleteiras", icon: "candy👥", cost: 200000000000, sell: 100000000000, income: 150000000, goldIncome: 1000000, currency: "silver", description: "The gum-chewing gang." },
@@ -1615,7 +1632,7 @@
     { name: "Klombo", icon: "dinosaurs", cost: 8000000000000, sell: 4000000000000, income: 2000000000, goldIncome: 30000000, currency: "silver", description: "The friendly, berry-eating Fortnite dinosaur." },
     { name: "Shtekerito el Bulbonito", icon: "🔌💡", cost: 9000000000000, sell: 4500000000000, income: 2200000000, goldIncome: 35000000, currency: "silver", description: "The electric plug that powers the memes." },
     { name: "Spaghetti Tualetti", icon: "🍝🚽", cost: 10000000000000, sell: 5000000000000, income: 2500000000, goldIncome: 40000000, currency: "silver", description: "Pasta served in the Skibidi bowl." },
-    { name: "Cabritos Brotheritos", icon: "GOAT🍝", cost: 12000000000000, sell: 6000000000000, income: 3000000000, goldIncome: 50000000, currency: "silver", description: "The brother goats." },
+    { name: "Cabritos Brotheritos", icon: "GOAT Spaghetti🍝", cost: 12000000000000, sell: 6000000000000, income: 3000000000, goldIncome: 50000000, currency: "silver", description: "The brother goats." },
     { name: "La Crazy Combinacion", icon: "🤪🧩", cost: 16000000000000, sell: 8000000000000, income: 4000000000, goldIncome: 70000000, currency: "silver", description: "A combination so wild it breaks the game." },
     { name: "Gigalitraktos Spidorobos", icon: "🚜🤖", cost: 18000000000000, sell: 9000000000000, income: 4500000000, goldIncome: 80000000, currency: "silver", description: "A tractor spider robot destroyer." },
     { name: "Garbagezilla", icon: "🗑️Rex", cost: 20000000000000, sell: 10000000000000, income: 5000000000, goldIncome: 100000000, currency: "silver", description: "Kaiju monster formed from pure trash." },
@@ -1680,7 +1697,6 @@
             document.body.classList.toggle('glitch-mode-active');
             if (document.body.classList.contains('glitch-mode-active')) {
                 applyLuckBonus(5, 300000); // 5x luck for 5 mins
-                playSound('thunder');
             } else {
                 applyLuckBonus(1, 0);
             }
@@ -1840,8 +1856,8 @@
                 if (pullBtn) {
                     pullBtn.disabled = false;
                     const span = pullBtn.querySelector('span');
-                    if (span) span.innerText = "DRAW BRAINROT";
-                    else pullBtn.innerText = "DRAW BRAINROT";
+                    if (span) span.innerText = "DRAW AGAIN";
+                    else pullBtn.innerText = "DRAW AGAIN";
                 }
 
                 const dark = document.getElementById('lantern-festival-dark-overlay'); if(dark) dark.remove();
@@ -1906,8 +1922,8 @@
                 if (pullBtn) {
                     pullBtn.disabled = false;
                     const span = pullBtn.querySelector('span');
-                    if (span) span.innerText = "DRAW BRAINROT";
-                    else pullBtn.innerText = "DRAW BRAINROT";
+                    if (span) span.innerText = "DRAW AGAIN";
+                    else pullBtn.innerText = "DRAW AGAIN";
                 }
 
                 if(bgTokyo) bgTokyo.classList.replace('opacity-0', 'opacity-60');
@@ -2598,6 +2614,9 @@
 
         window.activateRot = function(type) {
             if (inventory[type] > 0) {
+                // CLOSE INVENTORY POPUP
+                if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory();
+                
                 inventory[type]--; const playSection = document.getElementById('play');
                 if (playSection) playSection.scrollIntoView({ behavior: 'smooth' });
                 playSound('rolling');
@@ -2610,6 +2629,9 @@
         window.activateTimeBonus = function(mult) {
             const key = `x${mult}`;
             if (inventory.timeBonus[key] > 0) {
+                // CLOSE INVENTORY POPUP
+                if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory();
+                
                 inventory.timeBonus[key]--; applyLuckBonus(mult, 60000);
                 const playSection = document.getElementById('play'); if (playSection) playSection.scrollIntoView({ behavior: 'smooth' });
                 playSound('laser'); updateStatsUI();
@@ -2619,8 +2641,15 @@
         function applyLuckBonus(mult, duration) {
             activeTimeBonus = { value: mult, endTime: Date.now() + duration };
             const badge = document.getElementById('multiplier-badge'); const badgeText = document.getElementById('multiplier-text');
+            
             if (mult > 1) {
-                badge.classList.remove('hidden'); badgeText.innerText = `LUCK x${mult} ACTIVE!`;
+                // PLAY THUNDER SOUND
+                playSound('thunder');
+                
+                badge.classList.remove('hidden', 'animate-luck-pop');
+                void badge.offsetWidth; // Trigger reflow to restart animation
+                badge.classList.add('animate-luck-pop');
+                badgeText.innerText = `LUCK x${mult} ACTIVE!`;
             } else {
                 badge.classList.add('hidden');
             }
@@ -2639,6 +2668,9 @@
         
         window.activateSpecial = function(type) {
              if (inventory.special[type] > 0) {
+                // CLOSE INVENTORY POPUP
+                if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory();
+                
                 inventory.special[type]--; forcedTierId = (type === 'god') ? 'BRAINROT_GOD' : (type === 'secret' ? 'SECRET' : 'GOAT');
                 const playSection = document.getElementById('play'); if (playSection) playSection.scrollIntoView({ behavior: 'smooth' });
                 playSound('heaven'); const content = document.getElementById('rot-content');
@@ -2664,6 +2696,8 @@
             if (isFestivalTime) {
                 if (!isAutoFestivalActive) {
                     isAutoFestivalActive = true;
+                    // THUNDER SOUND FOR EVENT
+                    playSound('thunder');
                     if (audioLib.elevator.paused) toggleMusic();
                 }
                 const remMin = 4 - min;
@@ -2694,6 +2728,8 @@
             if (isRainbowTime) {
                 if (!isAutoRainbowActive) {
                     isAutoRainbowActive = true;
+                    // THUNDER SOUND FOR EVENT
+                    playSound('thunder');
                     if (audioLib.disco.paused) toggleDisco();
                 }
                 const remMin = 4 - min;
