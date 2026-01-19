@@ -1052,26 +1052,26 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-gray-900 p-4 rounded-xl border border-yellow-500/50 text-center">
                         <h4 class="text-yellow-400 font-bold mb-2 text-sm uppercase">LUCKY ROT (10x Luck)</h4>
-                        <div class="flex justify-center gap-2 mb-2" id="inv-lucky"></div>
+                        
                         <div class="grid grid-cols-2 gap-2">
-                             <button onclick="purchaseItem('lucky', 'lucky', 'silver', 10000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">Buy 10M <span class="silver-img-container"></span></button>
-                             <button onclick="purchaseItem('lucky', 'lucky', 'gold', 10000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">Buy 10M <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
+                             <button onclick="purchaseItem('lucky', 'lucky', 'silver', 10000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">Buy 10B <span class="silver-img-container"></span></button>
+                             <button onclick="purchaseItem('lucky', 'lucky', 'gold', 10000000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">Buy 10B <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
                         </div>
                     </div>
                     <div class="bg-gray-900 p-4 rounded-xl border border-cyan-500/50 text-center">
                         <h4 class="text-cyan-400 font-bold mb-2 text-sm uppercase">GRAND LUCKY (20x Luck)</h4>
-                        <div class="flex justify-center gap-2 mb-2" id="inv-grand"></div>
+                        
                          <div class="grid grid-cols-2 gap-2">
-                             <button onclick="purchaseItem('lucky', 'grand', 'silver', 50000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">Buy 50M <span class="silver-img-container"></span></button>
-                             <button onclick="purchaseItem('lucky', 'grand', 'gold', 50000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">Buy 50M <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
+                             <button onclick="purchaseItem('lucky', 'grand', 'silver', 1000000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">Buy 1T <span class="silver-img-container"></span></button>
+                             <button onclick="purchaseItem('lucky', 'grand', 'gold', 1000000000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">Buy 1T <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
                         </div>
                     </div>
                     <div class="bg-gray-900 p-4 rounded-xl border border-purple-500/50 text-center">
                         <h4 class="text-purple-400 font-bold mb-2 text-sm uppercase">CRAZY LUCKY (40x Luck)</h4>
-                        <div class="flex justify-center gap-2 mb-2" id="inv-crazy"></div>
+                        
                          <div class="grid grid-cols-2 gap-2">
-                             <button onclick="purchaseItem('lucky', 'crazy', 'silver', 100000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">Buy 100M <span class="silver-img-container"></span></button>
-                             <button onclick="purchaseItem('lucky', 'crazy', 'gold', 100000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">Buy 100M <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
+                             <button onclick="purchaseItem('lucky', 'crazy', 'silver', 10000000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">Buy 10T <span class="silver-img-container"></span></button>
+                             <button onclick="purchaseItem('lucky', 'crazy', 'gold', 10000000000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">Buy 10T <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
                         </div>
                     </div>
                 </div>
@@ -1080,6 +1080,8 @@
             <!-- Special Store Section -->
             <div class="mb-12 bg-gray-900/50 rounded-3xl p-6 border-2 border-red-500/30">
                 <h4 class="text-xl font-black text-red-500 mb-6 text-center uppercase tracking-widest brand-font">🚨 SPECIAL OFFERS 🚨</h4>
+                
+                <!-- Luck Bonus Section -->
                 <div class="mb-8 p-4 bg-black/40 rounded-xl">
                     <h5 class="text-lg font-bold text-[#39ff14] mb-4 text-center uppercase tracking-widest">⏳ Luck Bonus (60 Sec)</h5>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -1117,6 +1119,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Main Specials Grid -->
                 <div class="grid grid-cols-3 md:grid-cols-5 gap-4">
                     <div class="bg-gray-900 p-2 rounded border border-cyan-500/50 text-center">
                         <div id="inv-guaranteed-god" class="special-slot" onclick="activateSpecial('god')">🧠</div>
@@ -1142,6 +1146,25 @@
                         <div id="inv-admin-abuse" class="special-slot" onclick="activateSpecial('admin')">🚨</div>
                         <div class="text-[10px] font-bold mt-1 text-red-500">ABUSE</div>
                          <button onclick="purchaseItem('special', 'admin', 'moonstones', 1)" class="buy-btn bg-purple-600 text-white flex items-center justify-center gap-1">1 <span class="moonstone-img-container"></span></button>
+                    </div>
+                </div>
+
+                <!-- BASE UPGRADES SECTION (Moved to bottom of Special Offers) -->
+                <div class="mt-8 p-4 bg-black/40 rounded-xl">
+                    <h5 class="text-lg font-bold text-cyan-400 mb-4 text-center uppercase tracking-widest">🏗️ BASE EXPANSIONS</h5>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-900 p-3 rounded border border-cyan-500/50 text-center">
+                            <div id="shop-expander-1" class="text-4xl mb-2">🏗️</div>
+                            <div class="text-[10px] font-bold text-white uppercase">Base Expander I</div>
+                            <div class="text-[8px] text-gray-500 mb-2">+5 BASE SLOTS</div>
+                            <button id="btn-expander-1" onclick="purchaseUpgrade('expander1', 100000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1 disabled:opacity-30">100B <span class="silver-img-container"></span></button>
+                        </div>
+                        <div class="bg-gray-900 p-3 rounded border border-cyan-500/50 text-center">
+                            <div id="shop-expander-2" class="text-4xl mb-2">🏙️</div>
+                            <div class="text-[10px] font-bold text-white uppercase">Base Expander II</div>
+                            <div class="text-[8px] text-gray-500 mb-2">+5 BASE SLOTS</div>
+                            <button id="btn-expander-2" onclick="purchaseUpgrade('expander2', 10000000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1 disabled:opacity-30">10T <span class="silver-img-container"></span></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1250,6 +1273,11 @@
                 <!-- Dynamically filled -->
             </div>
             <div id="base-luck-display" class="text-[10px] brand-font text-white/40 uppercase mt-4 tracking-widest font-black">Base Luck Multiplier: x<span id="bonus-luck-val">1</span></div>
+            
+            <!-- Innate Upgrades List -->
+            <div id="innate-upgrades-container" class="mt-8 flex flex-wrap justify-center gap-4 border-t border-white/5 pt-8">
+                <!-- Expanders will show up here -->
+            </div>
         </div>
     </section>
 
@@ -1377,7 +1405,7 @@
 
     <!-- MAIN SCRIPT -->
     <script>
-        // --- GLOBAL ASSETS (Initialized at top to prevent ReferenceErrors) ---
+        // --- GLOBAL ASSETS ---
         var GOLD_IMG_URL = "https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png";
         var SILVER_IMG_URL = "https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695dca11b75f6f563f5f04e3.png";
         var MOONSTONE_IMG_URL = "https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695df4bcd461d43d7ec7d607.png";
@@ -1388,7 +1416,6 @@
 
         lucide.createIcons();
 
-        // --- RARITY REWARDS CONFIG ---
         const MAXXER_REWARDS = {
             "COMMON": { name: "Luckmaxxer", icon: "🍀", color: "#9E9E9E" },
             "RARE": { name: "Rizzmazzer", icon: "🍷", color: "#1E40AF" },
@@ -1407,10 +1434,16 @@
         var activeTimeBonus = { value: 1, endTime: 0, timerId: null };
         var forcedTierId = null;
         var collectedItemsMap = {}; 
-        var inventory = { lucky: 0, grand: 0, crazy: 0, special: { god: 0, secret: 0, goat: 0, ultimate: 0, admin: 0 }, timeBonus: { x2: 0, x4: 0, x10: 0, x20: 0 } };
+        var inventory = { 
+            lucky: 0, 
+            grand: 0, 
+            crazy: 0, 
+            special: { god: 0, secret: 0, goat: 0, ultimate: 0, admin: 0 }, 
+            timeBonus: { x2: 0, x4: 0, x10: 0, x20: 0 },
+            upgrades: { expander1: false, expander2: false } 
+        };
         var currencies = { stars: 0, diamonds: 0, moonstones: 0, gold: 0, silver: 0 };
         var rewards = {}; 
-        var progressBuffers = { god: [], secret: [], goat: [] };
         var baseInventory = new Array(15).fill(null);
         var pendingBaseItem = null;
         var pendingItemUniqueId = null; 
@@ -1421,6 +1454,13 @@
         var fsFireworksInterval = null; 
         var isAutoFestivalActive = false; 
         var isAutoRainbowActive = false; 
+
+        function getMaxBaseSlots() {
+            let total = 15;
+            if (inventory.upgrades.expander1) total += 5;
+            if (inventory.upgrades.expander2) total += 5;
+            return total;
+        }
 
         var tierConfig = [
             { id: "TIER_MOONSTONE", name: "MOONSTONE", stars: 10, probability: 0.001, borderColor: "#7C3AED", textColor: "#D8B4FE", bg: "bg-purple-900/40" },
@@ -1481,171 +1521,171 @@
                 { name: "Lucky 777", icon: "🎰", type: "lucky", luckyType: "lucky", cost: 10000000, sell: 1 },
                 { name: "Silver 5", icon: SILVER_ICON_HTML, type: "currency", currencyType: "silver", value: 5, cost: 1, sell: 1 }
             ],
-"COMMON": [
-    { name: "Fishini Bossini", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d001622afaa69eabffc61.jpg' class='w-full h-full object-cover rounded-md'>", cost: 50, sell: 25, income: 1, currency: "silver", description: "The slippery boss of the underwater mafia." },
-    { name: "Lirili Larilla", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d00166c14153aad55a516.jpg' class='w-full h-full object-cover rounded-md'>", cost: 500, sell: 250, income: 3, currency: "silver", description: "A singing gorilla whose melody destroys braincells." },
-    { name: "Tim Cheese", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d0016de2c149d9a338a9b.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1000, sell: 500, income: 5, currency: "silver", description: "A rodent made entirely of processed dairy." },
-    { name: "Fluriflura", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d0016d5b483f7cfbb6eec.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1500, sell: 750, income: 7, currency: "silver", description: "A flower that blooms only in the brainrot fog." },
-    { name: "Penguino Cocosino", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d001622afaa5739bffc5c.jpg' class='w-full h-full object-cover rounded-md'>", cost: 2000, sell: 1000, income: 9, currency: "silver", description: "A penguin obsessed with tropical coconuts." },
-    { name: "Svinina Bombardino", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d0016a88e87ec8db27cc1.jpg' class='w-full h-full object-cover rounded-md'>", cost: 2800, sell: 1400, income: 12, currency: "silver", description: "An explosive pig ready to blow up the sty." },
-    { name: "Pipi Kiwi", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d0016de2c144005338a9a.jpg' class='w-full h-full object-cover rounded-md'>", cost: 3500, sell: 1750, income: 15, currency: "silver", description: "A fuzzy bird disguised as a fuzzy fruit." },
-    { name: "Pipi Avacocado", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d001694b57d381cae6d1a.jpg' class='w-full h-full object-cover rounded-md'>", cost: 4500, sell: 2250, income: 18, currency: "silver", description: "Millennial toast topping given sentient life." }
-],
-"RARE": [
-    { name: "Trippi Troppi", icon: "🍄🌀", cost: 6000, sell: 3000, income: 25, currency: "silver", description: "A psychedelic mushroom that distorts reality." },
-    { name: "Tung Tung Tung Sahur", icon: "🥁🌙", cost: 8000, sell: 4000, income: 35, currency: "silver", description: "The loud drums that wake you up for Ramadan meals." },
-    { name: "Ganster Footera", icon: "🕶️👟", cost: 10000, sell: 5000, income: 45, currency: "silver", description: "A sneaker with street attitude and drip." },
-    { name: "Boneca Ambalabu", icon: "🪆🎀", cost: 12000, sell: 6000, income: 60, currency: "silver", description: "The cursed doll from the viral viral TikTok trend." },
-    { name: "Pipi Corni", icon: "🌽🐥", cost: 15000, sell: 7500, income: 75, currency: "silver", description: "It has the juice, it's a corn-bird hybrid." },
-    { name: "Ta Ta Ta Ta Sahur", icon: "🥁🌙", cost: 18000, sell: 9000, income: 90, currency: "silver", description: "A faster, more aggressive Sahur drumming rhythm." },
-    { name: "Burballoni Watermeloni", icon: "🍉💥", cost: 22000, sell: 11000, income: 110, currency: "silver", description: "A watermelon rigged to explode with flavor." },
-    { name: "Pipi Potato", icon: "🥔🐥", cost: 26000, sell: 13000, income: 130, currency: "silver", description: "A starchy bird that thrives underground." }
-],
-"EPIC": [
-    { name: "Cappuccino Assassino", icon: "☕🗡️", cost: 35000, sell: 17500, income: 170, currency: "silver", description: "A caffeinated hitman aimed at your heart rate." },
-    { name: "Burr Burr Patapim", icon: "❄️🔨", cost: 40000, sell: 20000, income: 200, currency: "silver", description: "The shivering sound of ice breaking under pressure." },
-    { name: "Trulimero Trulicina", icon: "🎭✨", cost: 45000, sell: 22500, income: 230, currency: "silver", description: "A magical spellcaster of nonsense words." },
-    { name: "Bananita Dolphinita", icon: "🍌🐬", cost: 50000, sell: 25000, income: 260, currency: "silver", description: "A banana carved into the shape of a dolphin." },
-    { name: "Los Liritos", icon: "🎶👥", cost: 55000, sell: 27500, income: 300, currency: "silver", description: "A choir of small creatures singing off-key." },
-    { name: "Salamino Pinguino", icon: "🌭🐧", cost: 60000, sell: 30000, income: 340, currency: "silver", description: "A penguin made entirely of cured Italian meat." },
-    { name: "Tric Trac Baraboom", icon: "⏰💥", cost: 65000, sell: 32500, income: 380, currency: "silver", description: "A time-bomb ticking to a reggaeton beat." },
-    { name: "Los Tung Tungcitos", icon: "🥁👶", cost: 70000, sell: 35000, income: 420, currency: "silver", description: "Junior drummers practicing for the morning patrol." },
-    { name: "Tukanno Bananno", icon: "🦜🍌", cost: 75000, sell: 37500, income: 460, currency: "silver", description: "A toucan with a beak made of potassium." },
-    { name: "Blueberrinni Octopussini", icon: "🫐🐙", cost: 80000, sell: 40000, income: 500, currency: "silver", description: "An octopus that inks pure blueberry juice." },
-    { name: "Spijuniro Golubiro", icon: "🕵️🕊️", cost: 85000, sell: 42500, income: 550, currency: "silver", description: "The secret agent pigeon monitoring the streets." },
-    { name: "Blueberrini Tatticini", icon: "🫐👶", cost: 90000, sell: 45000, income: 600, currency: "silver", description: "Tactical blueberries deployed for small ops." },
-    { name: "Gingobalo Gingobali", icon: "🎪", cost: 95000, sell: 47500, income: 650, currency: "silver", description: "The nonsensical chant of the circus ringmaster." }
-],
-"LEGENDARY": [
-    { name: "Burbalona Loliloli", icon: "balloon🍭", cost: 105000, sell: 52500, income: 750, currency: "silver", description: "A giant balloon fed on sugar and helium." },
-    { name: "Chimpanzini Bananini", icon: "🐵🍌", cost: 120000, sell: 60000, income: 850, currency: "silver", description: "The primal ape who hoards all the bananas." },
-    { name: "Ballerina Cappuccina", icon: "🩰☕", cost: 100000, sell: 50000, income: 500, currency: "silver", description: "A dancer fueled by a triple-shot latte." },
-    { name: "Chef Crabracadabra", icon: "🧙‍♂️", cost: 200000, sell: 100000, income: 1000, currency: "silver", description: "A crab wizard who cooks with magic spells." },
-    { name: "Glorbo Fruttodillo", icon: "🍎", cost: 300000, sell: 150000, income: 1500, currency: "silver", description: "An armadillo rolled up into a giant fruit." },
-    { name: "Cacto Hipopotamo", icon: "🌵🦛", cost: 400000, sell: 200000, income: 2000, currency: "silver", description: "A hippo with a prickly defense mechanism." },
-    { name: "Ballerino Lololo", icon: "🩰🎭", cost: 500000, sell: 250000, income: 2500, currency: "silver", description: "The male lead dancer in the brainrot ballet." },
-    { name: "Lerulerulerule", icon: "📜🔁", cost: 600000, sell: 300000, income: 3000, currency: "silver", description: "The infinite tongue-twister that never ends." },
-    { name: "Bambini Crostini", icon: "🥐", cost: 700000, sell: 350000, income: 3500, currency: "silver", description: "A small child wrapped in flaky pastry dough." },
-    { name: "Fancescoo", icon: "🎩", cost: 800000, sell: 400000, income: 4000, currency: "silver", description: "A sophisticated gentleman shouting his own name." },
-    { name: "Zibra Zubra Zibralini", icon: "🦓🌀", cost: 900000, sell: 450000, income: 4500, currency: "silver", description: "A zebra with stripes that induce hypnosis." },
-    { name: "Bambu di Miale", icon: "🎍🐷", cost: 1000000, sell: 500000, income: 5000, currency: "silver", description: "A pig that hides perfectly inside bamboo." },
-    { name: "Mangolini Parrocini", icon: "🥭", cost: 1200000, sell: 600000, income: 5500, currency: "silver", description: "A parrot camouflaged as a ripe mango." },
-    { name: "Leonelli Cactuselli", icon: "🦁🌵", cost: 1500000, sell: 750000, income: 6000, currency: "silver", description: "The King of Beasts fused with a cactus." }
-],
-"MYTHIC": [
-    { name: "Frigo Camelo", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d001622afaa69eabffc61.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1600000, sell: 800000, income: 6200, currency: "silver", description: "A camel with a refrigerator hump." },
-    { name: "Orangutini Ananassini", icon: "🦧 Pineapple", cost: 1700000, sell: 850000, income: 6400, currency: "silver", description: "An orangutan made of pineapple chunks." },
-    { name: "Bombardiro Crocodilo", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579de805b5113e1994a99a.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1800000, sell: 900000, income: 6600, currency: "silver", description: "A crocodile strapped with heavy artillery." },
-    { name: "Bombardini Gusini", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579dfc035c3a0de947a70d.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1900000, sell: 950000, income: 6800, currency: "silver", description: "A goose that lays explosive eggs." },
-    { name: "Gorillo Watermellondrillo", icon: "🦍🍉", cost: 1950000, sell: 975000, income: 6900, currency: "silver", description: "A gorilla smashing a watermelon drill." },
-    { name: "Sigma Boy", icon: "😎📈", cost: 2000000, sell: 1000000, income: 7000, goldIncome: 1, currency: "silver", description: "The mewing champion of the grindset." },
-    { name: "Matteo", icon: "👦✨", cost: 2200000, sell: 1100000, income: 7500, currency: "silver", description: "Just a regular guy named Matteo, but mythic." },
-    { name: "Los Spijuniritos", icon: "🕵️👥", cost: 2400000, sell: 1200000, income: 8000, currency: "silver", description: "A network of tiny spy pigeons." },
-    { name: "Rhino Toasterina", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579e17035c3a584547ae7d.jpg' class='w-full h-full object-cover rounded-md'>", cost: 2600000, sell: 1300000, income: 8500, currency: "silver", description: "A rhinoceros that doubles as a kitchen appliance." },
-    { name: "Ganganzelli Trulala", icon: "🎭🎶", cost: 2800000, sell: 1400000, income: 9000, currency: "silver", description: "The masked singer of the brainrot opera." },
-    { name: "Strawberrelli Famingelli", icon: "🍓🔥", cost: 3000000, sell: 1500000, income: 9500, currency: "silver", description: "A strawberry engulfed in mythic flames." },
-    { name: "Elefantino Frigorifero", icon: "🐘🧊", cost: 3200000, sell: 1600000, income: 10000, currency: "silver", description: "An elephant that keeps your drinks cold." },
-    { name: "To To To Sahur", icon: "🥁🌙", cost: 3500000, sell: 1750000, income: 11000, currency: "silver", description: "The triple-beat drum for waking the village." },
-    { name: "Antoniooo", icon: "👨‍🦱📣", cost: 3800000, sell: 1900000, income: 12000, currency: "silver", description: "A man shouting his name into the void." },
-    { name: "Te Te Te Sahur", icon: "🥁🌙", cost: 4100000, sell: 2050000, income: 13000, currency: "silver", description: "The high-pitched variant of the Sahur drum." },
-    { name: "Perochello Lemonchello", icon: "🍐🍋", cost: 4400000, sell: 2200000, income: 14000, currency: "silver", description: "A zesty hybrid of pear and lemon liqueur." },
-    { name: "Tang Tang Kelentang", icon: "🥁🔔", cost: 4700000, sell: 2350000, income: 15000, currency: "silver", description: "The clanging pots and pans of the morning." },
-    { name: "Patapimus Maximus", icon: "🏛️⚔️", cost: 5000000, sell: 2500000, income: 16000, currency: "silver", description: "The Roman General of rhythmic tapping." },
-    { name: "Tirilikalika Tirilikalako", icon: "🎶🔁", cost: 5500000, sell: 2750000, income: 18000, currency: "silver", description: "A catchy nonsense rhyme on loop." },
-    { name: "Los Matteos", icon: "👦👦", cost: 6000000, sell: 3000000, income: 20000, currency: "silver", description: "Clones of Matteo taking over the world." }
-],
-"BRAINROT_GOD": [
-    { name: "Cocofanto Elefanto", icon: "🥥🐘", cost: 10000000, sell: 5000000, income: 25000, goldIncome: 1, currency: "silver", description: "An elephant made of coconut husk." },
-    { name: "Tob Tobi Tob", icon: "🔁🎭", cost: 15000000, sell: 7500000, income: 30000, goldIncome: 5, currency: "silver", description: "The God of stuttering repetition." },
-    { name: "Tralalero tralala", icon: "🎶🌀", cost: 20000000, sell: 10000000, income: 35000, goldIncome: 25, currency: "silver", description: "A melody so old it predates time." },
-    { name: "Odin Din Din Dun", icon: "👁️", cost: 25000000, sell: 12500000, income: 40000, goldIncome: 50, currency: "silver", description: "The All-Father singing the dubi-dubi song." },
-    { name: "Chachechi", icon: "🗣️✨", cost: 30000000, sell: 15000000, income: 45000, goldIncome: 150, currency: "silver", description: "The divine syllable speaker." },
-    { name: "Espressona Signora", icon: "☕👩", cost: 35000000, sell: 17500000, income: 50000, goldIncome: 300, currency: "silver", description: "The Lady of Espresso, jittering with power." },
-    { name: "La Vaca Saturno Saturnita", icon: "🐄🪐", cost: 40000000, sell: 20000000, income: 60000, goldIncome: 800, currency: "silver", description: "A cosmic cow grazing on Saturn's rings." },
-    { name: "Centralucci Nuclearucci", icon: "☢️🎯", cost: 50000000, sell: 25000000, income: 75000, goldIncome: 1500, currency: "silver", description: "A living nuclear power plant." },
-    { name: "Ecco Cavallo Virtuoso", icon: "🐎violin", cost: 60000000, sell: 30000000, income: 90000, goldIncome: 2500, currency: "silver", description: "A horse that plays the violin perfectly." },
-    { name: "Los Vaquitas Saturnitas", icon: "🐮🪐", cost: 75000000, sell: 37500000, income: 100000, goldIncome: 4000, currency: "silver", description: "The herd of space calves." },
-    { name: "Bulbito Bandito Traktorito", icon: "💡🚜", cost: 90000000, sell: 45000000, income: 120000, goldIncome: 8000, currency: "silver", description: "A tractor stealing lightbulbs." },
-    { name: "Bananananito Bandito", icon: "🍌🦹", cost: 120000000, sell: 60000000, income: 180000, goldIncome: 25000, currency: "silver", description: "The outlaw who stole the yellow fruit." },
-    { name: "Chillin Chilli", icon: "❄️🌶️", cost: 150000000, sell: 750000000, income: 200000, goldIncome: 40000, currency: "silver", description: "A spicy pepper wearing sunglasses." },
-    { name: "Trippi Troppi Troppa Trippa", icon: "🍄🌀", cost: 180000000, sell: 90000000, income: 250000, goldIncome: 60000, currency: "silver", description: "The ultimate hallucination." },
-    { name: "Brri Bicus Dicus", icon: "🪆🎀", cost: 200000000, sell: 100000000, income: 300000, goldIncome: 75000, currency: "silver", description: "A Russian doll containing the universe." },
-    { name: "Cioccolatini Pancioncioni", icon: "🍫🍰", cost: 250000000, sell: 125000000, income: 350000, goldIncome: 90000, currency: "silver", description: "God-tier chocolate for a God-tier belly." },
-    { name: "Burr Es Teh Patipum", icon: "❄️💢", cost: 300000000, sell: 150000000, income: 400000, goldIncome: 110000, currency: "silver", description: "Iced tea served with aggressive force." },
-    { name: "Torrtuginni Dragonfruitinni", icon: "🐢🐉", cost: 350000000, sell: 175000000, income: 450000, goldIncome: 140000, currency: "silver", description: "A turtle shelled in dragonfruit skin." },
-    { name: "Los Bros", icon: "👬🔥", cost: 400000000, sell: 200000000, income: 500000, goldIncome: 180000, currency: "silver", description: "The ultimate brotherhood of the rot." },
-    { name: "Bambini Tankini", icon: "👶🛢️", cost: 450000000, sell: 225000000, income: 550000, goldIncome: 220000, currency: "silver", description: "A baby driving an armored tank." },
-    { name: "Jiqi Jiqi Shizhon", icon: "🧧🔮", cost: 500000000, sell: 250000000, income: 600000, goldIncome: 250000, currency: "silver", description: "The ancient fortune of the East." },
-    { name: "Los Crocodillitos", icon: "🐊👶", cost: 600000000, sell: 300000000, income: 650000, goldIncome: 280000, currency: "silver", description: "A swarm of baby crocodiles." },
-    { name: "Alessiooooooo", icon: "👨‍🦱📣", cost: 700000000, sell: 350000000, income: 700000, goldIncome: 310000, currency: "silver", description: "Alessio screaming louder than Antonio." },
-    { name: "Karkerkar Kurkur", icon: "BNK", cost: 800000000, sell: 400000000, income: 750000, goldIncome: 330000, currency: "silver", description: "The sound of a bank vault closing." },
-    { name: "Piccionetta Machina", icon: "🕊️⚙️", cost: 900000000, sell: 450000000, income: 800000, goldIncome: 350000, currency: "silver", description: "A cyborg pigeon from the future." },
-    { name: "Pipoqueira Motoqueira", icon: "🍿🏍️", cost: 1000000000, sell: 500000000, income: 850000, goldIncome: 365000, currency: "silver", description: "Popcorn delivered by motorcycle." },
-    { name: "Il Piccione Musculone", icon: "💪", cost: 1100000000, sell: 550000000, income: 90000, goldIncome: 380000, currency: "silver", description: "A pigeon that hits the gym daily." },
-    { name: "Job Job Job Sahur", icon: "🥁🧑‍💼", cost: 1200000000, sell: 600000000, income: 950000, goldIncome: 390000, currency: "silver", description: "The corporate worker waking up for Ramadan." },
-    { name: "Las Sis", icon: "👯‍♀️✨", cost: 1300000000, sell: 650000000, income: 1000000, goldIncome: 400000, currency: "silver", description: "The sisters who run the show." },
-    { name: "Il Mastodontico Telepiedone Planetario", icon: "🦣🪐", cost: 1400000000, sell: 700000000, income: 1100000, goldIncome: 402000, currency: "silver", description: "A mammoth footprint the size of a planet." },
-    { name: "Malame Amarale", icon: "🌊❤️", cost: 1500000000, sell: 750000000, income: 1200000, goldIncome: 404000, currency: "silver", description: "A tidal wave of emotion." },
-    { name: "Belugelo Beluga", icon: " Whale🐋❄️", cost: 2000000000, sell: 1000000000, income: 1500000, goldIncome: 405000, currency: "silver", description: "The polite cat-whale of the internet." }
-],
-"SECRET": [
-    { name: "Los Tralaleritos", icon: "🎶👶", cost: 2500000000, sell: 1250000000, income: 2000000, goldIncome: 450000, currency: "silver", description: "Tiny children humming the ancient song." },
-    { name: "Las Tralaleritas", icon: "🎶👧", cost: 3000000000, sell: 1500000000, income: 2500000, goldIncome: 500000, currency: "silver", description: "Tiny girls humming the ancient melody." },
-    { name: "Truenostruzzo Turbo 3000", icon: "⚡🦤", cost: 3500000000, sell: 1750000000, income: 3000000, goldIncome: 550000, currency: "silver", description: "A turbocharged ostrich breaker of sound barriers." },
-    { name: "Kravilino Cekicino", icon: "crabs🔨", cost: 4000000000, sell: 2000000000, income: 3500000, goldIncome: 600000, currency: "silver", description: "A crab wielding a construction hammer." },
-    { name: "Los Orcaleritos", icon: "🐋👶", cost: 4500000000, sell: 2250000000, income: 4000000, goldIncome: 650000, currency: "silver", description: "Baby killer whales in tuxedos." },
-    { name: "Las Sis", icon: "👯‍♀️✨", cost: 5000000000, sell: 2500000000, income: 4500000, goldIncome: 700000, currency: "silver", description: "The sisters return, shinier than before." },
-    { name: "Piccione Macchina", icon: "🕊️🚗", cost: 5500000000, sell: 2750000000, income: 5000000, goldIncome: 750000, currency: "silver", description: "A pigeon driving a sports car." },
-    { name: "Peeling Peely", icon: "😄", cost: 6000000000, sell: 3000000000, income: 5500000, goldIncome: 780000, currency: "silver", description: "The Fortnite banana revealing his true form." },
-    { name: "Pakrahmatmamatcita", icon: "🧕✨", cost: 6500000000, sell: 3250000000, income: 6000000, goldIncome: 790000, currency: "silver", description: "The matriarch of the neighborhood." },
-    { name: "Pakrahmatmamat", icon: "🧕📣", cost: 7000000000, sell: 3500000000, income: 650000, goldIncome: 795000, currency: "silver", description: "The patriarch announcing the news." },
-    { name: "Treno Struzzo Turbo 4000", icon: "🚆🦤", cost: 8000000000, sell: 4000000000, income: 7000000, goldIncome: 798000, currency: "silver", description: "The ostrich has become a high-speed train." },
-    { name: "Anpali Babel", icon: "🗼🌀", cost: 9000000000, sell: 4500000000, income: 800000, goldIncome: 800000, currency: "silver", description: "The tower where all brainrot languages mix." },
-    { name: "Los Karkeritos", icon: "🦴👶", cost: 10000000000, sell: 5000000000, income: 10000000, goldIncome: 1500000, currency: "silver", description: "Kids who love the sound of crunching bones." },
-    { name: "Orcalero Orcala", icon: "🐋🎭", cost: 12000000000, sell: 6000000000, income: 15000000, goldIncome: 5000000, currency: "silver", description: "The operatic singer of the deep sea." },
-    { name: "Frogino Assassino", icon: "🐸🗡️", cost: 15000000000, sell: 7500000000, income: 20000000, goldIncome: 10000000, currency: "silver", description: "A ninja frog with a deadly tongue." },
-    { name: "Ketchuru and Musturu", icon: "🍅🟡", cost: 20000000000, sell: 10000000000, income: 25000000, goldIncome: 20000000, currency: "silver", description: "The twin deities of Ketchup and Mustard." },
-    { name: "Pot Hotspot", icon: "🔥📶", cost: 25000000000, sell: 12500000000, income: 30000000, goldIncome: 25000000, currency: "silver", description: "A literal cooking pot emitting Wi-Fi." },
-    { name: "Pot Hotspotina", icon: "🔥📡", cost: 30000000000, sell: 15000000000, income: 35000000, goldIncome: 30000000, currency: "silver", description: "The female counterpart of the Wi-Fi pot." },
-    { name: "21", icon: "🔢✨", cost: 35000000000, sell: 17500000000, income: 40000000, goldIncome: 35000000, currency: "silver", description: "What's nine plus ten? You know the answer." },
-    { name: "Los Mobilis", icon: "📱👥", cost: 40000000000, sell: 20000000000, income: 45000000, goldIncome: 37000000, currency: "silver", description: "The legion of smartphone zombies." },
-    { name: "Nooo My Hotspot", icon: "😱📶", cost: 45000000000, sell: 22500000000, income: 50000000, goldIncome: 39000000, currency: "silver", description: "The tragic cry of losing internet connection." },
-    { name: "Garamarama Dung Dung", icon: "drums💩", cost: 50000000000, sell: 25000000000, income: 55000000, goldIncome: 39500000, currency: "silver", description: "A drum beat so dirty it smells." },
-    { name: "Pirulitoita Bicicleteira", icon: "lollipop🚲", cost: 55000000000, sell: 27500000000, income: 60000000, goldIncome: 39800000, currency: "silver", description: "Riding a bicycle while eating a lollipop." },
-    { name: "Il Sacro Cabrospaghetti", icon: "GOAT Spaghetti🍝", cost: 60000000000, sell: 30000000000, income: 65000000, goldIncome: 39900000, currency: "silver", description: "The holy goat tangled in pasta." },
-    { name: "Chicleteirina Bicicleteirina", icon: "candy🚲", cost: 65000000000, sell: 32500000000, income: 70000000, goldIncome: 39950000, currency: "silver", description: "Riding a bike while chewing bubblegum." },
-    { name: "La Grande Combinacion", icon: "🧩👑", cost: 100000000000, sell: 50000000000, income: 100000000, goldIncome: 40000000, currency: "silver", description: "The ultimate combo of all things brainrot." },
-    { name: "Los Chicleteiras", icon: "candy👥", cost: 200000000000, sell: 100000000000, income: 150000000, goldIncome: 1000000, currency: "silver", description: "The gum-chewing gang." },
-    { name: "Le Golem De Frgider", icon: "🗿🧊", cost: 400000000000, sell: 200000000000, income: 200000000, goldIncome: 3000000, currency: "silver", description: "A monster constructed from kitchen fridges." },
-    { name: "67", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/6957b492d350af3198a60faa.jpg' class='w-full h-full object-cover rounded-md'>", cost: 600000000000, sell: 300000000000, income: 300000000, goldIncome: 6700000, currency: "silver", description: "The sacred number of the Skibidi verse." },
-    { name: "Los Esok Sekolitos", icon: "🏫👶", cost: 800000000000, sell: 400000000000, income: 400000000, goldIncome: 8000000, currency: "silver", description: "Kids dreading school tomorrow." },
-    { name: "Coccoblade", icon: "🥥⚔️", cost: 1000000000000, sell: 500000000000, income: 500000000, goldIncome: 10000000, currency: "silver", description: "A sword forged from the hardest coconut." },
-    { name: "Ketupat Kepat Prekupat", icon: "🍚✨", cost: 2000000000000, sell: 1000000000000, income: 700000000, goldIncome: 14000000, currency: "silver", description: "A woven rice cake vibrating with energy." },
-    { name: "Dul Dul Dul", icon: "lollipop🔁", cost: 2500000000000, sell: 1250000000000, income: 800000000, goldIncome: 16000000, currency: "silver", description: "The infinite lick of the candy." },
-    { name: "W and L", icon: "🏆💀", cost: 3000000000000, sell: 1500000000000, income: 900000000, goldIncome: 17000000, currency: "silver", description: "The balance of Wins and Losses." },
-    { name: "Los Garamdungcitos", icon: "drums👶", cost: 3500000000000, sell: 1750000000000, income: 1000000000, goldIncome: 18000000, currency: "silver", description: "Little drummers beating the salt drums." },
-    { name: "Lirili Railu", icon: "🎶🚆", cost: 4000000000000, sell: 2000000000000, income: 1100000000, goldIncome: 19000000, currency: "silver", description: "The musical train to nowhere." },
-    { name: "La Esok Sekolah", icon: "🏫📚", cost: 4500000000000, sell: 2250000000000, income: 1200000000, goldIncome: 20000000, currency: "silver", description: "The impending doom of going to school." },
-    { name: "Pitiata Baem", icon: "🎉💥", cost: 5000000000000, sell: 2500000000000, income: 1300000000, goldIncome: 22000000, currency: "silver", description: "A piñata that hits you back." },
-    { name: "Chimpanzini Kingini", icon: "🐵👑", cost: 6000000000000, sell: 3000000000000, income: 1500000000, goldIncome: 25000000, currency: "silver", description: "The King Kong of the memes." },
-    { name: "Strawberry Elephant", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579e217483030cb59e69bc.jpg' class='w-full h-full object-cover rounded-md'>", cost: 7000000000000, sell: 3500000000000, income: 1800000000, goldIncome: 28000000, currency: "silver", description: "The red pachyderm famous for AI song covers." },
-    { name: "Klombo", icon: "dinosaurs", cost: 8000000000000, sell: 4000000000000, income: 2000000000, goldIncome: 30000000, currency: "silver", description: "The friendly, berry-eating Fortnite dinosaur." },
-    { name: "Shtekerito el Bulbonito", icon: "🔌💡", cost: 9000000000000, sell: 4500000000000, income: 2200000000, goldIncome: 35000000, currency: "silver", description: "The electric plug that powers the memes." },
-    { name: "Spaghetti Tualetti", icon: "🍝🚽", cost: 10000000000000, sell: 5000000000000, income: 2500000000, goldIncome: 40000000, currency: "silver", description: "Pasta served in the Skibidi bowl." },
-    { name: "Cabritos Brotheritos", icon: "GOAT Spaghetti🍝", cost: 12000000000000, sell: 6000000000000, income: 3000000000, goldIncome: 50000000, currency: "silver", description: "The brother goats." },
-    { name: "La Crazy Combinacion", icon: "🤪🧩", cost: 16000000000000, sell: 8000000000000, income: 4000000000, goldIncome: 70000000, currency: "silver", description: "A combination so wild it breaks the game." },
-    { name: "Gigalitraktos Spidorobos", icon: "🚜🤖", cost: 18000000000000, sell: 9000000000000, income: 4500000000, goldIncome: 80000000, currency: "silver", description: "A tractor spider robot destroyer." },
-    { name: "Garbagezilla", icon: "🗑️Rex", cost: 20000000000000, sell: 10000000000000, income: 5000000000, goldIncome: 100000000, currency: "silver", description: "Kaiju monster formed from pure trash." },
-    { name: "Cannone Maldettone", icon: "🔫😈", cost: 25000000000000, sell: 12500000000000, income: 6000000000, goldIncome: 150000000, currency: "silver", description: "The cursed cannon that fires regret." }
-],
-"GOAT": [
-    { name: "Skibidi Toilet", icon: "🚽🎶", cost: 1000000000000, sell: 500000000000, income: 10000000000, goldIncome: 200000000, currency: "gold", description: "The head in the toilet that started the war." },
-    { name: "Meowl Meowl", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579df5e7c6137a015f9dd3.jpg' class='w-full h-full object-cover rounded-md'>", cost: 3000000000000, sell: 1500000000000, income: 20000000000, goldIncome: 500000000, currency: "gold", description: "The Billie Eilish cat meme crying for help." },
-    { name: "Cococita Bailacita", icon: "coconut💃", cost: 5000000000000, sell: 2500000000000, income: 40000000000, goldIncome: 1000000000, currency: "gold", description: "The dancing coconut lady." },
-    { name: "Rascalito Razzalito", icon: "raccoon💥", cost: 6000000000000, sell: 3000000000, income: 60000000000, goldIncome: 1200000000, currency: "gold", description: "Pedro the Raccoon spinning in a circle." },
-    { name: "Ese Vato Gato", icon: "😎🐈", cost: 8000000000, sell: 4000000000000, income: 8000000000, goldIncome: 2000000000, currency: "gold", description: "That cool cat dude wearing shades." },
-    { name: "Brainrot Collector", icon: "👑🧠", cost: 10000000000000, sell: 5000000000000, income: 100000000000, goldIncome: 5000000000, currency: "gold", description: "You. The one collecting all this madness." }
-                        ]
+            "COMMON": [
+                { name: "Fishini Bossini", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d001622afaa69eabffc61.jpg' class='w-full h-full object-cover rounded-md'>", cost: 50, sell: 25, income: 1, currency: "silver", description: "The slippery boss of the underwater mafia." },
+                { name: "Lirili Larilla", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d00166c14153aad55a516.jpg' class='w-full h-full object-cover rounded-md'>", cost: 500, sell: 250, income: 3, currency: "silver", description: "A singing gorilla whose melody destroys braincells." },
+                { name: "Tim Cheese", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d0016de2c149d9a338a9b.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1000, sell: 500, income: 5, currency: "silver", description: "A rodent made entirely of processed dairy." },
+                { name: "Fluriflura", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d0016d5b483f7cfbb6eec.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1500, sell: 750, income: 7, currency: "silver", description: "A flower that blooms only in the brainrot fog." },
+                { name: "Penguino Cocosino", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d001622afaa5739bffc5c.jpg' class='w-full h-full object-cover rounded-md'>", cost: 2000, sell: 1000, income: 9, currency: "silver", description: "A penguin obsessed with tropical coconuts." },
+                { name: "Svinina Bombardino", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d0016a88e87ec8db27cc1.jpg' class='w-full h-full object-cover rounded-md'>", cost: 2800, sell: 1400, income: 12, currency: "silver", description: "An explosive pig ready to blow up the sty." },
+                { name: "Pipi Kiwi", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d0016de2c144005338a9a.jpg' class='w-full h-full object-cover rounded-md'>", cost: 3500, sell: 1750, income: 15, currency: "silver", description: "A fuzzy bird disguised as a fuzzy fruit." },
+                { name: "Pipi Avacocado", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d001694b57d381cae6d1a.jpg' class='w-full h-full object-cover rounded-md'>", cost: 4500, sell: 2250, income: 18, currency: "silver", description: "Millennial toast topping given sentient life." }
+            ],
+            "RARE": [
+                { name: "Trippi Troppi", icon: "🍄🌀", cost: 6000, sell: 3000, income: 25, currency: "silver", description: "A psychedelic mushroom that distorts reality." },
+                { name: "Tung Tung Tung Sahur", icon: "🥁🌙", cost: 8000, sell: 4000, income: 35, currency: "silver", description: "The loud drums that wake you up for Ramadan meals." },
+                { name: "Ganster Footera", icon: "🕶️👟", cost: 10000, sell: 5000, income: 45, currency: "silver", description: "A sneaker with street attitude and drip." },
+                { name: "Boneca Ambalabu", icon: "🪆🎀", cost: 12000, sell: 6000, income: 60, currency: "silver", description: "The cursed doll from the viral viral TikTok trend." },
+                { name: "Pipi Corni", icon: "🌽🐥", cost: 15000, sell: 7500, income: 75, currency: "silver", description: "It has the juice, it's a corn-bird hybrid." },
+                { name: "Ta Ta Ta Ta Sahur", icon: "🥁🌙", cost: 18000, sell: 9000, income: 90, currency: "silver", description: "A faster, more aggressive Sahur drumming rhythm." },
+                { name: "Burballoni Watermeloni", icon: "🍉💥", cost: 22000, sell: 11000, income: 110, currency: "silver", description: "A watermelon rigged to explode with flavor." },
+                { name: "Pipi Potato", icon: "🥔🐥", cost: 26000, sell: 13000, income: 130, currency: "silver", description: "A starchy bird that thrives underground." }
+            ],
+            "EPIC": [
+                { name: "Cappuccino Assassino", icon: "☕🗡️", cost: 35000, sell: 17500, income: 170, currency: "silver", description: "A caffeinated hitman aimed at your heart rate." },
+                { name: "Burr Burr Patapim", icon: "❄️🔨", cost: 40000, sell: 20000, income: 200, currency: "silver", description: "The shivering sound of ice breaking under pressure." },
+                { name: "Trulimero Trulicina", icon: "🎭✨", cost: 45000, sell: 22500, income: 230, currency: "silver", description: "A magical spellcaster of nonsense words." },
+                { name: "Bananita Dolphinita", icon: "🍌🐬", cost: 50000, sell: 25000, income: 260, currency: "silver", description: "A banana carved into the shape of a dolphin." },
+                { name: "Los Liritos", icon: "🎶👥", cost: 55000, sell: 27500, income: 300, currency: "silver", description: "A choir of small creatures singing off-key." },
+                { name: "Salamino Pinguino", icon: "🌭🐧", cost: 60000, sell: 30000, income: 340, currency: "silver", description: "A penguin made entirely of cured Italian meat." },
+                { name: "Tric Trac Baraboom", icon: "⏰💥", cost: 65000, sell: 32500, income: 380, currency: "silver", description: "A time-bomb ticking to a reggaeton beat." },
+                { name: "Los Tung Tungcitos", icon: "🥁👶", cost: 70000, sell: 35000, income: 420, currency: "silver", description: "Junior drummers practicing for the morning patrol." },
+                { name: "Tukanno Bananno", icon: "🦜🍌", cost: 75000, sell: 37500, income: 460, currency: "silver", description: "A toucan with a beak made of potassium." },
+                { name: "Blueberrinni Octopussini", icon: "🫐🐙", cost: 80000, sell: 40000, income: 500, currency: "silver", description: "An octopus that inks pure blueberry juice." },
+                { name: "Spijuniro Golubiro", icon: "🕵️🕊️", cost: 85000, sell: 42500, income: 550, currency: "silver", description: "The secret agent pigeon monitoring the streets." },
+                { name: "Blueberrini Tatticini", icon: "🫐👶", cost: 90000, sell: 45000, income: 600, currency: "silver", description: "Tactical blueberries deployed for small ops." },
+                { name: "Gingobalo Gingobali", icon: "🎪", cost: 95000, sell: 47500, income: 650, currency: "silver", description: "The nonsensical chant of the circus ringmaster." }
+            ],
+            "LEGENDARY": [
+                { name: "Burbalona Loliloli", icon: "balloon🍭", cost: 105000, sell: 52500, income: 750, currency: "silver", description: "A giant balloon fed on sugar and helium." },
+                { name: "Chimpanzini Bananini", icon: "🐵🍌", cost: 120000, sell: 60000, income: 850, currency: "silver", description: "The primal ape who hoards all the bananas." },
+                { name: "Ballerina Cappuccina", icon: "🩰☕", cost: 100000, sell: 50000, income: 500, currency: "silver", description: "A dancer fueled by a triple-shot latte." },
+                { name: "Chef Crabracadabra", icon: "🧙‍♂️", cost: 200000, sell: 100000, income: 1000, currency: "silver", description: "A crab wizard who cooks with magic spells." },
+                { name: "Glorbo Fruttodillo", icon: "🍎", cost: 300000, sell: 150000, income: 1500, currency: "silver", description: "An armadillo rolled up into a giant fruit." },
+                { name: "Cacto Hipopotamo", icon: "🌵🦛", cost: 400000, sell: 200000, income: 2000, currency: "silver", description: "A hippo with a prickly defense mechanism." },
+                { name: "Ballerino Lololo", icon: "🩰🎭", cost: 500000, sell: 250000, income: 2500, currency: "silver", description: "The male lead dancer in the brainrot ballet." },
+                { name: "Lerulerulerule", icon: "📜🔁", cost: 600000, sell: 300000, income: 3000, currency: "silver", description: "The infinite tongue-twister that never ends." },
+                { name: "Bambini Crostini", icon: "🥐", cost: 700000, sell: 350000, income: 3500, currency: "silver", description: "A small child wrapped in flaky pastry dough." },
+                { name: "Fancescoo", icon: "🎩", cost: 800000, sell: 400000, income: 4000, currency: "silver", description: "A sophisticated gentleman shouting his own name." },
+                { name: "Zibra Zubra Zibralini", icon: "🦓🌀", cost: 900000, sell: 450000, income: 4500, currency: "silver", description: "A zebra with stripes that induce hypnosis." },
+                { name: "Bambu di Miale", icon: "🎍🐷", cost: 1000000, sell: 500000, income: 5000, currency: "silver", description: "A pig that hides perfectly inside bamboo." },
+                { name: "Mangolini Parrocini", icon: "🥭", cost: 1200000, sell: 600000, income: 5500, currency: "silver", description: "A parrot camouflaged as a ripe mango." },
+                { name: "Leonelli Cactuselli", icon: "🦁🌵", cost: 1500000, sell: 750000, income: 6000, currency: "silver", description: "The King of Beasts fused with a cactus." }
+            ],
+            "MYTHIC": [
+                { name: "Frigo Camelo", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d001622afaa69eabffc61.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1600000, sell: 800000, income: 6200, currency: "silver", description: "A camel with a refrigerator hump." },
+                { name: "Orangutini Ananassini", icon: "🦧 Pineapple", cost: 1700000, sell: 850000, income: 6400, currency: "silver", description: "An orangutan made of pineapple chunks." },
+                { name: "Bombardiro Crocodilo", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579de805b5113e1994a99a.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1800000, sell: 900000, income: 6600, currency: "silver", description: "A crocodile strapped with heavy artillery." },
+                { name: "Bombardini Gusini", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579dfc035c3a0de947a70d.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1900000, sell: 950000, income: 6800, currency: "silver", description: "A goose that lays explosive eggs." },
+                { name: "Gorillo Watermellondrillo", icon: "🦍🍉", cost: 1950000, sell: 975000, income: 6900, currency: "silver", description: "A gorilla smashing a watermelon drill." },
+                { name: "Sigma Boy", icon: "😎📈", cost: 2000000, sell: 1000000, income: 7000, goldIncome: 1, currency: "silver", description: "The mewing champion of the grindset." },
+                { name: "Matteo", icon: "👦✨", cost: 2200000, sell: 1100000, income: 7500, currency: "silver", description: "Just a regular guy named Matteo, but mythic." },
+                { name: "Los Spijuniritos", icon: "🕵️👥", cost: 2400000, sell: 1200000, income: 8000, currency: "silver", description: "A network of tiny spy pigeons." },
+                { name: "Rhino Toasterina", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579e17035c3a584547ae7d.jpg' class='w-full h-full object-cover rounded-md'>", cost: 2600000, sell: 1300000, income: 8500, currency: "silver", description: "A rhinoceros that doubles as a kitchen appliance." },
+                { name: "Ganganzelli Trulala", icon: "🎭🎶", cost: 2800000, sell: 1400000, income: 9000, currency: "silver", description: "The masked singer of the brainrot opera." },
+                { name: "Strawberrelli Famingelli", icon: "🍓🔥", cost: 3000000, sell: 1500000, income: 9500, currency: "silver", description: "A strawberry engulfed in mythic flames." },
+                { name: "Elefantino Frigorifero", icon: "🐘🧊", cost: 3200000, sell: 1600000, income: 10000, currency: "silver", description: "An elephant that keeps your drinks cold." },
+                { name: "To To To Sahur", icon: "🥁🌙", cost: 3500000, sell: 1750000, income: 11000, currency: "silver", description: "The triple-beat drum for waking the village." },
+                { name: "Antoniooo", icon: "👨‍🦱📣", cost: 3800000, sell: 1900000, income: 12000, currency: "silver", description: "A man shouting his name into the void." },
+                { name: "Te Te Te Sahur", icon: "🥁🌙", cost: 4100000, sell: 2050000, income: 13000, currency: "silver", description: "The high-pitched variant of the Sahur drum." },
+                { name: "Perochello Lemonchello", icon: "🍐🍋", cost: 4400000, sell: 2200000, income: 14000, currency: "silver", description: "A zesty hybrid of pear and lemon liqueur." },
+                { name: "Tang Tang Kelentang", icon: "🥁🔔", cost: 4700000, sell: 2350000, income: 15000, currency: "silver", description: "The clanging pots and pans of the morning." },
+                { name: "Patapimus Maximus", icon: "🏛️⚔️", cost: 5000000, sell: 2500000, income: 16000, currency: "silver", description: "The Roman General of rhythmic tapping." },
+                { name: "Tirilikalika Tirilikalako", icon: "🎶🔁", cost: 5500000, sell: 2750000, income: 18000, currency: "silver", description: "A catchy nonsense rhyme on loop." },
+                { name: "Los Matteos", icon: "👦👦", cost: 6000000, sell: 3000000, income: 20000, currency: "silver", description: "Clones of Matteo taking over the world." }
+            ],
+            "BRAINROT_GOD": [
+                { name: "Cocofanto Elefanto", icon: "🥥🐘", cost: 10000000, sell: 5000000, income: 25000, goldIncome: 1, currency: "silver", description: "An elephant made of coconut husk." },
+                { name: "Tob Tobi Tob", icon: "🔁🎭", cost: 15000000, sell: 7500000, income: 30000, goldIncome: 5, currency: "silver", description: "The God of stuttering repetition." },
+                { name: "Tralalero tralala", icon: "🎶🌀", cost: 20000000, sell: 10000000, income: 35000, goldIncome: 25, currency: "silver", description: "A melody so old it predates time." },
+                { name: "Odin Din Din Dun", icon: "👁️", cost: 25000000, sell: 12500000, income: 40000, goldIncome: 50, currency: "silver", description: "The All-Father singing the dubi-dubi song." },
+                { name: "Chachechi", icon: "🗣️✨", cost: 30000000, sell: 15000000, income: 45000, goldIncome: 150, currency: "silver", description: "The divine syllable speaker." },
+                { name: "Espressona Signora", icon: "☕👩", cost: 35000000, sell: 17500000, income: 50000, goldIncome: 300, currency: "silver", description: "The Lady of Espresso, jittering with power." },
+                { name: "La Vaca Saturno Saturnita", icon: "🐄🪐", cost: 40000000, sell: 20000000, income: 60000, goldIncome: 800, currency: "silver", description: "A cosmic cow grazing on Saturn's rings." },
+                { name: "Centralucci Nuclearucci", icon: "☢️🎯", cost: 50000000, sell: 25000000, income: 75000, goldIncome: 1500, currency: "silver", description: "A living nuclear power plant." },
+                { name: "Ecco Cavallo Virtuoso", icon: "🐎violin", cost: 60000000, sell: 30000000, income: 90000, goldIncome: 2500, currency: "silver", description: "A horse that plays the violin perfectly." },
+                { name: "Los Vaquitas Saturnitas", icon: "🐮🪐", cost: 75000000, sell: 37500000, income: 100000, goldIncome: 4000, currency: "silver", description: "The herd of space calves." },
+                { name: "Bulbito Bandito Traktorito", icon: "💡🚜", cost: 90000000, sell: 45000000, income: 120000, goldIncome: 8000, currency: "silver", description: "A tractor stealing lightbulbs." },
+                { name: "Bananananito Bandito", icon: "🍌🦹", cost: 120000000, sell: 60000000, income: 180000, goldIncome: 25000, currency: "silver", description: "The outlaw who stole the yellow fruit." },
+                { name: "Chillin Chilli", icon: "❄️🌶️", cost: 150000000, sell: 750000000, income: 200000, goldIncome: 40000, currency: "silver", description: "A spicy pepper wearing sunglasses." },
+                { name: "Trippi Troppi Troppa Trippa", icon: "🍄🌀", cost: 180000000, sell: 90000000, income: 250000, goldIncome: 60000, currency: "silver", description: "The ultimate hallucination." },
+                { name: "Brri Bicus Dicus", icon: "🪆🎀", cost: 200000000, sell: 100000000, income: 300000, goldIncome: 75000, currency: "silver", description: "A Russian doll containing the universe." },
+                { name: "Cioccolatini Pancioncioni", icon: "🍫🍰", cost: 250000000, sell: 125000000, income: 350000, goldIncome: 90000, currency: "silver", description: "God-tier chocolate for a God-tier belly." },
+                { name: "Burr Es Teh Patipum", icon: "❄️💢", cost: 300000000, sell: 150000000, income: 400000, goldIncome: 110000, currency: "silver", description: "Iced tea served with aggressive force." },
+                { name: "Torrtuginni Dragonfruitinni", icon: "🐢🐉", cost: 350000000, sell: 175000000, income: 450000, goldIncome: 140000, currency: "silver", description: "A turtle shelled in dragonfruit skin." },
+                { name: "Los Bros", icon: "👬🔥", cost: 400000000, sell: 200000000, income: 500000, goldIncome: 180000, currency: "silver", description: "The ultimate brotherhood of the rot." },
+                { name: "Bambini Tankini", icon: "👶🛢️", cost: 450000000, sell: 225000000, income: 550000, goldIncome: 220000, currency: "silver", description: "A baby driving an armored tank." },
+                { name: "Jiqi Jiqi Shizhon", icon: "🧧🔮", cost: 500000000, sell: 250000000, income: 600000, goldIncome: 250000, currency: "silver", description: "The ancient fortune of the East." },
+                { name: "Los Crocodillitos", icon: "🐊👶", cost: 600000000, sell: 300000000, income: 650000, goldIncome: 280000, currency: "silver", description: "A swarm of baby crocodiles." },
+                { name: "Alessiooooooo", icon: "👨‍🦱📣", cost: 700000000, sell: 350000000, income: 700000, goldIncome: 310000, currency: "silver", description: "Alessio screaming louder than Antonio." },
+                { name: "Karkerkar Kurkur", icon: "BNK", cost: 800000000, sell: 400000000, income: 750000, goldIncome: 330000, currency: "silver", description: "The sound of a bank vault closing." },
+                { name: "Piccionetta Machina", icon: "🕊️⚙️", cost: 900000000, sell: 450000000, income: 800000, goldIncome: 350000, currency: "silver", description: "A cyborg pigeon from the future." },
+                { name: "Pipoqueira Motoqueira", icon: "🍿🏍️", cost: 1000000000, sell: 500000000, income: 850000, goldIncome: 365000, currency: "silver", description: "Popcorn delivered by motorcycle." },
+                { name: "Il Piccione Musculone", icon: "💪", cost: 1100000000, sell: 550000000, income: 90000, goldIncome: 380000, currency: "silver", description: "A pigeon that hits the gym daily." },
+                { name: "Job Job Job Sahur", icon: "🥁🧑‍💼", cost: 1200000000, sell: 600000000, income: 950000, goldIncome: 390000, currency: "silver", description: "The corporate worker waking up for Ramadan." },
+                { name: "Las Sis", icon: "👯‍♀️✨", cost: 1300000000, sell: 650000000, income: 1000000, goldIncome: 400000, currency: "silver", description: "The sisters who run the show." },
+                { name: "Il Mastodontico Telepiedone Planetario", icon: "🦣🪐", cost: 1400000000, sell: 700000000, income: 1100000, goldIncome: 402000, currency: "silver", description: "A mammoth footprint the size of a planet." },
+                { name: "Malame Amarale", icon: "🌊❤️", cost: 1500000000, sell: 750000000, income: 1200000, goldIncome: 404000, currency: "silver", description: "A tidal wave of emotion." },
+                { name: "Belugelo Beluga", icon: " Whale🐋❄️", cost: 2000000000, sell: 1000000000, income: 1500000, goldIncome: 405000, currency: "silver", description: "The polite cat-whale of the internet." }
+            ],
+            "SECRET": [
+                { name: "Los Tralaleritos", icon: "🎶👶", cost: 2500000000, sell: 1250000000, income: 2000000, goldIncome: 450000, currency: "silver", description: "Tiny children humming the ancient song." },
+                { name: "Las Tralaleritas", icon: "🎶👧", cost: 3000000000, sell: 1500000000, income: 2500000, goldIncome: 500000, currency: "silver", description: "Tiny girls humming the ancient melody." },
+                { name: "Truenostruzzo Turbo 3000", icon: "⚡🦤", cost: 3500000000, sell: 1750000000, income: 3000000, goldIncome: 550000, currency: "silver", description: "A turbocharged ostrich breaker of sound barriers." },
+                { name: "Kravilino Cekicino", icon: "crabs🔨", cost: 4000000000, sell: 2000000000, income: 3500000, goldIncome: 600000, currency: "silver", description: "A crab wielding a construction hammer." },
+                { name: "Los Orcaleritos", icon: "🐋👶", cost: 4500000000, sell: 2250000000, income: 4000000, goldIncome: 650000, currency: "silver", description: "Baby killer whales in tuxedos." },
+                { name: "Las Sis", icon: "👯‍♀️✨", cost: 5000000000, sell: 2500000000, income: 4500000, goldIncome: 700000, currency: "silver", description: "The sisters return, shinier than before." },
+                { name: "Piccione Macchina", icon: "🕊️🚗", cost: 5500000000, sell: 2750000000, income: 5000000, goldIncome: 750000, currency: "silver", description: "A pigeon driving a sports car." },
+                { name: "Peeling Peely", icon: "😄", cost: 6000000000, sell: 3000000000, income: 5500000, goldIncome: 780000, currency: "silver", description: "The Fortnite banana revealing his true form." },
+                { name: "Pakrahmatmamatcita", icon: "🧕✨", cost: 6500000000, sell: 3250000000, income: 6000000, goldIncome: 790000, currency: "silver", description: "The matriarch of the neighborhood." },
+                { name: "Pakrahmatmamat", icon: "🧕📣", cost: 7000000000, sell: 3500000000, income: 650000, goldIncome: 795000, currency: "silver", description: "The patriarch announcing the news." },
+                { name: "Treno Struzzo Turbo 4000", icon: "🚆🦤", cost: 8000000000, sell: 4000000000, income: 7000000, goldIncome: 798000, currency: "silver", description: "The ostrich has become a high-speed train." },
+                { name: "Anpali Babel", icon: "🗼🌀", cost: 9000000000, sell: 4500000000, income: 800000, goldIncome: 800000, currency: "silver", description: "The tower where all brainrot languages mix." },
+                { name: "Los Karkeritos", icon: "🦴👶", cost: 10000000000, sell: 5000000000, income: 10000000, goldIncome: 1500000, currency: "silver", description: "Kids who love the sound of crunching bones." },
+                { name: "Orcalero Orcala", icon: "🐋🎭", cost: 12000000000, sell: 6000000000, income: 15000000, goldIncome: 5000000, currency: "silver", description: "The operatic singer of the deep sea." },
+                { name: "Frogino Assassino", icon: "🐸🗡️", cost: 15000000000, sell: 7500000000, income: 20000000, goldIncome: 10000000, currency: "silver", description: "A ninja frog with a deadly tongue." },
+                { name: "Ketchuru and Musturu", icon: "🍅🟡", cost: 20000000000, sell: 10000000000, income: 25000000, goldIncome: 20000000, currency: "silver", description: "The twin deities of Ketchup and Mustard." },
+                { name: "Pot Hotspot", icon: "🔥📶", cost: 25000000000, sell: 12500000000, income: 30000000, goldIncome: 25000000, currency: "silver", description: "A literal cooking pot emitting Wi-Fi." },
+                { name: "Pot Hotspotina", icon: "🔥📡", cost: 30000000000, sell: 15000000000, income: 35000000, goldIncome: 30000000, currency: "silver", description: "The female counterpart of the Wi-Fi pot." },
+                { name: "21", icon: "🔢✨", cost: 35000000000, sell: 17500000000, income: 40000000, goldIncome: 35000000, currency: "silver", description: "What's nine plus ten? You know the answer." },
+                { name: "Los Mobilis", icon: "📱👥", cost: 40000000000, sell: 20000000000, income: 45000000, goldIncome: 37000000, currency: "silver", description: "The legion of smartphone zombies." },
+                { name: "Nooo My Hotspot", icon: "😱📶", cost: 45000000000, sell: 22500000000, income: 50000000, goldIncome: 39000000, currency: "silver", description: "The tragic cry of losing internet connection." },
+                { name: "Garamarama Dung Dung", icon: "drums💩", cost: 50000000000, sell: 25000000000, income: 55000000, goldIncome: 39500000, currency: "silver", description: "A drum beat so dirty it smells." },
+                { name: "Pirulitoita Bicicleteira", icon: "lollipop🚲", cost: 55000000000, sell: 27500000000, income: 60000000, goldIncome: 39800000, currency: "silver", description: "Riding a bicycle while eating a lollipop." },
+                { name: "Il Sacro Cabrospaghetti", icon: "GOAT Spaghetti🍝", cost: 60000000000, sell: 30000000000, income: 65000000, goldIncome: 39900000, currency: "silver", description: "The holy goat tangled in pasta." },
+                { name: "Chicleteirina Bicicleteirina", icon: "candy🚲", cost: 65000000000, sell: 32500000000, income: 70000000, goldIncome: 39950000, currency: "silver", description: "Riding a bike while chewing bubblegum." },
+                { name: "La Grande Combinacion", icon: "🧩👑", cost: 100000000000, sell: 50000000000, income: 100000000, goldIncome: 40000000, currency: "silver", description: "The ultimate combo of all things brainrot." },
+                { name: "Los Chicleteiras", icon: "candy👥", cost: 200000000000, sell: 100000000000, income: 150000000, goldIncome: 1000000, currency: "silver", description: "The gum-chewing gang." },
+                { name: "Le Golem De Frgider", icon: "🗿🧊", cost: 400000000000, sell: 200000000000, income: 200000000, goldIncome: 3000000, currency: "silver", description: "A monster constructed from kitchen fridges." },
+                { name: "67", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/6957b492d350af3198a60faa.jpg' class='w-full h-full object-cover rounded-md'>", cost: 600000000000, sell: 300000000000, income: 300000000, goldIncome: 6700000, currency: "silver", description: "The sacred number of the Skibidi verse." },
+                { name: "Los Esok Sekolitos", icon: "🏫👶", cost: 800000000000, sell: 400000000000, income: 400000000, goldIncome: 8000000, currency: "silver", description: "Kids dreading school tomorrow." },
+                { name: "Coccoblade", icon: "🥥⚔️", cost: 1000000000000, sell: 500000000000, income: 500000000, goldIncome: 10000000, currency: "silver", description: "A sword forged from the hardest coconut." },
+                { name: "Ketupat Kepat Prekupat", icon: "🍚✨", cost: 2000000000000, sell: 1000000000000, income: 700000000, goldIncome: 14000000, currency: "silver", description: "A woven rice cake vibrating with energy." },
+                { name: "Dul Dul Dul", icon: "lollipop🔁", cost: 2500000000000, sell: 1250000000000, income: 800000000, goldIncome: 16000000, currency: "silver", description: "The infinite lick of the candy." },
+                { name: "W and L", icon: "🏆💀", cost: 3000000000000, sell: 1500000000000, income: 900000000, goldIncome: 17000000, currency: "silver", description: "The balance of Wins and Losses." },
+                { name: "Los Garamdungcitos", icon: "drums👶", cost: 3500000000000, sell: 1750000000000, income: 1000000000, goldIncome: 18000000, currency: "silver", description: "Little drummers beating the salt drums." },
+                { name: "Lirili Railu", icon: "🎶🚆", cost: 4000000000000, sell: 2000000000000, income: 1100000000, goldIncome: 19000000, currency: "silver", description: "The musical train to nowhere." },
+                { name: "La Esok Sekolah", icon: "🏫📚", cost: 4500000000000, sell: 2250000000000, income: 1200000000, goldIncome: 20000000, currency: "silver", description: "The impending doom of going to school." },
+                { name: "Pitiata Baem", icon: "🎉💥", cost: 5000000000000, sell: 2500000000000, income: 1300000000, goldIncome: 22000000, currency: "silver", description: "A piñata that hits you back." },
+                { name: "Chimpanzini Kingini", icon: "🐵👑", cost: 6000000000000, sell: 3000000000000, income: 1500000000, goldIncome: 25000000, currency: "silver", description: "The King Kong of the memes." },
+                { name: "Strawberry Elephant", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579e217483030cb59e69bc.jpg' class='w-full h-full object-cover rounded-md'>", cost: 7000000000000, sell: 3500000000000, income: 1800000000, goldIncome: 28000000, currency: "silver", description: "The red pachyderm famous for AI song covers." },
+                { name: "Klombo", icon: "dinosaurs", cost: 8000000000000, sell: 4000000000000, income: 2000000000, goldIncome: 30000000, currency: "silver", description: "The friendly, berry-eating Fortnite dinosaur." },
+                { name: "Shtekerito el Bulbonito", icon: "🔌💡", cost: 9000000000000, sell: 4500000000000, income: 2200000000, goldIncome: 35000000, currency: "silver", description: "The electric plug that powers the memes." },
+                { name: "Spaghetti Tualetti", icon: "🍝🚽", cost: 10000000000000, sell: 5000000000000, income: 2500000000, goldIncome: 40000000, currency: "silver", description: "Pasta served in the Skibidi bowl." },
+                { name: "Cabritos Brotheritos", icon: "GOAT Spaghetti🍝", cost: 12000000000000, sell: 6000000000000, income: 3000000000, goldIncome: 50000000, currency: "silver", description: "The brother goats." },
+                { name: "La Crazy Combinacion", icon: "🤪🧩", cost: 16000000000000, sell: 8000000000000, income: 4000000000, goldIncome: 70000000, currency: "silver", description: "A combination so wild it breaks the game." },
+                { name: "Gigalitraktos Spidorobos", icon: "🚜🤖", cost: 18000000000000, sell: 9000000000000, income: 4500000000, goldIncome: 80000000, currency: "silver", description: "A tractor spider robot destroyer." },
+                { name: "Garbagezilla", icon: "🗑️Rex", cost: 20000000000000, sell: 10000000000000, income: 5000000000, goldIncome: 100000000, currency: "silver", description: "Kaiju monster formed from pure trash." },
+                { name: "Cannone Maldettone", icon: "🔫😈", cost: 25000000000000, sell: 12500000000000, income: 6000000000, goldIncome: 150000000, currency: "silver", description: "The cursed cannon that fires regret." }
+            ],
+            "GOAT": [
+                { name: "Skibidi Toilet", icon: "🚽🎶", cost: 1000000000000, sell: 500000000000, income: 10000000000, goldIncome: 200000000, currency: "gold", description: "The head in the toilet that started the war." },
+                { name: "Meowl Meowl", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579df5e7c6137a015f9dd3.jpg' class='w-full h-full object-cover rounded-md'>", cost: 3000000000000, sell: 1500000000000, income: 20000000000, goldIncome: 500000000, currency: "gold", description: "The Billie Eilish cat meme crying for help." },
+                { name: "Cococita Bailacita", icon: "coconut💃", cost: 5000000000000, sell: 2500000000000, income: 40000000000, goldIncome: 1000000000, currency: "gold", description: "The dancing coconut lady." },
+                { name: "Rascalito Razzalito", icon: "raccoon💥", cost: 6000000000000, sell: 3000000000, income: 60000000000, goldIncome: 1200000000, currency: "gold", description: "Pedro the Raccoon spinning in a circle." },
+                { name: "Ese Vato Gato", icon: "😎🐈", cost: 8000000000, sell: 4000000000000, income: 8000000000, goldIncome: 2000000000, currency: "gold", description: "That cool cat dude wearing shades." },
+                { name: "Brainrot Collector", icon: "👑🧠", cost: 10000000000000, sell: 5000000000000, income: 100000000000, goldIncome: 5000000000, currency: "gold", description: "You. The one collecting all this madness." }
+            ]
         };
 
         var audioLib = {
@@ -1683,7 +1723,6 @@
             const menu = document.getElementById('inventory-menu');
             if (menu.classList.contains('hidden')) {
                 menu.classList.remove('hidden');
-                // Allow a small delay for the transition to work
                 setTimeout(() => {
                     menu.classList.remove('opacity-0');
                 }, 10);
@@ -2040,34 +2079,39 @@
                     maxxerContainer.appendChild(badge);
                 });
             }
+
+            // Upgrades Display in Stash
+            const upgradesContainer = document.getElementById('innate-upgrades-container');
+            if(upgradesContainer) {
+                upgradesContainer.innerHTML = '';
+                if(inventory.upgrades.expander1) {
+                    upgradesContainer.innerHTML += `<div class="w-16 h-16 flex items-center justify-center bg-cyan-900/30 border-2 border-cyan-400 rounded-xl animate-pulse text-3xl shadow-[0_0_15px_cyan]" title="Base Expander I (+5 Slots)">🏗️</div>`;
+                }
+                if(inventory.upgrades.expander2) {
+                    upgradesContainer.innerHTML += `<div class="w-16 h-16 flex items-center justify-center bg-cyan-900/30 border-2 border-cyan-400 rounded-xl animate-pulse text-3xl shadow-[0_0_15px_cyan]" title="Base Expander II (+5 Slots)">🏙️</div>`;
+                }
+            }
+
             const luckValEl = document.getElementById('bonus-luck-val');
             if (luckValEl) luckValEl.innerText = (1 + bonusBaseLuck + (isAutoFestivalActive || isAutoRainbowActive ? 1 : 0));
 
+            // Shop Buttons State
+            if(inventory.upgrades.expander1) {
+                const btn1 = document.getElementById('btn-expander-1');
+                if(btn1) { btn1.innerText = "OWNED"; btn1.disabled = true; btn1.classList.add('bg-green-600', 'text-white'); btn1.classList.remove('bg-gray-200', 'text-black'); }
+            }
+            if(inventory.upgrades.expander2) {
+                const btn2 = document.getElementById('btn-expander-2');
+                if(btn2) { btn2.innerText = "OWNED"; btn2.disabled = true; btn2.classList.add('bg-green-600', 'text-white'); btn2.classList.remove('bg-gray-200', 'text-black'); }
+            }
+
             renderBaseUI();
             
-            // Update ticket count displays on game board
             const gl = document.getElementById('game-lucky-count'); if(gl) gl.innerText = inventory.lucky;
             const gg = document.getElementById('game-grand-count'); if(gg) gg.innerText = inventory.grand;
             const gc = document.getElementById('game-crazy-count'); if(gc) gc.innerText = inventory.crazy;
 
-            // Light up ticket buttons if available
-            const btnLucky = document.getElementById('btn-lucky-rot');
-            if (btnLucky) {
-                if (inventory.lucky > 0) btnLucky.classList.add('animate-pulse', 'bg-yellow-500/20', 'border-yellow-500', 'shadow-[0_0_15px_rgba(234,179,8,0.5)]');
-                else btnLucky.classList.remove('animate-pulse', 'bg-yellow-500/20', 'border-yellow-500', 'shadow-[0_0_15px_rgba(234,179,8,0.5)]');
-            }
-            const btnGrand = document.getElementById('btn-grand-rot');
-            if (btnGrand) {
-                if (inventory.grand > 0) btnGrand.classList.add('animate-pulse', 'bg-cyan-500/20', 'border-cyan-500', 'shadow-[0_0_15px_rgba(6,182,212,0.5)]');
-                else btnGrand.classList.remove('animate-pulse', 'bg-cyan-500/20', 'border-cyan-500', 'shadow-[0_0_15px_rgba(6,182,212,0.5)]');
-            }
-            const btnCrazy = document.getElementById('btn-crazy-rot');
-            if (btnCrazy) {
-                if (inventory.crazy > 0) btnCrazy.classList.add('animate-pulse', 'bg-purple-500/20', 'border-purple-500', 'shadow-[0_0_15px_rgba(168,85,247,0.5)]');
-                else btnCrazy.classList.remove('animate-pulse', 'bg-purple-500/20', 'border-purple-500', 'shadow-[0_0_15px_rgba(168,85,247,0.5)]');
-            }
-
-            // Store slots
+            // REMOVED INVENTORY DISPLAY FOR LUCKY TICKETS AS PER REQUEST
             renderInventory('inv-lucky', inventory.lucky, '🎟️', 'lucky');
             renderInventory('inv-grand', inventory.grand, '🎟', 'grand');
             renderInventory('inv-crazy', inventory.crazy, '🎁', 'crazy');
@@ -2083,10 +2127,27 @@
             const sa = document.getElementById('menu-count-admin'); if(sa) sa.innerText = `x${inventory.special.admin}`;
         }
 
+        function purchaseUpgrade(id, cost) {
+            if(inventory.upgrades[id]) return;
+            if(currencies.silver >= cost) {
+                currencies.silver -= cost;
+                inventory.upgrades[id] = true;
+                
+                const newSize = getMaxBaseSlots();
+                while(baseInventory.length < newSize) baseInventory.push(null);
+
+                playSound('buy');
+                playSound('heaven');
+                updateStatsUI();
+                saveGame();
+            }
+        }
+
         function renderBaseUI() {
             const grid = document.getElementById('base-grid'); if(!grid) return;
             grid.innerHTML = '';
-            for(let i=0; i<15; i++) {
+            const maxSlots = getMaxBaseSlots();
+            for(let i=0; i<maxSlots; i++) {
                 const slot = document.createElement('div');
                 const item = baseInventory[i];
                 slot.className = `base-slot ${item ? 'filled' : ''}`;
@@ -2122,8 +2183,8 @@
             }
             const confirmBtn = document.getElementById('prompt-confirm-btn');
             if (confirmBtn) {
-                const currencyIcon = pendingBaseItem.currency === 'gold' ? GOLD_ICON_HTML : SILVER_ICON_HTML;
-                const btnColor = pendingBaseItem.currency === 'gold' ? 'bg-yellow-600 hover:bg-yellow-500' : 'bg-green-500 hover:bg-green-600';
+                const currencyIcon = pendingBaseItem.currency === 'gold' ? GOLD_ICON_HTML : (pendingBaseItem.currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML);
+                const btnColor = pendingBaseItem.currency === 'gold' ? 'bg-yellow-600 hover:bg-yellow-500' : (pendingBaseItem.currency === 'moonstones' ? 'bg-purple-600 hover:bg-purple-500' : 'bg-green-500 hover:bg-green-600');
                 confirmBtn.innerHTML = `BUY (-${formatNumber(pendingBaseItem.cost)} ${currencyIcon})`;
                 confirmBtn.className = `py-3 ${btnColor} text-white font-black uppercase rounded transition-colors flex items-center justify-center gap-1`;
             }
@@ -2142,7 +2203,6 @@
             const cost = pendingBaseItem.cost;
             const currencyType = pendingBaseItem.currency || 'silver';
             if (currencies[currencyType] < cost) {
-                console.log(`NOT ENOUGH ${currencyType.toUpperCase()}! Sell items to make space.`);
                 closeBasePrompt();
                 return;
             }
@@ -2157,8 +2217,8 @@
             else if (pendingBaseItem.type === 'guaranteed') { if (pendingBaseItem.specialType) inventory.special[pendingBaseItem.specialType]++; playSound('heaven'); }
             else {
                 const emptyIdx = baseInventory.indexOf(null);
-                if(emptyIdx === -1) { 
-                    console.log("BASE IS FULL! Sell items to make space."); 
+                const maxSlots = getMaxBaseSlots();
+                if(emptyIdx === -1 || emptyIdx >= maxSlots) { 
                     currencies[currencyType] += cost; 
                     closeBasePrompt(); 
                     return; 
@@ -2224,31 +2284,22 @@
 
         window.pullRot = function(isAutoRoll = false, drawCount = 1, luckMultiplier = 1, isInstant = false) {
             const content = document.getElementById('rot-content'); const history = document.getElementById('rot-history'); const btn = document.getElementById('pull-btn');
-            
-            if(isAutoFestivalActive || isAutoRainbowActive) {
-                if(!isAutoRoll && !isInstant) return;
-            }
-
+            if(isAutoFestivalActive || isAutoRainbowActive) { if(!isAutoRoll && !isInstant) return; }
             if(btn && btn.disabled && !isAutoRoll && !isInstant) return;
             if(!isInstant && btn) btn.disabled = true;
             if(!isInstant && content) content.innerHTML = `<div class="text-7xl animate-spin">🌀</div>`;
             if(!isInstant) playSound('draw');
-            
             currencies.silver += 1; 
             if(!isInstant) showFloatingText(`+1 ${SILVER_ICON_HTML}`, window.innerWidth / 2, window.innerHeight / 2, "#9CA3AF");
             updateStatsUI();
-            
             const delay = isInstant ? 0 : 1000;
             setTimeout(() => {
                 let results = [];
                 for(let d=0; d<drawCount; d++) {
                     const roll = Math.random() * 100;
                     let selectedTier = tierConfig[tierConfig.length - 1];
-                    
-                    if (forcedTierId) { 
-                        selectedTier = tierConfig.find(t => t.id === forcedTierId); 
-                        forcedTierId = null; 
-                    } else {
+                    if (forcedTierId) { selectedTier = tierConfig.find(t => t.id === forcedTierId); forcedTierId = null; } 
+                    else {
                         const sRoll = Math.random() * 100;
                         if (sRoll < 0.001) selectedTier = { id: 'TIER_MOONSTONE', name: 'MOONSTONE', stars: 10, borderColor: '#7C3AED', textColor: '#D8B4FE' };
                         else if (sRoll < 0.01) selectedTier = { id: 'CURRENCY_TIER', name: 'DIAMOND', stars: 9, borderColor: '#60A5FA', textColor: '#93C5FD' };
@@ -2274,63 +2325,51 @@
                             }
                         }
                     }
-                    
                     let items = itemDatabase[selectedTier.id] || itemDatabase['COMMON'];
                     const item = items[Math.floor(Math.random() * items.length)];
                     const uniqueId = 'item-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
                     results.push({ item: item, tier: selectedTier, uniqueId: uniqueId });
                 }
-
                 if(content) {
                     content.innerHTML = '';
                     results.forEach(r => {
                         const screenDiv = document.createElement('div');
                         screenDiv.className = "inline-flex flex-col items-center mx-2 cursor-pointer hover:scale-105 active:scale-95 transition-transform relative z-10 p-2 rounded-2xl bg-white/5 border border-white/10";
                         screenDiv.setAttribute('data-unique-id', r.uniqueId); 
-                        const cost = r.item.cost || 1; 
-                        const currency = r.item.currency || 'silver';
+                        const cost = r.item.cost || 1, currency = r.item.currency || 'silver';
                         const isSpecialType = ['lucky', 'timeBonus', 'guaranteed', 'currency'].includes(r.item.type);
                         const isFree = (cost <= 1 && currency === 'silver') || isSpecialType;
                         const currencyIcon = currency === 'gold' ? GOLD_ICON_HTML : (currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML); 
                         const priceColor = currency === 'gold' ? 'text-yellow-400' : (currency === 'moonstones' ? 'text-purple-400' : 'text-gray-300');
-                        let priceDisplay = `${formatNumber(cost)} ${currencyIcon}`; 
-                        if (isFree) priceDisplay = "<span class='text-green-400'>FREE</span>";
-                        
+                        let priceDisplay = `${formatNumber(cost)} ${currencyIcon}`; if (isFree) priceDisplay = "<span class='text-green-400'>FREE</span>";
                         screenDiv.innerHTML = `
                             <div class="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center animate-pop mb-2 relative">
                                 <div class="absolute inset-0 rounded-xl border-2 opacity-50" style="border-color:${r.tier.borderColor}"></div>
-                                <div class="w-full h-full p-1 flex items-center justify-center text-5xl md:text-7xl overflow-hidden">
-                                    ${r.item.icon}
-                                </div>
+                                <div class="w-full h-full p-1 flex items-center justify-center text-5xl md:text-7xl overflow-hidden">${r.item.icon}</div>
                             </div>
                             <div class="text-xs md:text-sm font-black uppercase tracking-tight leading-tight max-w-[100px] md:max-w-[120px] truncate" style="color:${r.tier.textColor}">${r.item.name}</div>
                             <div class="mt-1 px-2 py-0.5 rounded bg-black/60 border border-white/10">
                                 <div class="text-[10px] md:text-xs font-black ${priceColor} flex items-center justify-center gap-0.5">${priceDisplay}</div>
                             </div>
                         `;
-                        
                         if (isFree) { screenDiv.onclick = (e) => { e.stopPropagation(); collectFreeItem(r.item, r.tier, r.uniqueId); }; }
                         else { screenDiv.onclick = (e) => { e.stopPropagation(); promptAddToBase(r.item, r.tier, r.uniqueId); }; }
                         content.appendChild(screenDiv);
                     });
                 }
-
                 const maxTierStars = Math.max(...results.map(r => r.tier.stars || 1));
                 if (maxTierStars >= 6 && !isInstant) { const flash = document.getElementById('rarity-flash'); if(flash) { flash.style.opacity = '0.5'; setTimeout(() => flash.style.opacity = '0', 300); } }
-                
                 results.forEach(res => {
                     if (res.item.name === "Cowgirl Rush") { triggerCowgirlRush(); return; }
                     const hItem = document.createElement('div');
                     hItem.className = 'w-12 h-14 rounded carpet-item-box flex flex-col items-center justify-center border-2 overflow-hidden bg-black flex-shrink-0 relative'; 
                     hItem.setAttribute('data-unique-id', res.uniqueId); 
-                    const cost = res.item.cost || 1; 
-                    const currency = res.item.currency || 'silver';
+                    const cost = res.item.cost || 1, currency = res.item.currency || 'silver';
                     const isSpecialType = ['lucky', 'timeBonus', 'guaranteed', 'currency'].includes(res.item.type);
                     const isFree = (cost <= 1 && currency === 'silver') || isSpecialType;
                     const currencyIcon = res.item.currency === 'gold' ? GOLD_ICON_HTML : (res.item.currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML); 
                     const priceColor = res.item.currency === 'gold' ? 'text-yellow-400' : (res.item.currency === 'moonstones' ? 'text-purple-400' : 'text-gray-300');
-                    let priceDisplay = `${formatNumber(cost)} ${currencyIcon}`; 
-                    if (isFree) priceDisplay = "<span class='text-green-400'>FREE</span>";
+                    let priceDisplay = `${formatNumber(cost)} ${currencyIcon}`; if (isFree) priceDisplay = "<span class='text-green-400'>FREE</span>";
                     hItem.innerHTML = `<div class="text-2xl">${res.item.icon}</div><div class="text-[8px] font-black ${priceColor} leading-none mt-1 flex items-center gap-0.5">${priceDisplay}</div>`;
                     hItem.style.borderColor = res.tier.borderColor;
                     if (isFree) { hItem.onclick = () => collectFreeItem(res.item, res.tier, res.uniqueId); }
@@ -2338,31 +2377,18 @@
                     const placeholder = document.getElementById('carpet-placeholder'); if(placeholder) history.innerHTML = '';
                     history.prepend(hItem); if(isInstant) triggerCameraFlash();
                     requestAnimationFrame(() => {
-                        const historyRect = history.getBoundingClientRect(); 
-                        const children = Array.from(history.children);
+                        const historyRect = history.getBoundingClientRect(), children = Array.from(history.children);
                         children.forEach(child => { const childRect = child.getBoundingClientRect(); if (childRect.left > historyRect.right) child.remove(); });
                         while(history.children.length > 25) history.removeChild(history.lastChild);
                     });
                 });
-
                 if(btn && !isInstant) { 
                     const span = btn.querySelector('span');
-                    if (isAutoRainbowActive) {
-                        btn.disabled = true;
-                        if (span) span.innerText = "RAINBOW MODE ACTIVE";
-                        else btn.innerText = "RAINBOW MODE ACTIVE";
-                    } else if (isAutoFestivalActive) {
-                        btn.disabled = true;
-                        if (span) span.innerText = "LANTERN FESTIVAL ACTIVE";
-                        else btn.innerText = "LANTERN FESTIVAL ACTIVE";
-                    } else {
-                        btn.disabled = false;
-                        if (span) span.innerText = "DRAW AGAIN";
-                        else btn.innerText = "DRAW AGAIN";
-                    }
+                    if (isAutoRainbowActive) { btn.disabled = true; if (span) span.innerText = "RAINBOW MODE ACTIVE"; else btn.innerText = "RAINBOW MODE ACTIVE"; } 
+                    else if (isAutoFestivalActive) { btn.disabled = true; if (span) span.innerText = "LANTERN FESTIVAL ACTIVE"; else btn.innerText = "LANTERN FESTIVAL ACTIVE"; } 
+                    else { btn.disabled = false; if (span) span.innerText = "DRAW AGAIN"; else btn.innerText = "DRAW AGAIN"; }
                 }
-                if (isInstant) { playSound('shutter'); const hasHighTier = results.some(r => (r.tier.stars || 1) >= 7); if(hasHighTier) setTimeout(() => playSound('wow'), 200); }
-                else { playSound('pop'); }
+                if (isInstant) { playSound('shutter'); const hasHighTier = results.some(r => (r.tier.stars || 1) >= 7); if(hasHighTier) setTimeout(() => playSound('wow'), 200); } else { playSound('pop'); }
                 saveGame();
             }, delay);
         };
@@ -2370,12 +2396,8 @@
         function showFloatingText(text, x, y, color = "#FFF") {
             const el = document.createElement('div');
             el.className = 'currency-pop-text brand-font font-black pointer-events-none flex items-center gap-1';
-            el.style.left = x + 'px';
-            el.style.top = y + 'px';
-            el.style.color = color;
-            el.innerHTML = text;
-            document.body.appendChild(el);
-            setTimeout(() => el.remove(), 1400);
+            el.style.left = x + 'px'; el.style.top = y + 'px'; el.style.color = color; el.innerHTML = text;
+            document.body.appendChild(el); setTimeout(() => el.remove(), 1400);
         }
 
         function collectFreeItem(item, tier, uniqueId) {
@@ -2383,22 +2405,13 @@
                 ...item, tierColor: tier.borderColor, tierName: tier.name, tierId: tier.id, cost: 0,
                 currency: item.currency || 'silver', sell: item.sell || 1, income: item.income || 1, goldIncome: item.goldIncome || 0, type: item.type || 'character'
             };
-            const elements = document.querySelectorAll(`[data-unique-id="${uniqueId}"]`);
-            const rect = elements[0] ? elements[0].getBoundingClientRect() : { left: window.innerWidth/2, top: window.innerHeight/2 };
-            
+            const elements = document.querySelectorAll(`[data-unique-id="${uniqueId}"]`), rect = elements[0] ? elements[0].getBoundingClientRect() : { left: window.innerWidth/2, top: window.innerHeight/2 };
             elements.forEach(el => el.classList.add('animate-collect-zoom'));
             let success = true;
             if (itemData.type === 'currency') { 
                 if (itemData.currencyType) {
                     currencies[itemData.currencyType] += (itemData.value || 1);
-                    let icon = '';
-                    if (itemData.currencyType === 'gold') icon = GOLD_ICON_HTML;
-                    else if (itemData.currencyType === 'silver') icon = SILVER_ICON_HTML;
-                    else if (itemData.currencyType === 'moonstones') icon = MOONSTONE_ICON_HTML;
-                    else if (itemData.currencyType === 'stars') icon = '🌟';
-                    else if (itemData.currencyType === 'diamonds') icon = '💎';
-                    else icon = '🪨';
-                    
+                    let icon = itemData.currencyType === 'gold' ? GOLD_ICON_HTML : (itemData.currencyType === 'silver' ? SILVER_ICON_HTML : (itemData.currencyType === 'moonstones' ? MOONSTONE_ICON_HTML : (itemData.currencyType === 'stars' ? '🌟' : '💎')));
                     showFloatingText(`+${formatNumber(itemData.value || 1)} ${icon}`, rect.left, rect.top, "#FFD700");
                 }
                 playSound('ching'); 
@@ -2407,392 +2420,62 @@
             else if (itemData.type === 'timeBonus') { if (itemData.bonusType) inventory.timeBonus[itemData.bonusType]++; playSound('laser'); }
             else if (itemData.type === 'guaranteed') { if (itemData.specialType) inventory.special[itemData.specialType]++; playSound('heaven'); }
             else {
-                const emptyIdx = baseInventory.indexOf(null);
-                if(emptyIdx === -1) { console.log("BASE IS FULL! Sell items to make space."); elements.forEach(el => el.classList.remove('animate-collect-zoom')); success = false; }
+                const emptyIdx = baseInventory.indexOf(null), maxSlots = getMaxBaseSlots();
+                if(emptyIdx === -1 || emptyIdx >= maxSlots) { elements.forEach(el => el.classList.remove('animate-collect-zoom')); success = false; }
                 else { baseInventory[emptyIdx] = itemData; playSound('heaven'); handleCollection(itemData); }
             }
-            if (success) {
-                updateStatsUI(); saveGame();
-                setTimeout(() => {
-                    elements.forEach(el => el.remove());
-                    const history = document.getElementById('rot-history');
-                    if (history && history.children.length === 0) history.innerHTML = '<div id="carpet-placeholder" class="text-white/30 font-black brand-font uppercase text-xs tracking-widest w-full text-center">Draw to Walk the Red Carpet</div>';
-                }, 300);
-            }
+            if (success) { updateStatsUI(); saveGame(); setTimeout(() => { elements.forEach(el => el.remove()); const history = document.getElementById('rot-history'); if (history && history.children.length === 0) history.innerHTML = '<div id="carpet-placeholder" class="text-white/30 font-black brand-font uppercase text-xs tracking-widest w-full text-center">Draw to Walk the Red Carpet</div>'; }, 300); }
         }
 
-        function purchaseItem(cat, type, curr, cost) {
-            if(currencies[curr] >= cost) {
-                currencies[curr] -= cost;
-                if(cat === 'lucky') inventory[type]++;
-                if(cat === 'time') inventory.timeBonus[type]++;
-                if(cat === 'special') inventory.special[type]++;
-                playSound('buy'); updateStatsUI(); saveGame();
-            }
-        }
+        function purchaseItem(cat, type, curr, cost) { if(currencies[curr] >= cost) { currencies[curr] -= cost; if(cat === 'lucky') inventory[type]++; if(cat === 'time') inventory.timeBonus[type]++; if(cat === 'special') inventory.special[type]++; playSound('buy'); updateStatsUI(); saveGame(); } }
 
-        function handleCollection(itemData) { 
-            if(!collectedItemsMap[itemData.name]) { 
-                collectedItemsMap[itemData.name] = true; 
-                initCollection(); 
-                checkTierCompletions();
-                
-                const highTiers = ['BRAINROT_GOD', 'SECRET', 'GOAT'];
-                if (highTiers.includes(itemData.tierId)) {
-                    showGlobalBroadcast(itemData.name, itemData.tierColor);
-                }
-            } 
-        }
+        function handleCollection(itemData) { if(!collectedItemsMap[itemData.name]) { collectedItemsMap[itemData.name] = true; initCollection(); checkTierCompletions(); const highTiers = ['BRAINROT_GOD', 'SECRET', 'GOAT']; if (highTiers.includes(itemData.tierId)) showGlobalBroadcast(itemData.name, itemData.tierColor); } }
 
-        function checkTierCompletions() {
-            Object.keys(MAXXER_REWARDS).forEach(rarity => {
-                if (rewards[rarity]) return; 
-                
-                const tierItems = itemDatabase[rarity];
-                if (!tierItems) return;
-                
-                const isComplete = tierItems.every(it => collectedItemsMap[it.name] === true);
-                if (isComplete) {
-                    awardMaxxer(rarity);
-                }
-            });
-        }
+        function checkTierCompletions() { Object.keys(MAXXER_REWARDS).forEach(rarity => { if (rewards[rarity]) return; const tierItems = itemDatabase[rarity]; if (!tierItems) return; const isComplete = tierItems.every(it => collectedItemsMap[it.name] === true); if (isComplete) awardMaxxer(rarity); }); }
 
-        function awardMaxxer(rarity) {
-            rewards[rarity] = true;
-            const data = MAXXER_REWARDS[rarity];
-            
-            const modal = document.getElementById('reward-modal');
-            const content = document.getElementById('reward-content');
-            document.getElementById('reward-rarity-text').innerText = `ALL ${rarity.replace('_', ' ')} BRAINROT COLLECTED!`;
-            document.getElementById('reward-item-icon').innerText = data.icon;
-            document.getElementById('reward-item-name').innerText = data.name.toUpperCase();
-            
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                content.classList.remove('scale-95', 'opacity-0');
-                content.classList.add('scale-100', 'opacity-100');
-            }, 10);
-            
-            playSound('heaven');
-            updateStatsUI();
-            saveGame();
-        }
+        function awardMaxxer(rarity) { rewards[rarity] = true; const data = MAXXER_REWARDS[rarity]; const modal = document.getElementById('reward-modal'), content = document.getElementById('reward-content'); document.getElementById('reward-rarity-text').innerText = `ALL ${rarity.replace('_', ' ')} BRAINROT COLLECTED!`; document.getElementById('reward-item-icon').innerText = data.icon; document.getElementById('reward-item-name').innerText = data.name.toUpperCase(); modal.classList.remove('hidden'); setTimeout(() => { content.classList.remove('scale-95', 'opacity-0'); content.classList.add('scale-100', 'opacity-100'); }, 10); playSound('heaven'); updateStatsUI(); saveGame(); }
 
-        function closeRewardModal() {
-            const m = document.getElementById('reward-modal'), c = document.getElementById('reward-content');
-            c.classList.add('scale-95', 'opacity-0'); setTimeout(() => { m.classList.add('hidden'); }, 500);
-        }
+        function closeRewardModal() { const m = document.getElementById('reward-modal'), c = document.getElementById('reward-content'); c.classList.add('scale-95', 'opacity-0'); setTimeout(() => { m.classList.add('hidden'); }, 500); }
 
-        function showCollectionLore(tierId, itemName) {
-            const tier = tierConfig.find(t => t.id === tierId);
-            const item = itemDatabase[tierId].find(i => i.name === itemName);
-            if(item && tier) showLoreModal(item, tier);
-        }
+        function showCollectionLore(tierId, itemName) { const tier = tierConfig.find(t => t.id === tierId); const item = itemDatabase[tierId].find(i => i.name === itemName); if(item && tier) showLoreModal(item, tier); }
 
-        function initCollection() {
-            const grid = document.getElementById('collection-grid'); if(!grid) return;
-            grid.innerHTML = '';
-            tierConfig.slice().reverse().forEach(tier => {
-                // EXCLUDE ALL NON-CHARACTER TIERS
-                if (!['COMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'BRAINROT_GOD', 'SECRET', 'GOAT'].includes(tier.id)) return;
-                
-                const sec = document.createElement('div');
-                sec.className = `rounded-xl border-2 p-4 mb-4 ${tier.bg || 'bg-gray-900/40'}`;
-                sec.style.borderColor = tier.borderColor;
-                const items = itemDatabase[tier.id] || [];
-                
-                const itemsHtml = items.map(it => {
-                    const isCollected = collectedItemsMap[it.name] === true;
-                    const safeName = it.name.replace(/'/g, "\\'");
-                    return `<div onclick="${isCollected ? `showCollectionLore('${tier.id}', '${safeName}')` : ''}" class="w-10 h-10 rounded bg-black flex items-center justify-center text-xl cursor-pointer transition-transform hover:scale-110 active:scale-95 ${isCollected ? '' : 'opacity-20 grayscale'}">${isCollected ? it.icon : '❓'}</div>`;
-                }).join('');
-                
-                sec.innerHTML = `<h4 class="font-black mb-2" style="color:${tier.textColor}">${tier.name}</h4><div class="flex flex-wrap gap-2">${itemsHtml}</div>`;
-                grid.appendChild(sec);
-            });
-        }
+        function initCollection() { const grid = document.getElementById('collection-grid'); if(!grid) return; grid.innerHTML = ''; tierConfig.slice().reverse().forEach(tier => { if (!['COMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'BRAINROT_GOD', 'SECRET', 'GOAT'].includes(tier.id)) return; const sec = document.createElement('div'); sec.className = `rounded-xl border-2 p-4 mb-4 ${tier.bg || 'bg-gray-900/40'}`; sec.style.borderColor = tier.borderColor; const items = itemDatabase[tier.id] || []; const itemsHtml = items.map(it => { const isCollected = collectedItemsMap[it.name] === true, safeName = it.name.replace(/'/g, "\\'"); return `<div onclick="${isCollected ? `showCollectionLore('${tier.id}', '${safeName}')` : ''}" class="w-10 h-10 rounded bg-black flex items-center justify-center text-xl cursor-pointer transition-transform hover:scale-110 active:scale-95 ${isCollected ? '' : 'opacity-20 grayscale'}">${isCollected ? it.icon : '❓'}</div>`; }).join(''); sec.innerHTML = `<h4 class="font-black mb-2" style="color:${tier.textColor}">${tier.name}</h4><div class="flex flex-wrap gap-2">${itemsHtml}</div>`; grid.appendChild(sec); }); }
 
         function saveGame() { localStorage.setItem('brainrotCollectorV6', JSON.stringify({ collectedItems: collectedItemsMap, inventory, currencies, rewards, base: baseInventory, accumulatedSilver, accumulatedGold })); }
 
-        function loadGame() {
-            const data = localStorage.getItem('brainrotCollectorV6');
-            if(data) {
-                const s = JSON.parse(data); collectedItemsMap = s.collectedItems || {}; inventory = s.inventory || inventory;
-                currencies = s.currencies || currencies; baseInventory = s.base || baseInventory;
-                rewards = s.rewards || {};
-                accumulatedSilver = s.accumulatedSilver || 0; accumulatedGold = s.accumulatedGold || 0;
-            } else { currencies.silver = 10; }
-            if (currencies.silver === undefined) currencies.silver = 10;
-            initCollection(); updateStatsUI();
-        }
+        function loadGame() { const data = localStorage.getItem('brainrotCollectorV6'); if(data) { const s = JSON.parse(data); collectedItemsMap = s.collectedItems || {}; inventory = s.inventory || inventory; if (!inventory.upgrades) inventory.upgrades = { expander1: false, expander2: false }; currencies = s.currencies || currencies; baseInventory = s.base || baseInventory; const maxSlots = getMaxBaseSlots(); while(baseInventory.length < maxSlots) baseInventory.push(null); rewards = s.rewards || {}; accumulatedSilver = s.accumulatedSilver || 0; accumulatedGold = s.accumulatedGold || 0; } else { currencies.silver = 10; } if (currencies.silver === undefined) currencies.silver = 10; initCollection(); updateStatsUI(); }
 
-        function resetGame() {
-            baseInventory = new Array(15).fill(null);
-            currencies = { stars: 0, diamonds: 0, moonstones: 0, gold: 0, silver: 10 };
-            collectedItemsMap = {};
-            inventory = { lucky: 0, grand: 0, crazy: 0, special: { god: 0, secret: 0, goat: 0, ultimate: 0, admin: 0 }, timeBonus: { x2: 0, x4: 0, x10: 0, x20: 0 } };
-            rewards = {};
-            localStorage.removeItem('brainrotCollectorV6');
-            location.reload();
-        }
+        function resetGame() { baseInventory = new Array(15).fill(null); currencies = { stars: 0, diamonds: 0, moonstones: 0, gold: 0, silver: 10 }; collectedItemsMap = {}; inventory = { lucky: 0, grand: 0, crazy: 0, special: { god: 0, secret: 0, goat: 0, ultimate: 0, admin: 0 }, timeBonus: { x2: 0, x4: 0, x10: 0, x20: 0 }, upgrades: { expander1: false, expander2: false } }; rewards = {}; localStorage.removeItem('brainrotCollectorV6'); location.reload(); }
 
-        function activateDevMode() { 
-            currencies = { stars: 100, diamonds: 100, moonstones: 100, gold: 1000, silver: 5000 }; 
-            showFloatingText(`+DEV BOOSTER ACTIVE`, window.innerWidth/2, window.innerHeight/2, "#39ff14");
-            updateStatsUI(); saveGame(); 
-        }
+        function activateDevMode() { currencies = { stars: 100, diamonds: 100, moonstones: 100, gold: 1000, silver: 50000000000000 }; showFloatingText(`+DEV BOOSTER ACTIVE`, window.innerWidth/2, window.innerHeight/2, "#39ff14"); updateStatsUI(); saveGame(); }
 
-        function showLoreModal(item, tier, inventoryIndex = -1) {
-            const m = document.getElementById('lore-modal'), c = document.getElementById('lore-content');
-            document.getElementById('lore-icon').innerHTML = item.icon;
-            document.getElementById('lore-name').innerText = item.name;
-            document.getElementById('lore-rarity').innerText = tier.name;
-            document.getElementById('lore-text').innerText = item.description || "[DATA CORRUPTED]";
+        function showLoreModal(item, tier, inventoryIndex = -1) { const m = document.getElementById('lore-modal'), c = document.getElementById('lore-content'); document.getElementById('lore-icon').innerHTML = item.icon; document.getElementById('lore-name').innerText = item.name; document.getElementById('lore-rarity').innerText = tier.name; document.getElementById('lore-text').innerText = item.description || "[DATA CORRUPTED]"; const buyCurrencyIcon = item.currency === 'gold' ? GOLD_ICON_HTML : (item.currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML); document.getElementById('lore-buy-val').innerHTML = `${formatNumber(item.cost || 1)} ${buyCurrencyIcon}`; const sellCurrencyIcon = item.currency === 'gold' ? GOLD_ICON_HTML : SILVER_ICON_HTML; document.getElementById('lore-sell-val').innerHTML = `${formatNumber(item.sell || 1)} ${sellCurrencyIcon}`; let incomeHtml = `${formatNumber(item.income || 0)} ${SILVER_ICON_HTML}`; if (item.goldIncome > 0) incomeHtml += `<br>${formatNumber(item.goldIncome)} ${GOLD_ICON_HTML}`; document.getElementById('lore-income-val').innerHTML = incomeHtml; const btnContainer = document.getElementById('sell-btn-container'); if (inventoryIndex > -1) { const currencyIcon = item.currency === 'gold' ? GOLD_ICON_HTML : SILVER_ICON_HTML, sellValue = formatNumber(item.sell || 1); btnContainer.innerHTML = `<button onclick="sellItem(${inventoryIndex})" class="w-full py-3 bg-red-600 text-white font-black uppercase rounded hover:bg-red-500 shadow-[0_0_15px_rgba(220,38,38,0.5)] flex items-center justify-center gap-1">SELL (+${sellValue} ${currencyIcon})</button>`; } else { btnContainer.innerHTML = ''; } m.classList.remove('hidden'); setTimeout(() => { c.classList.remove('scale-95', 'opacity-0'); c.classList.add('scale-100', 'opacity-100'); }, 10); }
 
-            const buyCurrencyIcon = item.currency === 'gold' ? GOLD_ICON_HTML : SILVER_ICON_HTML;
-            document.getElementById('lore-buy-val').innerHTML = `${formatNumber(item.cost || 1)} ${buyCurrencyIcon}`;
-            
-            const sellCurrencyIcon = item.currency === 'gold' ? GOLD_ICON_HTML : SILVER_ICON_HTML;
-            document.getElementById('lore-sell-val').innerHTML = `${formatNumber(item.sell || 1)} ${sellCurrencyIcon}`;
-            
-            let incomeHtml = `${formatNumber(item.income || 0)} ${SILVER_ICON_HTML}`;
-            if (item.goldIncome > 0) incomeHtml += `<br>${formatNumber(item.goldIncome)} ${GOLD_ICON_HTML}`;
-            document.getElementById('lore-income-val').innerHTML = incomeHtml;
+        function closeLoreModal() { const m = document.getElementById('lore-modal'), c = document.getElementById('lore-content'); c.classList.add('scale-95', 'opacity-0'); setTimeout(() => { m.classList.add('hidden'); }, 300); }
 
-            const btnContainer = document.getElementById('sell-btn-container');
-            if (inventoryIndex > -1) {
-                const currencyIcon = item.currency === 'gold' ? GOLD_ICON_HTML : SILVER_ICON_HTML; const sellValue = formatNumber(item.sell || 1);
-                btnContainer.innerHTML = `<button onclick="sellItem(${inventoryIndex})" class="w-full py-3 bg-red-600 text-white font-black uppercase rounded hover:bg-red-500 shadow-[0_0_15px_rgba(220,38,38,0.5)] flex items-center justify-center gap-1">SELL (+${sellValue} ${currencyIcon})</button>`;
-            } else { btnContainer.innerHTML = ''; }
-            
-            m.classList.remove('hidden');
-            setTimeout(() => { c.classList.remove('scale-95', 'opacity-0'); c.classList.add('scale-100', 'opacity-100'); }, 10);
-        }
+        function sellItem(index) { const item = baseInventory[index]; if (item) { const currency = item.currency || 'silver', value = item.sell || 1, icon = currency === 'gold' ? GOLD_ICON_HTML : (currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML); baseInventory[index] = null; currencies[currency] += value; showFloatingText(`+${formatNumber(value)} ${icon}`, window.innerWidth / 2, window.innerHeight / 2, currency === 'gold' ? '#FBBF24' : (currency === 'moonstones' ? '#A855F7' : '#9CA3AF')); playSound('buy'); updateStatsUI(); saveGame(); closeLoreModal(); } }
 
-        function closeLoreModal() {
-            const m = document.getElementById('lore-modal'), c = document.getElementById('lore-content');
-            c.classList.add('scale-95', 'opacity-0'); setTimeout(() => { m.classList.add('hidden'); }, 300);
-        }
+        function collectIncome() { let collected = false; const collectBtn = document.getElementById('global-collect-btn'), rect = collectBtn.getBoundingClientRect(); if (accumulatedSilver > 0) { currencies.silver += accumulatedSilver; showFloatingText(`+${formatNumber(accumulatedSilver)} ${SILVER_ICON_HTML}`, rect.left, rect.top, "#9CA3AF"); accumulatedSilver = 0; collected = true; } if (accumulatedGold > 0) { currencies.gold += accumulatedGold; showFloatingText(`+${formatNumber(accumulatedGold)} ${GOLD_ICON_HTML}`, rect.left, rect.top + 20, "#FBBF24"); accumulatedGold = 0; collected = true; } if (collected) { playSound('ching'); updateStatsUI(); saveGame(); } }
 
-        function sellItem(index) {
-            const item = baseInventory[index];
-            if (item) {
-                const currency = item.currency || 'silver'; const value = item.sell || 1;
-                const icon = currency === 'gold' ? GOLD_ICON_HTML : (currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML);
-                baseInventory[index] = null; currencies[currency] += value;
-                showFloatingText(`+${formatNumber(value)} ${icon}`, window.innerWidth / 2, window.innerHeight / 2, currency === 'gold' ? '#FBBF24' : (currency === 'moonstones' ? '#A855F7' : '#9CA3AF'));
-                playSound('buy'); updateStatsUI(); saveGame(); closeLoreModal();
-            }
-        }
+        function sortBase() { const items = baseInventory.filter(i => i !== null); items.sort((a, b) => (b.cost || 0) - (a.cost || 0)); const maxSlots = getMaxBaseSlots(), newBase = new Array(maxSlots).fill(null); items.forEach((item, index) => { if(index < maxSlots) newBase[index] = item; }); baseInventory = newBase; renderBaseUI(); saveGame(); playSound('pop'); }
 
-        function collectIncome() {
-            let collected = false;
-            const collectBtn = document.getElementById('global-collect-btn');
-            const rect = collectBtn.getBoundingClientRect();
-            
-            if (accumulatedSilver > 0) { 
-                currencies.silver += accumulatedSilver; 
-                showFloatingText(`+${formatNumber(accumulatedSilver)} ${SILVER_ICON_HTML}`, rect.left, rect.top, "#9CA3AF");
-                accumulatedSilver = 0; 
-                collected = true; 
-            }
-            if (accumulatedGold > 0) { 
-                currencies.gold += accumulatedGold; 
-                showFloatingText(`+${formatNumber(accumulatedGold)} ${GOLD_ICON_HTML}`, rect.left, rect.top + 20, "#FBBF24");
-                accumulatedGold = 0; 
-                collected = true; 
-            }
-            if (collected) { playSound('ching'); updateStatsUI(); saveGame(); }
-        }
+        window.activateRot = function(type) { if (inventory[type] > 0) { if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory(); inventory[type]--; const playSection = document.getElementById('play'); if (playSection) playSection.scrollIntoView({ behavior: 'smooth' }); playSound('rolling'); let draws = 1, luck = 1; if (type === 'lucky') { draws = 1; luck = 10; } else if (type === 'grand') { draws = 2; luck = 20; } else if (type === 'crazy') { draws = 3; luck = 40; } window.pullRot(true, draws, luck); updateStatsUI(); } };
 
-        function sortBase() {
-            const items = baseInventory.filter(i => i !== null); items.sort((a, b) => (b.cost || 0) - (a.cost || 0));
-            const newBase = new Array(15).fill(null); items.forEach((item, index) => { if(index < 15) newBase[index] = item; });
-            baseInventory = newBase; renderBaseUI(); saveGame(); playSound('pop');
-        }
+        window.activateTimeBonus = function(mult) { const key = `x${mult}`; if (inventory.timeBonus[key] > 0) { if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory(); inventory.timeBonus[key]--; applyLuckBonus(mult, 60000); const playSection = document.getElementById('play'); if (playSection) playSection.scrollIntoView({ behavior: 'smooth' }); playSound('laser'); updateStatsUI(); } };
 
-        window.activateRot = function(type) {
-            if (inventory[type] > 0) {
-                // CLOSE INVENTORY POPUP
-                if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory();
-                
-                inventory[type]--; const playSection = document.getElementById('play');
-                if (playSection) playSection.scrollIntoView({ behavior: 'smooth' });
-                playSound('rolling');
-                let draws = 1; let luck = 1;
-                if (type === 'lucky') { draws = 1; luck = 10; } else if (type === 'grand') { draws = 2; luck = 20; } else if (type === 'crazy') { draws = 3; luck = 40; }
-                window.pullRot(true, draws, luck); updateStatsUI();
-            }
-        };
+        function applyLuckBonus(mult, duration) { activeTimeBonus = { value: mult, endTime: Date.now() + duration }; const badge = document.getElementById('multiplier-badge'), badgeText = document.getElementById('multiplier-text'); if (mult > 1) { playSound('thunder'); badge.classList.remove('hidden', 'animate-luck-pop'); void badge.offsetWidth; badge.classList.add('animate-luck-pop'); badgeText.innerText = `LUCK x${mult} ACTIVE!`; } else { badge.classList.add('hidden'); } if (duration > 0) { setTimeout(() => { if (Date.now() >= activeTimeBonus.endTime) { activeTimeBonus = { value: 1, endTime: 0 }; badge.classList.add('hidden'); } }, duration); } }
 
-        window.activateTimeBonus = function(mult) {
-            const key = `x${mult}`;
-            if (inventory.timeBonus[key] > 0) {
-                // CLOSE INVENTORY POPUP
-                if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory();
-                
-                inventory.timeBonus[key]--; applyLuckBonus(mult, 60000);
-                const playSection = document.getElementById('play'); if (playSection) playSection.scrollIntoView({ behavior: 'smooth' });
-                playSound('laser'); updateStatsUI();
-            }
-        };
-
-        function applyLuckBonus(mult, duration) {
-            activeTimeBonus = { value: mult, endTime: Date.now() + duration };
-            const badge = document.getElementById('multiplier-badge'); const badgeText = document.getElementById('multiplier-text');
-            
-            if (mult > 1) {
-                // PLAY THUNDER SOUND
-                playSound('thunder');
-                
-                badge.classList.remove('hidden', 'animate-luck-pop');
-                void badge.offsetWidth; // Trigger reflow to restart animation
-                badge.classList.add('animate-luck-pop');
-                badgeText.innerText = `LUCK x${mult} ACTIVE!`;
-            } else {
-                badge.classList.add('hidden');
-            }
-            
-            if (duration > 0) {
-                setTimeout(() => { if (Date.now() >= activeTimeBonus.endTime) { activeTimeBonus = { value: 1, endTime: 0 }; badge.classList.add('hidden'); } }, duration);
-            }
-        }
-
-        function triggerCowgirlRush() {
-            const rushModal = document.createElement('div');
-            rushModal.className = 'fixed inset-0 z-[200] flex items-center justify-center pointer-events-none';
-            rushModal.innerHTML = `<div class="animate-bounce text-9xl relative z-10 filter drop-shadow-[0_0_20px_#EC4899]">🤠</div><div class="absolute inset-0 bg-pink-500/20 animate-pulse mix-blend-overlay"></div><h1 class="absolute mt-40 text-white font-black text-6xl md:text-8xl drop-shadow-[0_0_20px_#EC4899] animate-ping whitespace-nowrap">COWGIRL RUSH!</h1>`;
-            document.body.appendChild(rushModal); playSound('heaven'); applyLuckBonus(2, 30000); setTimeout(() => { rushModal.remove(); }, 3000);
-        }
+        function triggerCowgirlRush() { const rushModal = document.createElement('div'); rushModal.className = 'fixed inset-0 z-[200] flex items-center justify-center pointer-events-none'; rushModal.innerHTML = `<div class="animate-bounce text-9xl relative z-10 filter drop-shadow-[0_0_20px_#EC4899]">🤠</div><div class="absolute inset-0 bg-pink-500/20 animate-pulse mix-blend-overlay"></div><h1 class="absolute mt-40 text-white font-black text-6xl md:text-8xl drop-shadow-[0_0_20px_#EC4899] animate-ping whitespace-nowrap">COWGIRL RUSH!</h1>`; document.body.appendChild(rushModal); playSound('heaven'); applyLuckBonus(2, 30000); setTimeout(() => { rushModal.remove(); }, 3000); }
         
-        window.activateSpecial = function(type) {
-             if (inventory.special[type] > 0) {
-                // CLOSE INVENTORY POPUP
-                if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory();
-                
-                inventory.special[type]--; forcedTierId = (type === 'god') ? 'BRAINROT_GOD' : (type === 'secret' ? 'SECRET' : 'GOAT');
-                const playSection = document.getElementById('play'); if (playSection) playSection.scrollIntoView({ behavior: 'smooth' });
-                playSound('heaven'); const content = document.getElementById('rot-content');
-                content.innerHTML = `<div class="text-4xl animate-pulse text-yellow-400 font-bold">NEXT DRAW GUARANTEED!</div>`;
-                updateStatsUI();
-            }
-        };
+        window.activateSpecial = function(type) { if (inventory.special[type] > 0) { if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory(); inventory.special[type]--; forcedTierId = (type === 'god') ? 'BRAINROT_GOD' : (type === 'secret' ? 'SECRET' : 'GOAT'); const playSection = document.getElementById('play'); if (playSection) playSection.scrollIntoView({ behavior: 'smooth' }); playSound('heaven'); const content = document.getElementById('rot-content'); content.innerHTML = `<div class="text-4xl animate-pulse text-yellow-400 font-bold">NEXT DRAW GUARANTEED!</div>`; updateStatsUI(); } };
 
-        function updateTimers() {
-            const now = new Date();
-            const hour = now.getHours();
-            const min = now.getMinutes();
-            const sec = now.getSeconds();
-            
-            const festivalCountdownEl = document.getElementById('festival-countdown');
-            const rainbowCountdownEl = document.getElementById('rainbow-countdown');
-            const liveRollBtn = document.getElementById('live-roll-btn');
-            const pullBtn = document.getElementById('pull-btn');
-            const musicBtn = document.getElementById('music-btn');
-            const discoBtn = document.getElementById('disco-btn');
-            
-            const isFestivalTime = (hour % 2 === 0 && min < 5);
-            if (isFestivalTime) {
-                if (!isAutoFestivalActive) {
-                    isAutoFestivalActive = true;
-                    // THUNDER SOUND FOR EVENT
-                    playSound('thunder');
-                    if (audioLib.elevator.paused) toggleMusic();
-                }
-                const remMin = 4 - min;
-                const remSec = 59 - sec;
-                festivalCountdownEl.innerText = `ENDS: ${String(remMin).padStart(2, '0')}:${String(remSec).padStart(2, '0')}`;
-                festivalCountdownEl.classList.add('text-pink-500', 'animate-pulse');
-            } else {
-                if (isAutoFestivalActive) {
-                    isAutoFestivalActive = false;
-                    if (!audioLib.elevator.paused) toggleMusic();
-                }
-                let nextHour = hour;
-                if (hour % 2 !== 0) nextHour = hour + 1;
-                else if (min >= 5) nextHour = hour + 2;
-                if (nextHour >= 24) nextHour = 0;
-                const nextDate = new Date();
-                nextDate.setHours(nextHour, 0, 0, 0);
-                if (nextHour <= hour && min >= 5) nextDate.setDate(nextDate.getDate() + 1);
-                const diff = nextDate - now;
-                const h = Math.floor(diff / 3600000);
-                const m = Math.floor((diff % 3600000) / 60000);
-                const s = Math.floor((diff % 60000) / 1000);
-                festivalCountdownEl.innerText = `NEXT: ${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-                festivalCountdownEl.classList.remove('text-pink-500', 'animate-pulse');
-            }
+        function updateTimers() { const now = new Date(), hour = now.getHours(), min = now.getMinutes(), sec = now.getSeconds(); const festivalCountdownEl = document.getElementById('festival-countdown'), rainbowCountdownEl = document.getElementById('rainbow-countdown'); const isFestivalTime = (hour % 2 === 0 && min < 5); if (isFestivalTime) { if (!isAutoFestivalActive) { isAutoFestivalActive = true; playSound('thunder'); if (audioLib.elevator.paused) toggleMusic(); } const remMin = 4 - min, remSec = 59 - sec; festivalCountdownEl.innerText = `ENDS: ${String(remMin).padStart(2, '0')}:${String(remSec).padStart(2, '0')}`; festivalCountdownEl.classList.add('text-pink-500', 'animate-pulse'); } else { if (isAutoFestivalActive) { isAutoFestivalActive = false; if (!audioLib.elevator.paused) toggleMusic(); } let nextHour = (hour % 2 !== 0) ? hour + 1 : (min >= 5 ? hour + 2 : hour); if (nextHour >= 24) nextHour = 0; const nextDate = new Date(); nextDate.setHours(nextHour, 0, 0, 0); if (nextHour <= hour && min >= 5) nextDate.setDate(nextDate.getDate() + 1); const diff = nextDate - now, h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000); festivalCountdownEl.innerText = `NEXT: ${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`; festivalCountdownEl.classList.remove('text-pink-500', 'animate-pulse'); } const isRainbowTime = (hour % 2 !== 0 && min < 5); if (isRainbowTime) { if (!isAutoRainbowActive) { isAutoRainbowActive = true; playSound('thunder'); if (audioLib.disco.paused) toggleDisco(); } const remMin = 4 - min, remSec = 59 - sec; rainbowCountdownEl.innerText = `ENDS: ${String(remMin).padStart(2, '0')}:${String(remSec).padStart(2, '0')}`; rainbowCountdownEl.classList.add('text-white', 'animate-pulse'); } else { if (isAutoRainbowActive) { isAutoRainbowActive = false; if (!audioLib.disco.paused) toggleDisco(); } let nextHour = (hour % 2 === 0) ? hour + 1 : (min >= 5 ? hour + 2 : hour); if (nextHour >= 24) nextHour = 1; const nextDate = new Date(); nextDate.setHours(nextHour, 0, 0, 0); if (nextHour <= hour && min >= 5) nextDate.setDate(nextDate.getDate() + 1); const diff = nextDate - now, h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000); rainbowCountdownEl.innerText = `NEXT: ${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`; rainbowCountdownEl.classList.remove('text-white', 'animate-pulse'); } }
 
-            const isRainbowTime = (hour % 2 !== 0 && min < 5);
-            if (isRainbowTime) {
-                if (!isAutoRainbowActive) {
-                    isAutoRainbowActive = true;
-                    // THUNDER SOUND FOR EVENT
-                    playSound('thunder');
-                    if (audioLib.disco.paused) toggleDisco();
-                }
-                const remMin = 4 - min;
-                const remSec = 59 - sec;
-                rainbowCountdownEl.innerText = `ENDS: ${String(remMin).padStart(2, '0')}:${String(remSec).padStart(2, '0')}`;
-                rainbowCountdownEl.classList.add('text-white', 'animate-pulse');
-            } else {
-                if (isAutoRainbowActive) {
-                    isAutoRainbowActive = false;
-                    if (!audioLib.disco.paused) toggleDisco();
-                }
-                let nextHour = hour;
-                if (hour % 2 === 0) nextHour = hour + 1;
-                else if (min >= 5) nextHour = hour + 2;
-                if (nextHour >= 24) nextHour = 1;
-                const nextDate = new Date();
-                nextDate.setHours(nextHour, 0, 0, 0);
-                if (nextHour <= hour && min >= 5) nextDate.setDate(nextDate.getDate() + 1);
-                const diff = nextDate - now;
-                const h = Math.floor(diff / 3600000);
-                const m = Math.floor((diff % 3600000) / 60000);
-                const s = Math.floor((diff % 60000) / 1000);
-                rainbowCountdownEl.innerText = `NEXT: ${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-                rainbowCountdownEl.classList.remove('text-white', 'animate-pulse');
-            }
-        }
+        setInterval(() => { let silverInc = 0, goldInc = 0; baseInventory.forEach(item => { if (item) { silverInc += (item.income || 0); goldInc += (item.goldIncome || 0); } }); if (silverInc > 0 || goldInc > 0) { accumulatedSilver += silverInc; accumulatedGold += goldInc; updateStatsUI(); saveGame(); } updateTimers(); }, 1000);
 
-        setInterval(() => {
-            let silverInc = 0; let goldInc = 0;
-            baseInventory.forEach(item => { 
-                if (item) { 
-                    silverInc += (item.income || 0); 
-                    goldInc += (item.goldIncome || 0);
-                } 
-            });
-            if (silverInc > 0 || goldInc > 0) {
-                accumulatedSilver += silverInc; 
-                accumulatedGold += goldInc;
-                updateStatsUI();
-                saveGame();
-            }
-            updateTimers();
-        }, 1000);
+        function initSakura() { const container = document.getElementById('sakura-container'); if(!container) return; setInterval(() => { const petal = document.createElement('div'); petal.innerText = '🌸'; petal.className = 'sakura-petal text-pink-300/80 drop-shadow-lg'; const size = Math.random() * 15 + 10, left = Math.random() * 100, duration = Math.random() * 5 + 5; petal.style.fontSize = `${size}px`; petal.style.left = `${left}%`; petal.style.animationDuration = `${duration}s`; container.appendChild(petal); setTimeout(() => { petal.remove(); }, duration * 1000); }, 400); }
 
-        function initSakura() {
-            const container = document.getElementById('sakura-container'); if(!container) return;
-            setInterval(() => {
-                const petal = document.createElement('div'); petal.innerText = '🌸'; petal.className = 'sakura-petal text-pink-300/80 drop-shadow-lg';
-                const size = Math.random() * 15 + 10; const left = Math.random() * 100; const duration = Math.random() * 5 + 5; 
-                petal.style.fontSize = `${size}px`; petal.style.left = `${left}%`; petal.style.animationDuration = `${duration}s`;
-                container.appendChild(petal); setTimeout(() => { petal.remove(); }, duration * 1000);
-            }, 400);
-        }
-
-        document.addEventListener('DOMContentLoaded', () => { 
-            loadGame(); 
-            initSakura(); 
-            updateTimers();
-            // AUTO START RED CARPET
-            setTimeout(() => {
-                if (!liveRollInterval) toggleLiveRoll();
-            }, 500);
-        });
+        document.addEventListener('DOMContentLoaded', () => { loadGame(); initSakura(); updateTimers(); setTimeout(() => { if (!liveRollInterval) toggleLiveRoll(); }, 500); });
     </script>
 </body>
 </html>
