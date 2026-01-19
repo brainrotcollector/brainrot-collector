@@ -878,9 +878,10 @@
                             </div>
                         </div>
 
-                        <button onclick="toggleLiveRoll()" id="live-roll-btn" class="bg-green-600 hover:bg-green-500 active:scale-95 text-white font-black brand-font text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full border border-white/20 shadow-[0_0_15px_rgba(34,197,94,0.5)] flex items-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                        <!-- AUTO BUTTON (REPLACED START LIVE FEED) -->
+                        <button onclick="toggleLiveRoll()" id="live-roll-btn" class="bg-green-600 hover:bg-green-500 active:scale-95 text-white font-black brand-font text-[10px] uppercase tracking-widest px-8 py-1.5 rounded-full border border-white/20 shadow-[0_0_15px_rgba(34,197,94,0.5)] flex items-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
                             <i data-lucide="play" class="w-3 h-3"></i>
-                            START LIVE FEED
+                            AUTO
                         </button>
                         
                         <!-- LANTERN FESTIVAL INDICATOR -->
@@ -916,7 +917,7 @@
                 </button>
             </div>
 
-            <!-- RED CARPET (NO BUFFER) -->
+            <!-- RED CARPET (AUTO STARTS HERE) -->
             <div class="mt-0 mb-0 relative max-w-xl mx-auto overflow-hidden rounded-xl">
                 <div id="rot-history" class="red-carpet h-20 flex items-center justify-start gap-4 px-6 overflow-hidden">
                     <div id="carpet-placeholder" class="text-white/30 font-black brand-font uppercase text-xs tracking-widest w-full text-center">Draw to Walk the Red Carpet</div>
@@ -1405,6 +1406,14 @@
         var isAutoFestivalActive = false; 
         var isAutoRainbowActive = false; 
 
+        // Pool of fake usernames for live feed feel
+        const FAKE_USERS = [
+            "SigmaSkibidi", "FanumTaxEvader", "MewingChamp", "Rizzler99", "GrimaceShake", 
+            "OhioResident", "AuraMaxx", "LooksMaxxer_69", "SkibidiSlicer", "GyattGod", 
+            "EdgeMaster", "Mogger_01", "KaisLover", "BabyGronk_Fan", "LankyBoxStan",
+            "SpeedyRizz", "AlphaWolf", "SkibidiGod", "Gigachad_Real", "MewingSeal"
+        ];
+
         var tierConfig = [
             { id: "TIER_MOONSTONE", name: "MOONSTONE", stars: 10, probability: 0.001, borderColor: "#7C3AED", textColor: "#D8B4FE", bg: "bg-purple-900/40" },
             { id: "TIER_LUCK_20", name: "20x LUCK", stars: 9, probability: 0.01, borderColor: "#FBBF24", textColor: "#FDE68A", bg: "bg-yellow-900/40" },
@@ -1500,7 +1509,7 @@
     { name: "Gingobalo Gingobali", icon: "🎪", cost: 95000, sell: 47500, income: 650, currency: "silver", description: "The nonsensical chant of the circus ringmaster." }
 ],
 "LEGENDARY": [
-    { name: "Burbalona Loliloli", icon: "balloon🍭", cost: 105000, sell: 52500, income: 750, currency: "silver", description: "A giant balloon fed on sugar and helium." },
+    { name: "Burbalona Loliloli", icon: "🍭", cost: 105000, sell: 52500, income: 750, currency: "silver", description: "A giant balloon fed on sugar and helium." },
     { name: "Chimpanzini Bananini", icon: "🐵🍌", cost: 120000, sell: 60000, income: 850, currency: "silver", description: "The primal ape who hoards all the bananas." },
     { name: "Ballerina Cappuccina", icon: "🩰☕", cost: 100000, sell: 50000, income: 500, currency: "silver", description: "A dancer fueled by a triple-shot latte." },
     { name: "Chef Crabracadabra", icon: "🧙‍♂️", cost: 200000, sell: 100000, income: 1000, currency: "silver", description: "A crab wizard who cooks with magic spells." },
@@ -1517,7 +1526,7 @@
 ],
 "MYTHIC": [
     { name: "Frigo Camelo", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695d001622afaa69eabffc61.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1600000, sell: 800000, income: 6200, currency: "silver", description: "A camel with a refrigerator hump." },
-    { name: "Orangutini Ananassini", icon: "🦧 Pineapple", cost: 1700000, sell: 850000, income: 6400, currency: "silver", description: "An orangutan made of pineapple chunks." },
+    { name: "Orangutini Ananassini", icon: "🦧🍍", cost: 1700000, sell: 850000, income: 6400, currency: "silver", description: "An orangutan made of pineapple chunks." },
     { name: "Bombardiro Crocodilo", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579de805b5113e1994a99a.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1800000, sell: 900000, income: 6600, currency: "silver", description: "A crocodile strapped with heavy artillery." },
     { name: "Bombardini Gusini", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579dfc035c3a0de947a70d.jpg' class='w-full h-full object-cover rounded-md'>", cost: 1900000, sell: 950000, income: 6800, currency: "silver", description: "A goose that lays explosive eggs." },
     { name: "Gorillo Watermellondrillo", icon: "🦍🍉", cost: 1950000, sell: 975000, income: 6900, currency: "silver", description: "A gorilla smashing a watermelon drill." },
@@ -1940,7 +1949,7 @@
             return num;
         }
 
-        function showGlobalBroadcast(itemName, color) {
+        function showGlobalBroadcast(itemName, color, userName = "Someone") {
             const container = document.getElementById('broadcast-container');
             if(!container) return;
             const broadcast = document.createElement('div');
@@ -1949,7 +1958,7 @@
             broadcast.innerHTML = `
                 <div class="flex items-center gap-2 brand-font font-black italic text-[10px] md:text-xs tracking-tighter uppercase">
                     <span class="bg-red-600 text-white px-2 py-0.5 rounded-sm animate-pulse">SYSTEM</span>
-                    <span class="text-white">Someone collected</span>
+                    <span class="text-white">${userName} collected</span>
                     <span style="color:${color}" class="drop-shadow-[0_0_5px_${color}]">${itemName}</span>
                 </div>
                 <div class="absolute inset-0 bg-white/5 pointer-events-none animate-pulse"></div>
@@ -1965,8 +1974,10 @@
             if (!items) return;
             const randomItem = items[Math.floor(Math.random() * items.length)];
             const tierData = tierConfig.find(t => t.id === randomTierId);
+            const randomUser = FAKE_USERS[Math.floor(Math.random() * FAKE_USERS.length)];
+            
             if (randomItem && tierData) {
-                showGlobalBroadcast(randomItem.name, tierData.borderColor);
+                showGlobalBroadcast(randomItem.name, tierData.borderColor, randomUser);
             }
         }
 
@@ -2207,11 +2218,11 @@
             const btn = document.getElementById('live-roll-btn');
             if (liveRollInterval) {
                 clearInterval(liveRollInterval); liveRollInterval = null; audioLib.ambience.pause(); audioLib.ambience.currentTime = 0;
-                if(btn) { btn.innerHTML = '<i data-lucide="play" class="w-3 h-3"></i> START LIVE FEED'; btn.classList.remove('bg-red-600', 'hover:bg-red-500'); btn.classList.add('bg-green-600', 'hover:bg-green-500'); lucide.createIcons(); }
+                if(btn) { btn.innerHTML = '<i data-lucide="play" class="w-3 h-3"></i> AUTO'; btn.classList.remove('bg-red-600', 'hover:bg-red-500'); btn.classList.add('bg-green-600', 'hover:bg-green-500'); lucide.createIcons(); }
             } else {
                 playSound('ambience'); pullRot(true, 1, 1, true); 
                 liveRollInterval = setInterval(() => { pullRot(true, 1, 1, true); }, 3000); 
-                if(btn) { btn.innerHTML = '<div id="live-indicator" class="w-2 h-2 bg-white rounded-full animate-pulse"></div> LIVE RED CARPET'; btn.classList.remove('bg-green-600', 'hover:bg-green-500'); btn.classList.add('bg-red-600', 'hover:bg-red-500'); }
+                if(btn) { btn.innerHTML = '<div id="live-indicator" class="w-2 h-2 bg-white rounded-full animate-pulse"></div> AUTO ON'; btn.classList.remove('bg-green-600', 'hover:bg-green-500'); btn.classList.add('bg-red-600', 'hover:bg-red-500'); }
             }
         }
 
@@ -2723,7 +2734,7 @@
                 if (nextHour >= 24) nextHour = 0;
                 const nextDate = new Date();
                 nextDate.setHours(nextHour, 0, 0, 0);
-                if (nextHour <= hour && min >= 5) nextDate.setDate(nextDate.getDate() + 1);
+                if (nextHour <= hour && min >= 5) nextDate.setDate(nextDate.setDate() + 1);
                 const diff = nextDate - now;
                 const h = Math.floor(diff / 3600000);
                 const m = Math.floor((diff % 3600000) / 60000);
@@ -2794,7 +2805,10 @@
             loadGame(); 
             initSakura(); 
             updateTimers();
-            scheduleNextFakeBroadcast(); // Start the fake broadcast system
+            scheduleNextFakeBroadcast();
+            
+            // Automatically start Auto mode on load
+            toggleLiveRoll();
         });
     </script>
 </body>
