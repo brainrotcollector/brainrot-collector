@@ -74,8 +74,8 @@
             0% { filter: hue-rotate(0deg) contrast(1.2); transform: translate(0); }
             20% { transform: translate(-2px, 2px); }
             40% { filter: hue-rotate(90deg); transform: translate(2px, -2px); }
-            60% { transform: translate(-1px, -1px); }
-            80% { filter: hue-rotate(180deg); transform: translate(1px, 1px); }
+            60% { filter: hue-rotate(180deg); transform: translate(-1px, -1px); }
+            80% { filter: hue-rotate(270deg); transform: translate(1px, 1px); }
             100% { filter: hue-rotate(360deg); transform: translate(0); }
         }
 
@@ -748,6 +748,31 @@
             gap: 4px;
         }
 
+        /* STAR RATINGS */
+        .star-rating {
+            position: absolute;
+            display: flex;
+            flex-direction: row-reverse; /* Align right */
+            gap: 0px;
+            z-index: 15;
+            pointer-events: none;
+            line-height: 1;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.8));
+        }
+        .star-rating span {
+            color: #FFD700;
+            font-weight: 900;
+        }
+        /* Context specific sizing */
+        .draw-stars { bottom: 5px; right: 5px; }
+        .draw-stars span { font-size: 14px; text-shadow: 2px 2px 0 #000; }
+        
+        .carpet-stars { bottom: 1px; right: 1px; } 
+        .carpet-stars span { font-size: 8px; letter-spacing: -2px; text-shadow: 1px 1px 0 #000; }
+        
+        .collection-stars { bottom: 1px; right: 1px; }
+        .collection-stars span { font-size: 10px; letter-spacing: -2px; text-shadow: 1px 1px 0 #000; }
+
     </style>
 </head>
 <body class="antialiased selection:bg-pink-500 selection:text-white flex flex-col min-h-screen">
@@ -1017,7 +1042,7 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="bg-black border-4 border-cyan-400 rounded-3xl p-6 relative overflow-hidden shadow-[0_0_30px_rgba(5,217,232,0.2)]">
                 <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
-                <h3 class="text-3xl font-black mb-6 text-center uppercase tracking-widest drop-shadow-md brand-font flash-effect">✨ YOUR BASE ✨</h3>
+                <h3 class="text-3xl font-black mb-6 text-center uppercase tracking-widest drop-shadow-md brand-font flash-effect">YOUR BASE</h3>
                 <div class="relative z-10 flex flex-col items-center justify-center mb-6">
                     <div class="bg-gray-900/90 border-2 border-cyan-500/50 rounded-xl p-4 flex items-center gap-4 shadow-lg backdrop-blur-sm">
                         <div class="text-center">
@@ -1089,32 +1114,32 @@
                             <div id="inv-bonus-2" class="special-slot" onclick="activateTimeBonus(2)">⚡</div>
                             <div class="text-[10px] font-bold mt-1 text-green-400 uppercase">LUCK x2</div>
                             <div class="flex flex-col gap-1 mt-2">
-                                <button onclick="purchaseItem('time', 'x2', 'silver', 10000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">10M <span class="silver-img-container"></span></button>
-                                <button onclick="purchaseItem('time', 'x2', 'gold', 10)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">10 <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
+                                <button onclick="purchaseItem('time', 'x2', 'silver', 2500000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">2.5B <span class="silver-img-container"></span></button>
+                                <button onclick="purchaseItem('time', 'x2', 'gold', 2500000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">2.5B <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
                             </div>
                         </div>
                         <div class="bg-gray-900 p-2 rounded border border-blue-500/50 text-center">
                             <div id="inv-bonus-4" class="special-slot" onclick="activateTimeBonus(4)">⚡</div>
                             <div class="text-[10px] font-bold mt-1 text-blue-400 uppercase">LUCK x4</div>
                             <div class="flex flex-col gap-1 mt-2">
-                                <button onclick="purchaseItem('time', 'x4', 'silver', 50000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">50M <span class="silver-img-container"></span></button>
-                                <button onclick="purchaseItem('time', 'x4', 'gold', 50)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">50 <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
+                                <button onclick="purchaseItem('time', 'x4', 'silver', 5000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">5B <span class="silver-img-container"></span></button>
+                                <button onclick="purchaseItem('time', 'x4', 'gold', 5000000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">5B <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
                             </div>
                         </div>
                         <div class="bg-gray-900 p-2 rounded border border-purple-500/50 text-center">
                             <div id="inv-bonus-10" class="special-slot" onclick="activateTimeBonus(10)">⚡</div>
                             <div class="text-[10px] font-bold mt-1 text-purple-400 uppercase">LUCK x10</div>
                             <div class="flex flex-col gap-1 mt-2">
-                                <button onclick="purchaseItem('time', 'x10', 'silver', 100000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">100M <span class="silver-img-container"></span></button>
-                                <button onclick="purchaseItem('time', 'x10', 'gold', 1000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">1M <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
+                                <button onclick="purchaseItem('time', 'x10', 'silver', 10000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">10B <span class="silver-img-container"></span></button>
+                                <button onclick="purchaseItem('time', 'x10', 'gold', 10000000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">10B <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
                             </div>
                         </div>
                         <div class="bg-gray-900 p-2 rounded border border-yellow-500/50 text-center">
                             <div id="inv-bonus-20" class="special-slot" onclick="activateTimeBonus(20)">⚡</div>
                             <div class="text-[10px] font-bold mt-1 text-yellow-400 uppercase">LUCK x20</div>
                             <div class="flex flex-col gap-1 mt-2">
-                                <button onclick="purchaseItem('time', 'x20', 'silver', 100000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">100M <span class="silver-img-container"></span></button>
-                                <button onclick="purchaseItem('time', 'x20', 'gold', 100000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">100M <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
+                                <button onclick="purchaseItem('time', 'x20', 'silver', 10000000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">10T <span class="silver-img-container"></span></button>
+                                <button onclick="purchaseItem('time', 'x20', 'gold', 10000000000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">10T <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
                             </div>
                         </div>
                     </div>
@@ -1149,7 +1174,7 @@
                     </div>
                 </div>
 
-                <!-- BASE UPGRADES SECTION (Moved to bottom of Special Offers) -->
+                <!-- BASE UPGRADES SECTION -->
                 <div class="mt-8 p-4 bg-black/40 rounded-xl">
                     <h5 class="text-lg font-bold text-cyan-400 mb-4 text-center uppercase tracking-widest">🏗️ BASE EXPANSIONS</h5>
                     <div class="grid grid-cols-2 gap-4">
@@ -1157,13 +1182,13 @@
                             <div id="shop-expander-1" class="text-4xl mb-2">🏗️</div>
                             <div class="text-[10px] font-bold text-white uppercase">Base Expander I</div>
                             <div class="text-[8px] text-gray-500 mb-2">+5 BASE SLOTS</div>
-                            <button id="btn-expander-1" onclick="purchaseUpgrade('expander1', 100000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1 disabled:opacity-30">100B <span class="silver-img-container"></span></button>
+                            <button id="btn-expander-1" onclick="purchaseUpgrade('expander1', 100000000000, 'silver')" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1 disabled:opacity-30">100B <span class="silver-img-container"></span></button>
                         </div>
                         <div class="bg-gray-900 p-3 rounded border border-cyan-500/50 text-center">
                             <div id="shop-expander-2" class="text-4xl mb-2">🏙️</div>
                             <div class="text-[10px] font-bold text-white uppercase">Base Expander II</div>
                             <div class="text-[8px] text-gray-500 mb-2">+5 BASE SLOTS</div>
-                            <button id="btn-expander-2" onclick="purchaseUpgrade('expander2', 10000000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1 disabled:opacity-30">10T <span class="silver-img-container"></span></button>
+                            <button id="btn-expander-2" onclick="purchaseUpgrade('expander2', 10000000000000, 'gold')" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1 disabled:opacity-30">10T <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
                         </div>
                     </div>
                 </div>
@@ -1713,6 +1738,13 @@
         audioLib.disco.loop = true;
         audioLib.disco.volume = 0.4;
 
+        // --- HELPER FOR STARS ---
+        function getStarHTML(count, className = '') {
+            let stars = '';
+            for(let i=0; i<count; i++) { stars += '★'; }
+            return `<div class="star-rating ${className}"><span>${stars}</span></div>`;
+        }
+
         function toggleAdminPanelUI() {
             const panel = document.getElementById('admin-panel');
             panel.classList.toggle('active');
@@ -2102,7 +2134,7 @@
             }
             if(inventory.upgrades.expander2) {
                 const btn2 = document.getElementById('btn-expander-2');
-                if(btn2) { btn2.innerText = "OWNED"; btn2.disabled = true; btn2.classList.add('bg-green-600', 'text-white'); btn2.classList.remove('bg-gray-200', 'text-black'); }
+                if(btn2) { btn2.innerText = "OWNED"; btn2.disabled = true; btn2.classList.add('bg-green-600', 'text-white'); btn2.classList.remove('bg-yellow-600'); }
             }
 
             renderBaseUI();
@@ -2111,7 +2143,6 @@
             const gg = document.getElementById('game-grand-count'); if(gg) gg.innerText = inventory.grand;
             const gc = document.getElementById('game-crazy-count'); if(gc) gc.innerText = inventory.crazy;
 
-            // REMOVED INVENTORY DISPLAY FOR LUCKY TICKETS AS PER REQUEST
             renderInventory('inv-lucky', inventory.lucky, '🎟️', 'lucky');
             renderInventory('inv-grand', inventory.grand, '🎟', 'grand');
             renderInventory('inv-crazy', inventory.crazy, '🎁', 'crazy');
@@ -2127,10 +2158,10 @@
             const sa = document.getElementById('menu-count-admin'); if(sa) sa.innerText = `x${inventory.special.admin}`;
         }
 
-        function purchaseUpgrade(id, cost) {
+        function purchaseUpgrade(id, cost, currency = 'silver') {
             if(inventory.upgrades[id]) return;
-            if(currencies.silver >= cost) {
-                currencies.silver -= cost;
+            if(currencies[currency] >= cost) {
+                currencies[currency] -= cost;
                 inventory.upgrades[id] = true;
                 
                 const newSize = getMaxBaseSlots();
@@ -2284,22 +2315,31 @@
 
         window.pullRot = function(isAutoRoll = false, drawCount = 1, luckMultiplier = 1, isInstant = false) {
             const content = document.getElementById('rot-content'); const history = document.getElementById('rot-history'); const btn = document.getElementById('pull-btn');
-            if(isAutoFestivalActive || isAutoRainbowActive) { if(!isAutoRoll && !isInstant) return; }
+            
+            if(isAutoFestivalActive || isAutoRainbowActive) {
+                if(!isAutoRoll && !isInstant) return;
+            }
+
             if(btn && btn.disabled && !isAutoRoll && !isInstant) return;
             if(!isInstant && btn) btn.disabled = true;
             if(!isInstant && content) content.innerHTML = `<div class="text-7xl animate-spin">🌀</div>`;
             if(!isInstant) playSound('draw');
+            
             currencies.silver += 1; 
             if(!isInstant) showFloatingText(`+1 ${SILVER_ICON_HTML}`, window.innerWidth / 2, window.innerHeight / 2, "#9CA3AF");
             updateStatsUI();
+            
             const delay = isInstant ? 0 : 1000;
             setTimeout(() => {
                 let results = [];
                 for(let d=0; d<drawCount; d++) {
                     const roll = Math.random() * 100;
                     let selectedTier = tierConfig[tierConfig.length - 1];
-                    if (forcedTierId) { selectedTier = tierConfig.find(t => t.id === forcedTierId); forcedTierId = null; } 
-                    else {
+                    
+                    if (forcedTierId) { 
+                        selectedTier = tierConfig.find(t => t.id === forcedTierId); 
+                        forcedTierId = null; 
+                    } else {
                         const sRoll = Math.random() * 100;
                         if (sRoll < 0.001) selectedTier = { id: 'TIER_MOONSTONE', name: 'MOONSTONE', stars: 10, borderColor: '#7C3AED', textColor: '#D8B4FE' };
                         else if (sRoll < 0.01) selectedTier = { id: 'CURRENCY_TIER', name: 'DIAMOND', stars: 9, borderColor: '#60A5FA', textColor: '#93C5FD' };
@@ -2325,70 +2365,107 @@
                             }
                         }
                     }
+                    
                     let items = itemDatabase[selectedTier.id] || itemDatabase['COMMON'];
                     const item = items[Math.floor(Math.random() * items.length)];
                     const uniqueId = 'item-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
                     results.push({ item: item, tier: selectedTier, uniqueId: uniqueId });
                 }
+
                 if(content) {
                     content.innerHTML = '';
                     results.forEach(r => {
                         const screenDiv = document.createElement('div');
                         screenDiv.className = "inline-flex flex-col items-center mx-2 cursor-pointer hover:scale-105 active:scale-95 transition-transform relative z-10 p-2 rounded-2xl bg-white/5 border border-white/10";
                         screenDiv.setAttribute('data-unique-id', r.uniqueId); 
-                        const cost = r.item.cost || 1, currency = r.item.currency || 'silver';
+                        const cost = r.item.cost || 1; 
+                        const currency = r.item.currency || 'silver';
                         const isSpecialType = ['lucky', 'timeBonus', 'guaranteed', 'currency'].includes(r.item.type);
                         const isFree = (cost <= 1 && currency === 'silver') || isSpecialType;
                         const currencyIcon = currency === 'gold' ? GOLD_ICON_HTML : (currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML); 
                         const priceColor = currency === 'gold' ? 'text-yellow-400' : (currency === 'moonstones' ? 'text-purple-400' : 'text-gray-300');
-                        let priceDisplay = `${formatNumber(cost)} ${currencyIcon}`; if (isFree) priceDisplay = "<span class='text-green-400'>FREE</span>";
+                        let priceDisplay = `${formatNumber(cost)} ${currencyIcon}`; 
+                        if (isFree) priceDisplay = "<span class='text-green-400'>FREE</span>";
+                        
+                        const stars = getStarHTML(r.tier.stars || 1, 'draw-stars');
+
                         screenDiv.innerHTML = `
                             <div class="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center animate-pop mb-2 relative">
                                 <div class="absolute inset-0 rounded-xl border-2 opacity-50" style="border-color:${r.tier.borderColor}"></div>
-                                <div class="w-full h-full p-1 flex items-center justify-center text-5xl md:text-7xl overflow-hidden">${r.item.icon}</div>
+                                <div class="w-full h-full p-1 flex items-center justify-center text-5xl md:text-7xl overflow-hidden">
+                                    ${r.item.icon}
+                                </div>
+                                ${stars}
                             </div>
                             <div class="text-xs md:text-sm font-black uppercase tracking-tight leading-tight max-w-[100px] md:max-w-[120px] truncate" style="color:${r.tier.textColor}">${r.item.name}</div>
                             <div class="mt-1 px-2 py-0.5 rounded bg-black/60 border border-white/10">
                                 <div class="text-[10px] md:text-xs font-black ${priceColor} flex items-center justify-center gap-0.5">${priceDisplay}</div>
                             </div>
                         `;
+                        
                         if (isFree) { screenDiv.onclick = (e) => { e.stopPropagation(); collectFreeItem(r.item, r.tier, r.uniqueId); }; }
                         else { screenDiv.onclick = (e) => { e.stopPropagation(); promptAddToBase(r.item, r.tier, r.uniqueId); }; }
                         content.appendChild(screenDiv);
                     });
                 }
+
                 const maxTierStars = Math.max(...results.map(r => r.tier.stars || 1));
                 if (maxTierStars >= 6 && !isInstant) { const flash = document.getElementById('rarity-flash'); if(flash) { flash.style.opacity = '0.5'; setTimeout(() => flash.style.opacity = '0', 300); } }
+                
                 results.forEach(res => {
                     if (res.item.name === "Cowgirl Rush") { triggerCowgirlRush(); return; }
                     const hItem = document.createElement('div');
                     hItem.className = 'w-12 h-14 rounded carpet-item-box flex flex-col items-center justify-center border-2 overflow-hidden bg-black flex-shrink-0 relative'; 
                     hItem.setAttribute('data-unique-id', res.uniqueId); 
-                    const cost = res.item.cost || 1, currency = res.item.currency || 'silver';
+                    const cost = res.item.cost || 1; 
+                    const currency = res.item.currency || 'silver';
                     const isSpecialType = ['lucky', 'timeBonus', 'guaranteed', 'currency'].includes(res.item.type);
                     const isFree = (cost <= 1 && currency === 'silver') || isSpecialType;
                     const currencyIcon = res.item.currency === 'gold' ? GOLD_ICON_HTML : (res.item.currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML); 
                     const priceColor = res.item.currency === 'gold' ? 'text-yellow-400' : (res.item.currency === 'moonstones' ? 'text-purple-400' : 'text-gray-300');
-                    let priceDisplay = `${formatNumber(cost)} ${currencyIcon}`; if (isFree) priceDisplay = "<span class='text-green-400'>FREE</span>";
-                    hItem.innerHTML = `<div class="text-2xl">${res.item.icon}</div><div class="text-[8px] font-black ${priceColor} leading-none mt-1 flex items-center gap-0.5">${priceDisplay}</div>`;
+                    let priceDisplay = `${formatNumber(cost)} ${currencyIcon}`; 
+                    if (isFree) priceDisplay = "<span class='text-green-400'>FREE</span>";
+                    
+                    const stars = getStarHTML(res.tier.stars || 1, 'carpet-stars');
+
+                    hItem.innerHTML = `
+                        <div class="text-2xl relative w-full h-full flex items-center justify-center">
+                            ${res.item.icon}
+                            ${stars}
+                        </div>
+                        <div class="text-[8px] font-black ${priceColor} leading-none mb-1 flex items-center gap-0.5 z-20 bg-black/50 px-1 rounded">${priceDisplay}</div>
+                    `;
                     hItem.style.borderColor = res.tier.borderColor;
                     if (isFree) { hItem.onclick = () => collectFreeItem(res.item, res.tier, res.uniqueId); }
                     else { hItem.onclick = () => promptAddToBase(res.item, res.tier, res.uniqueId); }
                     const placeholder = document.getElementById('carpet-placeholder'); if(placeholder) history.innerHTML = '';
                     history.prepend(hItem); if(isInstant) triggerCameraFlash();
                     requestAnimationFrame(() => {
-                        const historyRect = history.getBoundingClientRect(), children = Array.from(history.children);
+                        const historyRect = history.getBoundingClientRect(); 
+                        const children = Array.from(history.children);
                         children.forEach(child => { const childRect = child.getBoundingClientRect(); if (childRect.left > historyRect.right) child.remove(); });
                         while(history.children.length > 25) history.removeChild(history.lastChild);
                     });
                 });
+
                 if(btn && !isInstant) { 
                     const span = btn.querySelector('span');
-                    if (isAutoRainbowActive) { btn.disabled = true; if (span) span.innerText = "RAINBOW MODE ACTIVE"; else btn.innerText = "RAINBOW MODE ACTIVE"; } 
-                    else if (isAutoFestivalActive) { btn.disabled = true; if (span) span.innerText = "LANTERN FESTIVAL ACTIVE"; else btn.innerText = "LANTERN FESTIVAL ACTIVE"; } 
-                    else { btn.disabled = false; if (span) span.innerText = "DRAW AGAIN"; else btn.innerText = "DRAW AGAIN"; }
+                    if (isAutoRainbowActive) {
+                        btn.disabled = true;
+                        if (span) span.innerText = "RAINBOW MODE ACTIVE";
+                        else btn.innerText = "RAINBOW MODE ACTIVE";
+                    } else if (isAutoFestivalActive) {
+                        btn.disabled = true;
+                        if (span) span.innerText = "LANTERN FESTIVAL ACTIVE";
+                        else btn.innerText = "LANTERN FESTIVAL ACTIVE";
+                    } else {
+                        btn.disabled = false;
+                        if (span) span.innerText = "DRAW AGAIN";
+                        else btn.innerText = "DRAW AGAIN";
+                    }
                 }
-                if (isInstant) { playSound('shutter'); const hasHighTier = results.some(r => (r.tier.stars || 1) >= 7); if(hasHighTier) setTimeout(() => playSound('wow'), 200); } else { playSound('pop'); }
+                if (isInstant) { playSound('shutter'); const hasHighTier = results.some(r => (r.tier.stars || 1) >= 7); if(hasHighTier) setTimeout(() => playSound('wow'), 200); }
+                else { playSound('pop'); }
                 saveGame();
             }, delay);
         };
@@ -2396,8 +2473,12 @@
         function showFloatingText(text, x, y, color = "#FFF") {
             const el = document.createElement('div');
             el.className = 'currency-pop-text brand-font font-black pointer-events-none flex items-center gap-1';
-            el.style.left = x + 'px'; el.style.top = y + 'px'; el.style.color = color; el.innerHTML = text;
-            document.body.appendChild(el); setTimeout(() => el.remove(), 1400);
+            el.style.left = x + 'px';
+            el.style.top = y + 'px';
+            el.style.color = color;
+            el.innerHTML = text;
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 1400);
         }
 
         function collectFreeItem(item, tier, uniqueId) {
@@ -2405,8 +2486,11 @@
                 ...item, tierColor: tier.borderColor, tierName: tier.name, tierId: tier.id, cost: 0,
                 currency: item.currency || 'silver', sell: item.sell || 1, income: item.income || 1, goldIncome: item.goldIncome || 0, type: item.type || 'character'
             };
-            const elements = document.querySelectorAll(`[data-unique-id="${uniqueId}"]`), rect = elements[0] ? elements[0].getBoundingClientRect() : { left: window.innerWidth/2, top: window.innerHeight/2 };
+            const elements = document.querySelectorAll(`[data-unique-id="${uniqueId}"]`);
+            const rect = elements[0] ? elements[0].getBoundingClientRect() : { left: window.innerWidth/2, top: window.innerHeight/2 };
+            
             elements.forEach(el => el.classList.add('animate-collect-zoom'));
+            
             let success = true;
             if (itemData.type === 'currency') { 
                 if (itemData.currencyType) {
@@ -2420,26 +2504,117 @@
             else if (itemData.type === 'timeBonus') { if (itemData.bonusType) inventory.timeBonus[itemData.bonusType]++; playSound('laser'); }
             else if (itemData.type === 'guaranteed') { if (itemData.specialType) inventory.special[itemData.specialType]++; playSound('heaven'); }
             else {
-                const emptyIdx = baseInventory.indexOf(null), maxSlots = getMaxBaseSlots();
-                if(emptyIdx === -1 || emptyIdx >= maxSlots) { elements.forEach(el => el.classList.remove('animate-collect-zoom')); success = false; }
-                else { baseInventory[emptyIdx] = itemData; playSound('heaven'); handleCollection(itemData); }
+                const emptyIdx = baseInventory.indexOf(null);
+                const maxSlots = getMaxBaseSlots();
+                if(emptyIdx === -1 || emptyIdx >= maxSlots) { 
+                    elements.forEach(el => el.classList.remove('animate-collect-zoom')); 
+                    success = false; 
+                }
+                else { 
+                    baseInventory[emptyIdx] = itemData; 
+                    playSound('heaven'); 
+                    handleCollection(itemData); 
+                }
             }
-            if (success) { updateStatsUI(); saveGame(); setTimeout(() => { elements.forEach(el => el.remove()); const history = document.getElementById('rot-history'); if (history && history.children.length === 0) history.innerHTML = '<div id="carpet-placeholder" class="text-white/30 font-black brand-font uppercase text-xs tracking-widest w-full text-center">Draw to Walk the Red Carpet</div>'; }, 300); }
+
+            if (success) {
+                updateStatsUI(); 
+                saveGame();
+                setTimeout(() => {
+                    elements.forEach(el => el.remove());
+                    const history = document.getElementById('rot-history');
+                    if (history && history.children.length === 0) history.innerHTML = '<div id="carpet-placeholder" class="text-white/30 font-black brand-font uppercase text-xs tracking-widest w-full text-center">Draw to Walk the Red Carpet</div>';
+                }, 300);
+            }
         }
 
-        function purchaseItem(cat, type, curr, cost) { if(currencies[curr] >= cost) { currencies[curr] -= cost; if(cat === 'lucky') inventory[type]++; if(cat === 'time') inventory.timeBonus[type]++; if(cat === 'special') inventory.special[type]++; playSound('buy'); updateStatsUI(); saveGame(); } }
+        function purchaseItem(cat, type, curr, cost) {
+            if(currencies[curr] >= cost) {
+                currencies[curr] -= cost;
+                if(cat === 'lucky') inventory[type]++;
+                if(cat === 'time') inventory.timeBonus[type]++;
+                if(cat === 'special') inventory.special[type]++;
+                playSound('buy'); 
+                updateStatsUI(); 
+                saveGame();
+            }
+        }
 
-        function handleCollection(itemData) { if(!collectedItemsMap[itemData.name]) { collectedItemsMap[itemData.name] = true; initCollection(); checkTierCompletions(); const highTiers = ['BRAINROT_GOD', 'SECRET', 'GOAT']; if (highTiers.includes(itemData.tierId)) showGlobalBroadcast(itemData.name, itemData.tierColor); } }
+        function handleCollection(itemData) { 
+            if(!collectedItemsMap[itemData.name]) { 
+                collectedItemsMap[itemData.name] = true; 
+                initCollection(); 
+                checkTierCompletions();
+                const highTiers = ['BRAINROT_GOD', 'SECRET', 'GOAT'];
+                if (highTiers.includes(itemData.tierId)) {
+                    showGlobalBroadcast(itemData.name, itemData.tierColor);
+                }
+            } 
+        }
 
-        function checkTierCompletions() { Object.keys(MAXXER_REWARDS).forEach(rarity => { if (rewards[rarity]) return; const tierItems = itemDatabase[rarity]; if (!tierItems) return; const isComplete = tierItems.every(it => collectedItemsMap[it.name] === true); if (isComplete) awardMaxxer(rarity); }); }
+        function checkTierCompletions() {
+            Object.keys(MAXXER_REWARDS).forEach(rarity => {
+                if (rewards[rarity]) return; 
+                const tierItems = itemDatabase[rarity];
+                if (!tierItems) return;
+                const isComplete = tierItems.every(it => collectedItemsMap[it.name] === true);
+                if (isComplete) {
+                    awardMaxxer(rarity);
+                }
+            });
+        }
 
-        function awardMaxxer(rarity) { rewards[rarity] = true; const data = MAXXER_REWARDS[rarity]; const modal = document.getElementById('reward-modal'), content = document.getElementById('reward-content'); document.getElementById('reward-rarity-text').innerText = `ALL ${rarity.replace('_', ' ')} BRAINROT COLLECTED!`; document.getElementById('reward-item-icon').innerText = data.icon; document.getElementById('reward-item-name').innerText = data.name.toUpperCase(); modal.classList.remove('hidden'); setTimeout(() => { content.classList.remove('scale-95', 'opacity-0'); content.classList.add('scale-100', 'opacity-100'); }, 10); playSound('heaven'); updateStatsUI(); saveGame(); }
+        function awardMaxxer(rarity) {
+            rewards[rarity] = true;
+            const data = MAXXER_REWARDS[rarity];
+            const modal = document.getElementById('reward-modal');
+            const content = document.getElementById('reward-content');
+            document.getElementById('reward-rarity-text').innerText = `ALL ${rarity.replace('_', ' ')} BRAINROT COLLECTED!`;
+            document.getElementById('reward-item-icon').innerText = data.icon;
+            document.getElementById('reward-item-name').innerText = data.name.toUpperCase();
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            playSound('heaven');
+            updateStatsUI();
+            saveGame();
+        }
 
-        function closeRewardModal() { const m = document.getElementById('reward-modal'), c = document.getElementById('reward-content'); c.classList.add('scale-95', 'opacity-0'); setTimeout(() => { m.classList.add('hidden'); }, 500); }
+        function closeRewardModal() {
+            const m = document.getElementById('reward-modal'), c = document.getElementById('reward-content');
+            c.classList.add('scale-95', 'opacity-0'); setTimeout(() => { m.classList.add('hidden'); }, 500);
+        }
 
-        function showCollectionLore(tierId, itemName) { const tier = tierConfig.find(t => t.id === tierId); const item = itemDatabase[tierId].find(i => i.name === itemName); if(item && tier) showLoreModal(item, tier); }
+        function showCollectionLore(tierId, itemName) {
+            const tier = tierConfig.find(t => t.id === tierId);
+            const item = itemDatabase[tierId].find(i => i.name === itemName);
+            if(item && tier) showLoreModal(item, tier);
+        }
 
-        function initCollection() { const grid = document.getElementById('collection-grid'); if(!grid) return; grid.innerHTML = ''; tierConfig.slice().reverse().forEach(tier => { if (!['COMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'BRAINROT_GOD', 'SECRET', 'GOAT'].includes(tier.id)) return; const sec = document.createElement('div'); sec.className = `rounded-xl border-2 p-4 mb-4 ${tier.bg || 'bg-gray-900/40'}`; sec.style.borderColor = tier.borderColor; const items = itemDatabase[tier.id] || []; const itemsHtml = items.map(it => { const isCollected = collectedItemsMap[it.name] === true, safeName = it.name.replace(/'/g, "\\'"); return `<div onclick="${isCollected ? `showCollectionLore('${tier.id}', '${safeName}')` : ''}" class="w-10 h-10 rounded bg-black flex items-center justify-center text-xl cursor-pointer transition-transform hover:scale-110 active:scale-95 ${isCollected ? '' : 'opacity-20 grayscale'}">${isCollected ? it.icon : '❓'}</div>`; }).join(''); sec.innerHTML = `<h4 class="font-black mb-2" style="color:${tier.textColor}">${tier.name}</h4><div class="flex flex-wrap gap-2">${itemsHtml}</div>`; grid.appendChild(sec); }); }
+        function initCollection() {
+            const grid = document.getElementById('collection-grid'); if(!grid) return;
+            grid.innerHTML = '';
+            tierConfig.slice().reverse().forEach(tier => {
+                if (!['COMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'BRAINROT_GOD', 'SECRET', 'GOAT'].includes(tier.id)) return;
+                const sec = document.createElement('div');
+                sec.className = `rounded-xl border-2 p-4 mb-4 ${tier.bg || 'bg-gray-900/40'}`;
+                sec.style.borderColor = tier.borderColor;
+                const items = itemDatabase[tier.id] || [];
+                const itemsHtml = items.map(it => {
+                    const isCollected = collectedItemsMap[it.name] === true;
+                    const safeName = it.name.replace(/'/g, "\\'");
+                    const stars = getStarHTML(tier.stars || 1, 'collection-stars');
+                    return `<div onclick="${isCollected ? `showCollectionLore('${tier.id}', '${safeName}')` : ''}" class="w-10 h-10 rounded bg-black flex items-center justify-center text-xl cursor-pointer transition-transform hover:scale-110 active:scale-95 relative ${isCollected ? '' : 'opacity-20 grayscale'}">
+                        ${isCollected ? it.icon : '❓'}
+                        ${isCollected ? stars : ''}
+                    </div>`;
+                }).join('');
+                sec.innerHTML = `<h4 class="font-black mb-2" style="color:${tier.textColor}">${tier.name}</h4><div class="flex flex-wrap gap-2">${itemsHtml}</div>`;
+                grid.appendChild(sec);
+            });
+        }
 
         function saveGame() { localStorage.setItem('brainrotCollectorV6', JSON.stringify({ collectedItems: collectedItemsMap, inventory, currencies, rewards, base: baseInventory, accumulatedSilver, accumulatedGold })); }
 
