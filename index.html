@@ -17,6 +17,7 @@
             --void-black: #0d0208;
             --gold: #FFD700;
             --velvet: #8b0000;
+            --crystal-purple: #a855f7;
         }
         
         body {
@@ -26,61 +27,6 @@
             overflow-x: hidden;
             background-image: url('https://www.transparenttextures.com/patterns/noise-lines.png');
             transition: filter 0.3s ease;
-        }
-
-        /* GLITCH MODE ACTIVE STATE */
-        body.glitch-active {
-            animation: hard-glitch 0.2s infinite;
-            filter: contrast(1.5) hue-rotate(90deg);
-        }
-        
-        @keyframes hard-glitch {
-            0% { transform: translate(0) skew(0deg); }
-            20% { transform: translate(-5px, 5px) skew(5deg); filter: invert(1); }
-            40% { transform: translate(5px, -5px) skew(-5deg); filter: invert(0); }
-            60% { transform: translate(-5px, 5px) skew(5deg); filter: hue-rotate(180deg); }
-            80% { transform: translate(5px, -5px) skew(-5deg); }
-            100% { transform: translate(0) skew(0deg); }
-        }
-
-        /* CRYSTAL METER STYLES */
-        #glitch-meter-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 4px 10px;
-            background: rgba(0, 0, 0, 0.8);
-            border-bottom: 1px solid #333;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .meter-bar-bg {
-            flex-grow: 1;
-            height: 12px;
-            background: #222;
-            border: 1px solid #444;
-            border-radius: 6px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .meter-bar-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #ff00ff, #00ffff);
-            box-shadow: 0 0 10px #00ffff;
-            transition: width 0.3s ease-out;
-        }
-        
-        .meter-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 10px;
-            color: #00ffff;
-            font-weight: 900;
-            text-shadow: 0 0 5px #00ffff;
-            white-space: nowrap;
         }
 
         /* ADMIN PANEL STYLES */
@@ -121,7 +67,7 @@
         .admin-btn:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
         .admin-btn i { width: 14px; height: 14px; }
 
-        /* GLITCH MODE EFFECT (Old class kept for backward compat if needed, but overridden) */
+        /* GLITCH MODE EFFECT */
         body.glitch-mode-active {
             animation: global-glitch 0.2s infinite;
         }
@@ -192,6 +138,18 @@
             border: 4px solid transparent;
             background-image: linear-gradient(#111, #111), linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
             background-origin: border-box; background-clip: content-box, border-box;
+        }
+
+        /* POWER CRYSTAL MAX GLOW */
+        @keyframes crystal-pulse {
+            0% { filter: drop-shadow(0 0 2px #a855f7) brightness(1); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 15px #d8b4fe) brightness(1.4); transform: scale(1.05); }
+            100% { filter: drop-shadow(0 0 2px #a855f7) brightness(1); transform: scale(1); }
+        }
+        .crystal-max-glow {
+            animation: crystal-pulse 1.5s infinite ease-in-out;
+            color: #fff !important;
+            text-shadow: 0 0 12px rgba(168, 85, 247, 0.8), 0 0 5px white;
         }
 
         /* BROADCAST NOTIFICATION */
@@ -812,23 +770,21 @@
             z-index: 15;
             pointer-events: none;
             line-height: 1;
-            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.9));
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.8));
         }
         .star-rating span {
+            color: #FFD700;
             font-weight: 900;
         }
-        /* Context specific sizing - Scaled relative to icon size */
-        .draw-stars { bottom: 5%; right: 5%; }
-        .draw-stars span { font-size: 1.5rem; text-shadow: 2px 2px 0 #000; } /* Large for Draw */
+        /* Context specific sizing */
+        .draw-stars { bottom: 5px; right: 5px; }
+        .draw-stars span { font-size: 14px; text-shadow: 2px 2px 0 #000; }
         
-        .carpet-stars { bottom: 2px; right: 2px; } 
-        .carpet-stars span { font-size: 8px; letter-spacing: -1px; text-shadow: 1px 1px 0 #000; } /* Small for Carpet */
+        .carpet-stars { bottom: 1px; right: 1px; } 
+        .carpet-stars span { font-size: 8px; letter-spacing: -2px; text-shadow: 1px 1px 0 #000; }
         
-        .collection-stars { bottom: 0px; right: 0px; }
-        .collection-stars span { font-size: 10px; letter-spacing: -1px; text-shadow: 1px 1px 0 #000; } /* Medium for Collection */
-
-        .base-stars { bottom: 2px; right: 2px; }
-        .base-stars span { font-size: 10px; letter-spacing: -1px; text-shadow: 1px 1px 0 #000; } /* For Base Grid */
+        .collection-stars { bottom: 1px; right: 1px; }
+        .collection-stars span { font-size: 10px; letter-spacing: -2px; text-shadow: 1px 1px 0 #000; }
 
     </style>
 </head>
@@ -873,6 +829,7 @@
             <button onclick="toggleDisco()" class="admin-btn"><i data-lucide="sparkles"></i> Rainbow Mode</button>
             <button onclick="activateGlitchMode()" class="admin-btn"><i data-lucide="alert-triangle"></i> Glitch Mode</button>
             <button onclick="triggerTifaRush()" class="admin-btn"><i data-lucide="zap"></i> Tifa Rush</button>
+            <button onclick="triggerCowgirlRush()" class="admin-btn"><i data-lucide="star"></i> Cowgirl Rush</button>
             <button onclick="toggleAdminAbuse()" class="admin-btn"><i data-lucide="skull"></i> Admin Abuse Start</button>
         </div>
 
@@ -936,25 +893,17 @@
         </div>
 
         <!-- TOP CURRENCY BAR -->
-        <div class="bg-black/95 py-1 px-4 border-b border-white/10 flex justify-end gap-4 text-[10px] md:text-xs font-black brand-font tracking-widest text-white/90">
+        <div class="bg-black/95 py-1 px-4 border-b border-white/10 flex flex-wrap justify-end gap-2 md:gap-4 text-[10px] md:text-xs font-black brand-font tracking-widest text-white/90">
              <span id="h-silver" class="flex items-center gap-1">🔘 0</span>
              <span id="h-gold" class="flex items-center gap-1"><img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"> 0</span>
              <span id="h-stars">🌟 0</span>
              <span id="h-diamonds">💎 0</span>
              <span id="h-moonstones" class="flex items-center gap-1">🪨 0</span>
+             <span id="h-power-crystals" class="flex items-center gap-1 transition-all duration-300">🔮 0/100</span>
         </div>
 
         <!-- Integrated Logo + Buttons Bar -->
         <div class="py-4 flex flex-col items-center gap-4">
-            <!-- GLITCH METER INSERTION -->
-            <div id="glitch-meter-container">
-                <div class="meter-text">POWER CRYSTALS</div>
-                <div class="meter-bar-bg">
-                    <div id="glitch-meter-fill" class="meter-bar-fill"></div>
-                </div>
-                <div id="glitch-meter-val" class="meter-text">0%</div>
-            </div>
-
             <a href="https://brainrotcollector.com" class="text-3xl md:text-4xl font-black brand-font tracking-tighter text-white drop-shadow-[0_0_10px_rgba(255,42,109,0.8)] glitch-text hover:scale-105 transition-transform duration-200" data-text="BRAINROT COLLECTOR">
                 BRAINROT <span class="text-[#39ff14] drop-shadow-[0_0_10px_rgba(57,255,20,0.8)]">COLLECTOR</span>
             </a>
@@ -1145,57 +1094,25 @@
                         <h4 class="text-yellow-400 font-bold mb-2 text-sm uppercase">LUCKY ROT (10x Luck)</h4>
                         
                         <div class="grid grid-cols-2 gap-2">
-                             <button onclick="purchaseItem('lucky', 'lucky', 'silver', 2500000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">Buy 2.5B <span class="silver-img-container"></span></button>
-                             <button onclick="purchaseItem('lucky', 'lucky', 'gold', 2500000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">Buy 2.5B <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
+                             <button onclick="purchaseItem('lucky', 'lucky', 'silver', 10000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">Buy 10B <span class="silver-img-container"></span></button>
+                             <button onclick="purchaseItem('lucky', 'lucky', 'gold', 10000000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">Buy 10B <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
                         </div>
                     </div>
                     <div class="bg-gray-900 p-4 rounded-xl border border-cyan-500/50 text-center">
                         <h4 class="text-cyan-400 font-bold mb-2 text-sm uppercase">GRAND LUCKY (20x Luck)</h4>
                         
                          <div class="grid grid-cols-2 gap-2">
-                             <button onclick="purchaseItem('lucky', 'grand', 'silver', 5000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">Buy 5B <span class="silver-img-container"></span></button>
-                             <button onclick="purchaseItem('lucky', 'grand', 'gold', 5000000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">Buy 5B <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
+                             <button onclick="purchaseItem('lucky', 'grand', 'silver', 1000000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">Buy 1T <span class="silver-img-container"></span></button>
+                             <button onclick="purchaseItem('lucky', 'grand', 'gold', 1000000000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">Buy 1T <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
                         </div>
                     </div>
                     <div class="bg-gray-900 p-4 rounded-xl border border-purple-500/50 text-center">
                         <h4 class="text-purple-400 font-bold mb-2 text-sm uppercase">CRAZY LUCKY (40x Luck)</h4>
                         
-                         <div class="grid grid-cols-1 gap-2">
-                             <button onclick="purchaseItem('lucky', 'crazy', 'gold', 10000000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">Buy 10B <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
+                         <div class="grid grid-cols-2 gap-2">
+                             <button onclick="purchaseItem('lucky', 'crazy', 'silver', 10000000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">Buy 10T <span class="silver-img-container"></span></button>
+                             <button onclick="purchaseItem('lucky', 'crazy', 'gold', 10000000000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">Buy 10T <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cosmic Artifacts Section -->
-            <div class="mb-12 bg-gray-900/50 rounded-3xl p-6 border-2 border-indigo-500/30">
-                <h4 class="text-xl font-black text-indigo-400 mb-6 text-center uppercase tracking-widest brand-font">🌌 COSMIC ARTIFACTS 🌌</h4>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Singularity Shard -->
-                    <div class="bg-gray-900 p-4 rounded-xl border border-cyan-500/50 text-center relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors"></div>
-                        <div class="text-4xl mb-2 animate-pulse">⚛️</div>
-                        <h4 class="text-cyan-400 font-bold mb-2 text-sm uppercase">Singularity Shard</h4>
-                        <div class="text-[9px] text-gray-400 mb-3 min-h-[30px]">Guarantees a BRAINROT GOD in your next draw.</div>
-                        <button onclick="purchaseItem('special', 'god', 'diamonds', 2)" class="buy-btn bg-cyan-900 hover:bg-cyan-700 border border-cyan-500 text-white flex items-center justify-center gap-1">Buy 2 💎</button>
-                    </div>
-                    
-                    <!-- Eclipse Shard -->
-                    <div class="bg-gray-900 p-4 rounded-xl border border-purple-500/50 text-center relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-purple-500/10 group-hover:bg-purple-500/20 transition-colors"></div>
-                        <div class="text-4xl mb-2 animate-pulse">🌑</div>
-                        <h4 class="text-purple-400 font-bold mb-2 text-sm uppercase">Eclipse Shard</h4>
-                        <div class="text-[9px] text-gray-400 mb-3 min-h-[30px]">Guarantees a SECRET brainrot in your next draw.</div>
-                        <button onclick="purchaseItem('special', 'secret', 'moonstones', 2)" class="buy-btn bg-purple-900 hover:bg-purple-700 border border-purple-500 text-white flex items-center justify-center gap-1">Buy 2 <span class="moonstone-img-container"></span></button>
-                    </div>
-
-                    <!-- Rift Core -->
-                    <div class="bg-gray-900 p-4 rounded-xl border border-yellow-500/50 text-center relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-yellow-500/10 group-hover:bg-yellow-500/20 transition-colors"></div>
-                        <div class="text-4xl mb-2 animate-pulse">🌀</div>
-                        <h4 class="text-yellow-400 font-bold mb-2 text-sm uppercase">Rift Core</h4>
-                        <div class="text-[9px] text-gray-400 mb-3 min-h-[30px]">Guarantees a GOAT brainrot in your next draw.</div>
-                        <button onclick="purchaseItem('special', 'goat', 'moonstones', 10)" class="buy-btn bg-yellow-900 hover:bg-yellow-700 border border-yellow-500 text-white flex items-center justify-center gap-1">Buy 10 <span class="moonstone-img-container"></span></button>
                     </div>
                 </div>
             </div>
@@ -1236,6 +1153,7 @@
                             <div id="inv-bonus-20" class="special-slot" onclick="activateTimeBonus(20)">⚡</div>
                             <div class="text-[10px] font-bold mt-1 text-yellow-400 uppercase">LUCK x20</div>
                             <div class="flex flex-col gap-1 mt-2">
+                                <button onclick="purchaseItem('time', 'x20', 'silver', 10000000000000)" class="buy-btn bg-gray-200 text-black flex items-center justify-center gap-1">10T <span class="silver-img-container"></span></button>
                                 <button onclick="purchaseItem('time', 'x20', 'gold', 10000000000000)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">10T <img src="https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png" class="gold-img" alt="Gold"></button>
                             </div>
                         </div>
@@ -1247,24 +1165,17 @@
                     <div class="bg-gray-900 p-2 rounded border border-cyan-500/50 text-center">
                         <div id="inv-guaranteed-god" class="special-slot" onclick="activateSpecial('god')">🧠</div>
                         <div class="text-[10px] font-bold mt-1 text-cyan-400">100% God</div>
-                        <div class="flex flex-col gap-1 mt-2">
-                            <button onclick="purchaseItem('special', 'god', 'stars', 1)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">1 🌟</button>
-                        </div>
+                        <button onclick="purchaseItem('special', 'god', 'stars', 1)" class="buy-btn bg-yellow-600 text-white">1 🌟</button>
                     </div>
                     <div class="bg-gray-900 p-2 rounded border border-purple-500/50 text-center">
                         <div id="inv-guaranteed-secret" class="special-slot" onclick="activateSpecial('secret')">🔒</div>
                         <div class="text-[10px] font-bold mt-1 text-purple-400">100% Secret</div>
-                        <div class="flex gap-1 mt-2">
-                            <button onclick="purchaseItem('special', 'secret', 'stars', 5)" class="buy-btn bg-yellow-600 text-white flex items-center justify-center gap-1">5 🌟</button>
-                            <button onclick="purchaseItem('special', 'secret', 'diamonds', 1)" class="buy-btn bg-cyan-600 text-white flex items-center justify-center gap-1">1 💎</button>
-                        </div>
+                        <div class="flex gap-1 mt-2"><button onclick="purchaseItem('special', 'secret', 'stars', 5)" class="buy-btn bg-yellow-600 text-white">5🌟</button><button onclick="purchaseItem('special', 'secret', 'diamonds', 1)" class="buy-btn bg-cyan-600 text-white">1💎</button></div>
                     </div>
                     <div class="bg-gray-900 p-2 rounded border border-yellow-500/50 text-center">
                         <div id="inv-guaranteed-goat" class="special-slot" onclick="activateSpecial('goat')">🐐</div>
                         <div class="text-[10px] font-bold mt-1 text-yellow-400">100% GOAT</div>
-                        <div class="flex gap-1 mt-2">
-                            <button onclick="purchaseItem('special', 'goat', 'moonstones', 1)" class="buy-btn bg-purple-600 text-white flex items-center justify-center gap-1">1 <span class="moonstone-img-container"></span></button>
-                        </div>
+                        <div class="flex gap-1 mt-2"><button onclick="purchaseItem('special', 'goat', 'diamonds', 5)" class="buy-btn bg-cyan-600 text-white">5💎</button><button onclick="purchaseItem('special', 'goat', 'moonstones', 1)" class="buy-btn bg-purple-600 text-white flex items-center justify-center gap-1">1 <span class="moonstone-img-container"></span></button></div>
                     </div>
                     <div class="bg-gray-900 p-2 rounded border border-white/50 text-center">
                         <div id="inv-ultimate-refill" class="special-slot" onclick="activateSpecial('ultimate')">⚡</div>
@@ -1274,7 +1185,7 @@
                     <div class="bg-gray-900 p-2 rounded border border-red-500/50 text-center">
                         <div id="inv-admin-abuse" class="special-slot" onclick="activateSpecial('admin')">🚨</div>
                         <div class="text-[10px] font-bold mt-1 text-red-500">ABUSE</div>
-                         <button onclick="purchaseItem('special', 'admin', 'moonstones', 10)" class="buy-btn bg-purple-600 text-white flex items-center justify-center gap-1">10 <span class="moonstone-img-container"></span></button>
+                         <button onclick="purchaseItem('special', 'admin', 'moonstones', 1)" class="buy-btn bg-purple-600 text-white flex items-center justify-center gap-1">1 <span class="moonstone-img-container"></span></button>
                     </div>
                 </div>
 
@@ -1394,6 +1305,10 @@
                 <div class="bg-gray-900 border border-gray-700 px-6 py-3 rounded-full flex items-center gap-3">
                     <span id="stash-moonstone-icon" class="text-2xl flex items-center">🪨</span>
                     <div><div class="text-xs text-gray-400 font-bold uppercase">Moonstones</div><div id="moonstone-count-display" class="text-xl font-bold text-purple-400">0</div></div>
+                </div>
+                <div id="power-crystal-stash-container" class="bg-gray-900 border border-purple-500/50 px-6 py-3 rounded-full flex items-center gap-3 transition-all duration-300">
+                    <span class="text-2xl">🔮</span>
+                    <div><div class="text-xs text-purple-400 font-bold uppercase">Power Crystals</div><div id="power-crystal-count-display" class="text-xl font-bold text-white">0/100</div></div>
                 </div>
             </div>
 
@@ -1521,18 +1436,25 @@
 
     <!-- BASE PROMPT MODAL -->
     <div id="base-prompt-modal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4">
-        <div id="base-prompt-content" class="relative w-full max-w-sm rounded-2xl p-8 text-center transform transition-all scale-95 opacity-0 duration-300 border-2 border-cyan-400">
-            <div id="prompt-icon" class="text-7xl mb-4 flex justify-center">❓</div>
-            <h2 id="prompt-name" class="text-2xl font-black text-white mb-2 brand-font uppercase">NAME</h2>
-            <p id="prompt-text-action" class="text-cyan-400 font-black brand-font mb-6 tracking-widest text-lg">ADD TO BASE?</p>
-            <div class="grid grid-cols-2 gap-4">
-                <button id="prompt-confirm-btn" onclick="confirmBaseAdd()" class="py-3 bg-cyan-400 text-black font-black uppercase rounded hover:bg-white transition-colors">YES</button>
-                <button onclick="closeBasePrompt()" class="py-3 bg-gray-800 text-white font-black uppercase rounded hover:bg-gray-700 transition-colors">NO</button>
-            </div>
+        <div id="base-prompt-content" class="relative w-full max-w-sm rounded-2xl p-8 text-center border-2 border-cyan-400">
+            <div id="prompt-icon" class="text-7xl mb-4">❓</div>
+            <h2 id="prompt-name" class="text-2xl font-black text-white mb-2">NAME</h2>
+            <button id="prompt-confirm-btn" onclick="confirmBaseAdd()" class="w-full py-3 bg-cyan-400 text-black font-black uppercase rounded">BUY</button>
+            <button onclick="closeBasePrompt()" class="mt-2 w-full py-2 text-white opacity-50">CANCEL</button>
         </div>
     </div>
 
-    <!-- MAIN SCRIPT -->
+    <!-- KO-FI WIDGET -->
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+      kofiWidgetOverlay.draw('brainrotcollector', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support me',
+        'floating-chat.donateButton.background-color': '#323842',
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>
+
     <script>
         // --- GLOBAL ASSETS ---
         var GOLD_IMG_URL = "https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695daa9894b57da33ecbc3be.png";
@@ -1545,7 +1467,6 @@
 
         lucide.createIcons();
 
-        // ... existing MAXXER_REWARDS ...
         const MAXXER_REWARDS = {
             "COMMON": { name: "Luckmaxxer", icon: "🍀", color: "#9E9E9E" },
             "RARE": { name: "Rizzmazzer", icon: "🍷", color: "#1E40AF" },
@@ -1572,7 +1493,7 @@
             timeBonus: { x2: 0, x4: 0, x10: 0, x20: 0 },
             upgrades: { expander1: false, expander2: false } 
         };
-        var currencies = { stars: 0, diamonds: 0, moonstones: 0, gold: 0, silver: 0 };
+        var currencies = { stars: 0, diamonds: 0, moonstones: 0, gold: 0, silver: 0, powerCrystals: 0 };
         var rewards = {}; 
         var baseInventory = new Array(15).fill(null);
         var pendingBaseItem = null;
@@ -1585,11 +1506,9 @@
         var isAutoFestivalActive = false; 
         var isAutoRainbowActive = false; 
 
-        // GLITCH MODE VARS
-        var powerCrystals = 0;
-        var isGlitchMode = false;
-        var glitchModeTimer = null;
-        var glitchPityTriggered = false; // Tracks if a cosmic item was pulled during mode
+        // New persistent timer tracking
+        var sessionStartTime = Date.now();
+        var lastFiveMinuteAward = Date.now();
 
         function getMaxBaseSlots() {
             let total = 15;
@@ -1599,9 +1518,6 @@
         }
 
         var tierConfig = [
-            { id: "TIER_RIFT", name: "RIFT CORE", stars: 10, probability: 0.0001, borderColor: "#FFD700", textColor: "#FDE68A", bg: "bg-yellow-900/60" },
-            { id: "TIER_ECLIPSE", name: "ECLIPSE SHARD", stars: 10, probability: 0.001, borderColor: "#A855F7", textColor: "#E9D5FF", bg: "bg-purple-900/60" },
-            { id: "TIER_SINGULARITY", name: "SINGULARITY SHARD", stars: 10, probability: 0.01, borderColor: "#06B6D4", textColor: "#A5F3FC", bg: "bg-cyan-900/60" },
             { id: "TIER_MOONSTONE", name: "MOONSTONE", stars: 10, probability: 0.001, borderColor: "#7C3AED", textColor: "#D8B4FE", bg: "bg-purple-900/40" },
             { id: "TIER_LUCK_20", name: "20x LUCK", stars: 9, probability: 0.01, borderColor: "#FBBF24", textColor: "#FDE68A", bg: "bg-yellow-900/40" },
             { id: "TIER_01_GROUP", name: "SPECIAL RARE", stars: 8, probability: 0.06, borderColor: "#60A5FA", textColor: "#93C5FD", bg: "bg-blue-900/40" },
@@ -1622,10 +1538,19 @@
             { id: "COMMON", name: "COMMON", stars: 1, probability: 50.0, borderColor: "#9E9E9E", textColor: "#9E9E9E", bg: "bg-gray-800/20" }
         ];
 
+        // Add Crystal Earning helper
+        function addPowerCrystals(amt, x, y) {
+            const old = currencies.powerCrystals;
+            currencies.powerCrystals = Math.min(100, (currencies.powerCrystals || 0) + amt);
+            const diff = currencies.powerCrystals - old;
+            if (diff > 0) {
+                showFloatingText(`+${diff} 🔮`, x || window.innerWidth/2, y || window.innerHeight/2, "#a855f7");
+                updateStatsUI();
+                saveGame();
+            }
+        }
+
         var itemDatabase = {
-            "TIER_RIFT": [ { name: "Rift Core", icon: "🌀", type: "guaranteed", specialType: "goat", cost: 1, sell: 1 } ],
-            "TIER_ECLIPSE": [ { name: "Eclipse Shard", icon: "🌑", type: "guaranteed", specialType: "secret", cost: 1, sell: 1 } ],
-            "TIER_SINGULARITY": [ { name: "Singularity Shard", icon: "⚛️", type: "guaranteed", specialType: "god", cost: 1, sell: 1 } ],
             "TIER_MOONSTONE": [ { name: "Moonstone", icon: MOONSTONE_ICON_HTML, type: "currency", currencyType: "moonstones", value: 1, cost: 1, sell: 1 } ],
             "TIER_LUCK_20": [ { name: "20x Luck", icon: "⚡", type: "timeBonus", bonusType: "x20", cost: 1, sell: 1 } ],
             "TIER_01_GROUP": [
@@ -1743,7 +1668,7 @@
                 { name: "Odin Din Din Dun", icon: "👁️", cost: 25000000, sell: 12500000, income: 40000, goldIncome: 50, currency: "silver", description: "The All-Father singing the dubi-dubi song." },
                 { name: "Chachechi", icon: "🗣️✨", cost: 30000000, sell: 15000000, income: 45000, goldIncome: 150, currency: "silver", description: "The divine syllable speaker." },
                 { name: "Espressona Signora", icon: "☕👩", cost: 35000000, sell: 17500000, income: 50000, goldIncome: 300, currency: "silver", description: "The Lady of Espresso, jittering with power." },
-                { name: "La Vaca Saturno Saturnita", icon: "🐄🪐", cost: 40000000, sell: 20000000, income: 60000, goldIncome: 800, currency: "silver", description: "A cosmic cow grazing on Saturn's rings." },
+                { name: "La Vaca Saturno Saturnita", icon: "🪐 Cows Cows", cost: 40000000, sell: 20000000, income: 60000, goldIncome: 800, currency: "silver", description: "A cosmic cow grazing on Saturn's rings." },
                 { name: "Centralucci Nuclearucci", icon: "☢️🎯", cost: 50000000, sell: 25000000, income: 75000, goldIncome: 1500, currency: "silver", description: "A living nuclear power plant." },
                 { name: "Ecco Cavallo Virtuoso", icon: "🐎violin", cost: 60000000, sell: 30000000, income: 90000, goldIncome: 2500, currency: "silver", description: "A horse that plays the violin perfectly." },
                 { name: "Los Vaquitas Saturnitas", icon: "🐮🪐", cost: 75000000, sell: 37500000, income: 100000, goldIncome: 4000, currency: "silver", description: "The herd of space calves." },
@@ -1824,8 +1749,8 @@
                 { name: "Skibidi Toilet", icon: "🚽🎶", cost: 1000000000000, sell: 500000000000, income: 10000000000, goldIncome: 200000000, currency: "gold", description: "The head in the toilet that started the war." },
                 { name: "Meowl Meowl", icon: "<img src='https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/69579df5e7c6137a015f9dd3.jpg' class='w-full h-full object-cover rounded-md'>", cost: 3000000000000, sell: 1500000000000, income: 20000000000, goldIncome: 500000000, currency: "gold", description: "The Billie Eilish cat meme crying for help." },
                 { name: "Cococita Bailacita", icon: "coconut💃", cost: 5000000000000, sell: 2500000000000, income: 40000000000, goldIncome: 1000000000, currency: "gold", description: "The dancing coconut lady." },
-                { name: "Rascalito Razzalito", icon: "raccoon💥", cost: 6000000000000, sell: 3000000000, income: 60000000000, goldIncome: 1200000000, currency: "gold", description: "Pedro the Raccoon spinning in a circle." },
-                { name: "Ese Vato Gato", icon: "😎🐈", cost: 8000000000000, sell: 4000000000000, income: 8000000000, goldIncome: 2000000000, currency: "gold", description: "That cool cat dude wearing shades." },
+                { name: "Rascalito Razzalito", icon: "raccoon💥", cost: 6000000000000, sell: 3000000000, income: 6000000000, goldIncome: 1200000000, currency: "gold", description: "Pedro the Raccoon spinning in a circle." },
+                { name: "Ese Vato Gato", icon: "😎🐈", cost: 8000000000, sell: 4000000000000, income: 8000000000, goldIncome: 2000000000, currency: "gold", description: "That cool cat dude wearing shades." },
                 { name: "Brainrot Collector", icon: "👑🧠", cost: 10000000000000, sell: 5000000000000, income: 100000000000, goldIncome: 5000000000, currency: "gold", description: "You. The one collecting all this madness." }
             ]
         };
@@ -1845,7 +1770,7 @@
             wow: new Audio('https://www.myinstants.com/media/sounds/wow-11.mp3'), 
             elevator: new Audio('https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695cc4ee4a5e8e56d6295516.mp3'), 
             disco: new Audio('https://storage.googleapis.com/msgsndr/ECv14A6vdkfO0uFvxGNG/media/695cc9d8993346331a35dec3.mp3'),
-            glitch: new Audio('/audio/glitch.mp3')
+            glitch: new Audio('https://brainrotcollector.com/audio/glitch.mp3')
         };
         
         audioLib.ambience.loop = true;
@@ -1856,30 +1781,12 @@
         audioLib.disco.loop = true;
         audioLib.disco.volume = 0.4;
         audioLib.glitch.loop = true;
-        audioLib.glitch.volume = 0.5;
 
         // --- HELPER FOR STARS ---
-        function getStarHTML(count, className = '', color = '#FFD700') {
+        function getStarHTML(count, className = '') {
             let stars = '';
             for(let i=0; i<count; i++) { stars += '★'; }
-            return `<div class="star-rating ${className}"><span style="color: ${color}">${stars}</span></div>`;
-        }
-
-        // Calculate stars based on item index in its rarity tier (1-5 range)
-        function getItemStars(tierId, itemName) {
-            const items = itemDatabase[tierId];
-            if (!items || items.length === 0) return 1;
-            // Find index
-            const index = items.findIndex(i => i.name === itemName);
-            if (index === -1) return 1;
-            
-            // If only 1 item in tier, give it 5 stars
-            if (items.length === 1) return 5;
-
-            // Calculate percentile rank 1-5
-            // Formula: Math.floor((index / (total - 1)) * 4) + 1
-            // Index 0 is always 1 star, Last index is always 5 stars
-            return Math.floor((index / (items.length - 1)) * 4) + 1;
+            return `<div class="star-rating ${className}"><span>${stars}</span></div>`;
         }
 
         function toggleAdminPanelUI() {
@@ -1901,104 +1808,25 @@
             playSound('pop');
         }
 
-        // --- GLITCH MODE LOGIC ---
-        function addCrystals(amount, source) {
-            if (isGlitchMode) return; // Don't add crystals while mode is active
-            
-            powerCrystals += amount;
-            if (powerCrystals >= 100) {
-                powerCrystals = 100;
-                activateGlitchMode();
-            }
-            
-            // Update UI
-            const fill = document.getElementById('glitch-meter-fill');
-            const val = document.getElementById('glitch-meter-val');
-            if(fill) fill.style.width = powerCrystals + '%';
-            if(val) val.innerText = Math.floor(powerCrystals) + '%';
-            
-            if(amount > 0 && !isGlitchMode) {
-                // Optional visual feedback for gain?
-            }
-        }
-
         function activateGlitchMode() {
-            if(isGlitchMode) return;
-            isGlitchMode = true;
-            glitchPityTriggered = false;
-            document.body.classList.add('glitch-active');
+            if (document.body.classList.contains('glitch-mode-active')) return;
             
-            // Music Logic
-            if (!audioLib.elevator.paused) audioLib.elevator.pause();
-            if (!audioLib.disco.paused) audioLib.disco.pause();
-            audioLib.glitch.play().catch(e => console.log(e));
+            playSound('glitch');
+            document.body.classList.add('glitch-mode-active');
             
-            // Visuals
-            const meterFill = document.getElementById('glitch-meter-fill');
-            if(meterFill) {
-                meterFill.style.background = 'linear-gradient(90deg, #ff0000, #ff0000)';
-                meterFill.style.boxShadow = '0 0 15px #ff0000';
-            }
-            
-            showGlobalBroadcast("GLITCH MODE ACTIVATED! (140s)", "#ff00ff");
-            playSound('thunder');
+            // Duration: 2 minutes and 22 seconds = 142000ms
+            const duration = 142000;
+            applyLuckBonus(5, duration); 
 
-            // Timer (2 minutes 20 seconds = 140s)
-            let timeLeft = 140;
-            const meterVal = document.getElementById('glitch-meter-val');
-            
-            glitchModeTimer = setInterval(() => {
-                timeLeft--;
-                if(meterVal) meterVal.innerText = timeLeft + 's';
-                
-                // Update bar to shrink
-                const percent = (timeLeft / 140) * 100;
-                if(meterFill) meterFill.style.width = percent + '%';
-
-                if (timeLeft <= 0) {
-                    deactivateGlitchMode();
+            setTimeout(() => {
+                document.body.classList.remove('glitch-mode-active');
+                audioLib.glitch.pause();
+                audioLib.glitch.currentTime = 0;
+                if (activeTimeBonus.endTime <= Date.now() + 100) {
+                    applyLuckBonus(1, 0);
                 }
-            }, 1000);
+            }, duration);
         }
-
-        function deactivateGlitchMode() {
-            clearInterval(glitchModeTimer);
-            isGlitchMode = false;
-            document.body.classList.remove('glitch-active');
-            
-            // Pity Logic
-            if (!glitchPityTriggered) {
-                // Give free Singularity Shard
-                const freeShard = itemDatabase['TIER_SINGULARITY'][0]; // Assume first item
-                if(freeShard) {
-                    collectFreeItem(freeShard, tierConfig.find(t => t.id === 'TIER_SINGULARITY'), 'pity-' + Date.now());
-                    showGlobalBroadcast("GLITCH PITY: SINGULARITY SHARD", "#06B6D4");
-                }
-            }
-
-            // Reset
-            powerCrystals = 0;
-            const fill = document.getElementById('glitch-meter-fill');
-            const val = document.getElementById('glitch-meter-val');
-            if(fill) {
-                fill.style.width = '0%';
-                fill.style.background = 'linear-gradient(90deg, #ff00ff, #00ffff)';
-                fill.style.boxShadow = '0 0 10px #00ffff';
-            }
-            if(val) val.innerText = '0%';
-
-            // Music Resume
-            audioLib.glitch.pause();
-            audioLib.glitch.currentTime = 0;
-            if (isAutoFestivalActive) audioLib.elevator.play().catch(e=>{});
-            else if (isAutoRainbowActive) audioLib.disco.play().catch(e=>{});
-            else audioLib.ambience.play().catch(e=>{});
-        }
-
-        // Kept for legacy admin button, but now routes to new system
-        // Renamed to avoid conflict, or simply updated the button onclick in HTML?
-        // The HTML onclick="activateGlitchMode()" calls this function directly. 
-        // So the admin button essentially force-starts the mode now.
 
         function triggerTifaRush() {
             const rushModal = document.createElement('div');
@@ -2084,7 +1912,6 @@
                 btn.classList.add('ring-2', 'ring-orange-400', 'shadow-[0_0_25px_orange]', 'bg-orange-500', 'text-white');
                 btn.classList.remove('bg-indigo-900/20', 'text-white/40');
                 btn.style.filter = "brightness(1.5) drop-shadow(0 0 5px gold)";
-                addCrystals(5, 'event'); // +5 Crystals
                 
                 if (!liveRollInterval) {
                     toggleLiveRoll();
@@ -2186,7 +2013,6 @@
                 btn.classList.add('animate-disco', 'ring-2', 'ring-purple-400', 'bg-purple-600', 'text-white');
                 btn.classList.remove('bg-purple-600/20', 'text-white/40');
                 document.body.classList.add('rainbow-mode-active'); 
-                addCrystals(5, 'event'); // +5 Crystals
                 
                 if (!liveRollInterval) {
                     toggleLiveRoll();
@@ -2282,6 +2108,23 @@
                     el.innerHTML = `${icon} ${formatNumber(vals[i])}`;
                 }
             });
+
+            const isCrystalMax = (currencies.powerCrystals || 0) >= 100;
+            const pcEl = document.getElementById('h-power-crystals');
+            if (pcEl) {
+                pcEl.innerHTML = `🔮 ${currencies.powerCrystals || 0}/100`;
+                if (isCrystalMax) pcEl.classList.add('crystal-max-glow');
+                else pcEl.classList.remove('crystal-max-glow');
+            }
+            const pcStashEl = document.getElementById('power-crystal-count-display');
+            if (pcStashEl) {
+                pcStashEl.innerText = `${currencies.powerCrystals || 0}/100`;
+                const stashContainer = document.getElementById('power-crystal-stash-container');
+                if (stashContainer) {
+                    if (isCrystalMax) stashContainer.classList.add('crystal-max-glow');
+                    else stashContainer.classList.remove('crystal-max-glow');
+                }
+            }
             
             const silverContainers = document.querySelectorAll('.silver-img-container');
             silverContainers.forEach(container => { container.innerHTML = SILVER_ICON_HTML; });
@@ -2341,7 +2184,6 @@
                 });
             }
 
-            // Upgrades Display in Stash
             const upgradesContainer = document.getElementById('innate-upgrades-container');
             if(upgradesContainer) {
                 upgradesContainer.innerHTML = '';
@@ -2356,7 +2198,6 @@
             const luckValEl = document.getElementById('bonus-luck-val');
             if (luckValEl) luckValEl.innerText = (1 + bonusBaseLuck + (isAutoFestivalActive || isAutoRainbowActive ? 1 : 0));
 
-            // Shop Buttons State
             if(inventory.upgrades.expander1) {
                 const btn1 = document.getElementById('btn-expander-1');
                 if(btn1) { btn1.innerText = "OWNED"; btn1.disabled = true; btn1.classList.add('bg-green-600', 'text-white'); btn1.classList.remove('bg-gray-200', 'text-black'); }
@@ -2392,10 +2233,8 @@
             if(currencies[currency] >= cost) {
                 currencies[currency] -= cost;
                 inventory.upgrades[id] = true;
-                
                 const newSize = getMaxBaseSlots();
                 while(baseInventory.length < newSize) baseInventory.push(null);
-
                 playSound('buy');
                 playSound('heaven');
                 updateStatsUI();
@@ -2412,12 +2251,7 @@
                 const item = baseInventory[i];
                 slot.className = `base-slot ${item ? 'filled' : ''}`;
                 if(item) {
-                    // Determine Stars
-                    const starCount = getItemStars(item.tierId, item.name);
-                    const starColor = item.tierColor || '#FFD700'; // Fallback to gold
-                    const starsHtml = getStarHTML(starCount, 'base-stars', starColor);
-
-                    slot.innerHTML = item.icon + starsHtml;
+                    slot.innerHTML = item.icon;
                     slot.style.borderColor = item.tierColor;
                     slot.title = item.name;
                     slot.onclick = () => showLoreModal(item, {name: item.tierName}, i);
@@ -2477,7 +2311,15 @@
                 if (pendingBaseItem.currencyType) currencies[pendingBaseItem.currencyType] += (pendingBaseItem.value || 1);
                 playSound('ching');
             } 
-            else if (pendingBaseItem.type === 'lucky') { if (pendingBaseItem.luckyType) inventory[pendingBaseItem.luckyType]++; playSound('laser'); }
+            else if (pendingBaseItem.type === 'lucky') { 
+                if (pendingBaseItem.luckyType) {
+                    inventory[pendingBaseItem.luckyType]++; 
+                    if (pendingBaseItem.luckyType === 'lucky') addPowerCrystals(1);
+                    else if (pendingBaseItem.luckyType === 'grand') addPowerCrystals(2);
+                    else if (pendingBaseItem.luckyType === 'crazy') addPowerCrystals(5);
+                    playSound('laser'); 
+                }
+            }
             else if (pendingBaseItem.type === 'timeBonus') { if (pendingBaseItem.bonusType) inventory.timeBonus[pendingBaseItem.bonusType]++; playSound('laser'); }
             else if (pendingBaseItem.type === 'guaranteed') { if (pendingBaseItem.specialType) inventory.special[pendingBaseItem.specialType]++; playSound('heaven'); }
             else {
@@ -2515,7 +2357,6 @@
 
         function toggleLiveRoll() {
             if (isAutoFestivalActive || isAutoRainbowActive) return;
-
             const btn = document.getElementById('live-roll-btn');
             if (liveRollInterval) {
                 clearInterval(liveRollInterval); liveRollInterval = null; audioLib.ambience.pause(); audioLib.ambience.currentTime = 0;
@@ -2549,38 +2390,26 @@
 
         window.pullRot = function(isAutoRoll = false, drawCount = 1, luckMultiplier = 1, isInstant = false) {
             const content = document.getElementById('rot-content'); const history = document.getElementById('rot-history'); const btn = document.getElementById('pull-btn');
-            
-            if(isAutoFestivalActive || isAutoRainbowActive) {
-                if(!isAutoRoll && !isInstant) return;
-            }
-
+            if(isAutoFestivalActive || isAutoRainbowActive) { if(!isAutoRoll && !isInstant) return; }
             if(btn && btn.disabled && !isAutoRoll && !isInstant) return;
             if(!isInstant && btn) btn.disabled = true;
             if(!isInstant && content) content.innerHTML = `<div class="text-7xl animate-spin">🌀</div>`;
             if(!isInstant) playSound('draw');
-            
             currencies.silver += 1; 
             if(!isInstant) showFloatingText(`+1 ${SILVER_ICON_HTML}`, window.innerWidth / 2, window.innerHeight / 2, "#9CA3AF");
             updateStatsUI();
-            
             const delay = isInstant ? 0 : 1000;
             setTimeout(() => {
                 let results = [];
                 for(let d=0; d<drawCount; d++) {
-                    const roll = Math.random() * 100;
+                    const crystalRoll = Math.random() * 100;
+                    if (crystalRoll < 0.0001) addPowerCrystals(20);
+                    else if (crystalRoll < 0.0005) addPowerCrystals(15);
+                    else if (crystalRoll < 0.001) addPowerCrystals(10);
+                    else if (crystalRoll < 0.005) addPowerCrystals(5);
                     let selectedTier = tierConfig[tierConfig.length - 1];
-                    
-                    if (forcedTierId) { 
-                        selectedTier = tierConfig.find(t => t.id === forcedTierId); 
-                        forcedTierId = null; 
-                    } else {
-                        // RNG Drops for Crystals Logic
-                        const crystalRoll = Math.random() * 100;
-                        if (crystalRoll < 0.0001) addCrystals(20, 'rng');
-                        else if (crystalRoll < 0.0005) addCrystals(15, 'rng');
-                        else if (crystalRoll < 0.001) addCrystals(10, 'rng');
-                        else if (crystalRoll < 0.005) addCrystals(5, 'rng');
-
+                    if (forcedTierId) { selectedTier = tierConfig.find(t => t.id === forcedTierId); forcedTierId = null; } 
+                    else {
                         const sRoll = Math.random() * 100;
                         if (sRoll < 0.001) selectedTier = { id: 'TIER_MOONSTONE', name: 'MOONSTONE', stars: 10, borderColor: '#7C3AED', textColor: '#D8B4FE' };
                         else if (sRoll < 0.01) selectedTier = { id: 'CURRENCY_TIER', name: 'DIAMOND', stars: 9, borderColor: '#60A5FA', textColor: '#93C5FD' };
@@ -2590,19 +2419,10 @@
                         else if (sRoll < 1.0) selectedTier = { id: 'CURRENCY_TIER', name: 'GOLD 1', stars: 5, borderColor: '#FBBF24', textColor: '#FDE68A' };
                         else {
                             let totalChance = 0;
-                            const eventBonus = (isAutoFestivalActive || isAutoRainbowActive ? 1 : 0);
-                            const totalLuckFactor = (currentMultiplier + bonusBaseLuck + eventBonus) * luckMultiplier;
-                            
-                            // Calculate total chance considering Glitch Mode Multiplier
+                            const totalLuckFactor = (currentMultiplier + bonusBaseLuck + (isAutoFestivalActive || isAutoRainbowActive ? 1 : 0)) * luckMultiplier;
                             for(let i=0; i<tierConfig.length; i++) {
                                 let chance = tierConfig[i].probability * totalLuckFactor;
                                 if (activeTimeBonus.endTime > Date.now()) { chance *= activeTimeBonus.value; }
-                                
-                                // Glitch Mode Logic: 10x Multiplier for Cosmic items
-                                if (isGlitchMode && ['TIER_RIFT', 'TIER_ECLIPSE', 'TIER_SINGULARITY'].includes(tierConfig[i].id)) {
-                                    chance *= 10;
-                                }
-
                                 totalChance += chance;
                             }
                             const tRoll = Math.random() * totalChance;
@@ -2610,108 +2430,49 @@
                             for(let i=0; i<tierConfig.length; i++) {
                                 let chance = tierConfig[i].probability * totalLuckFactor;
                                 if (activeTimeBonus.endTime > Date.now()) { chance *= activeTimeBonus.value; }
-                                
-                                // Apply same logic for selection
-                                if (isGlitchMode && ['TIER_RIFT', 'TIER_ECLIPSE', 'TIER_SINGULARITY'].includes(tierConfig[i].id)) {
-                                    chance *= 10;
-                                }
-
                                 curT += chance; if(tRoll < curT) { selectedTier = tierConfig[i]; break; }
                             }
                         }
                     }
-                    
                     let items = itemDatabase[selectedTier.id] || itemDatabase['COMMON'];
                     const item = items[Math.floor(Math.random() * items.length)];
                     const uniqueId = 'item-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
                     results.push({ item: item, tier: selectedTier, uniqueId: uniqueId });
-
-                    // Crystal Awards Logic
-                    if (selectedTier.id === 'BRAINROT_GOD') addCrystals(5, 'pull');
-                    else if (selectedTier.id === 'SECRET') addCrystals(10, 'pull');
-                    else if (selectedTier.id === 'GOAT') addCrystals(15, 'pull');
-                    else if (item.luckyType === 'lucky') addCrystals(1, 'pull');
-                    else if (item.luckyType === 'grand') addCrystals(2, 'pull');
-                    else if (item.luckyType === 'crazy') addCrystals(5, 'pull');
                 }
-
                 if(content) {
                     content.innerHTML = '';
                     results.forEach(r => {
-                        // Check for Cosmic Artifacts to trigger Fireworks & Pity Tracker
-                        if(['TIER_RIFT', 'TIER_ECLIPSE', 'TIER_SINGULARITY'].includes(r.tier.id)) {
-                            spawnFirework(document.body, true);
-                            playSound('heaven');
-                            if(isGlitchMode) glitchPityTriggered = true; // Mark as successful pull
-                        }
-
                         const screenDiv = document.createElement('div');
                         screenDiv.className = "inline-flex flex-col items-center mx-2 cursor-pointer hover:scale-105 active:scale-95 transition-transform relative z-10 p-2 rounded-2xl bg-white/5 border border-white/10";
                         screenDiv.setAttribute('data-unique-id', r.uniqueId); 
-                        const cost = r.item.cost || 1; 
-                        const currency = r.item.currency || 'silver';
+                        const cost = r.item.cost || 1, currency = r.item.currency || 'silver';
                         const isSpecialType = ['lucky', 'timeBonus', 'guaranteed', 'currency'].includes(r.item.type);
                         const isFree = (cost <= 1 && currency === 'silver') || isSpecialType;
                         const currencyIcon = currency === 'gold' ? GOLD_ICON_HTML : (currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML); 
                         const priceColor = currency === 'gold' ? 'text-yellow-400' : (currency === 'moonstones' ? 'text-purple-400' : 'text-gray-300');
                         let priceDisplay = `${formatNumber(cost)} ${currencyIcon}`; 
                         if (isFree) priceDisplay = "<span class='text-green-400'>FREE</span>";
-                        
-                        // Calculate Dynamic Stars
-                        const starCount = getItemStars(r.tier.id, r.item.name);
-                        // Use tier text color for stars to match category scheme
-                        const starColor = r.tier.textColor || '#FFD700';
-                        const stars = getStarHTML(starCount, 'draw-stars', starColor);
-
-                        screenDiv.innerHTML = `
-                            <div class="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center animate-pop mb-2 relative">
-                                <div class="absolute inset-0 rounded-xl border-2 opacity-50" style="border-color:${r.tier.borderColor}"></div>
-                                <div class="w-full h-full p-1 flex items-center justify-center text-5xl md:text-7xl overflow-hidden">
-                                    ${r.item.icon}
-                                </div>
-                                ${stars}
-                            </div>
-                            <div class="text-xs md:text-sm font-black uppercase tracking-tight leading-tight max-w-[100px] md:max-w-[120px] truncate" style="color:${r.tier.textColor}">${r.item.name}</div>
-                            <div class="mt-1 px-2 py-0.5 rounded bg-black/60 border border-white/10">
-                                <div class="text-[10px] md:text-xs font-black ${priceColor} flex items-center justify-center gap-0.5">${priceDisplay}</div>
-                            </div>
-                        `;
-                        
+                        const stars = getStarHTML(r.tier.stars || 1, 'draw-stars');
+                        screenDiv.innerHTML = `<div class="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center animate-pop mb-2 relative"><div class="absolute inset-0 rounded-xl border-2 opacity-50" style="border-color:${r.tier.borderColor}"></div><div class="w-full h-full p-1 flex items-center justify-center text-5xl md:text-7xl overflow-hidden">${r.item.icon}</div>${stars}</div><div class="text-xs md:text-sm font-black uppercase tracking-tight leading-tight max-w-[100px] md:max-w-[120px] truncate" style="color:${r.tier.textColor}">${r.item.name}</div><div class="mt-1 px-2 py-0.5 rounded bg-black/60 border border-white/10"><div class="text-[10px] md:text-xs font-black ${priceColor} flex items-center justify-center gap-0.5">${priceDisplay}</div></div>`;
                         if (isFree) { screenDiv.onclick = (e) => { e.stopPropagation(); collectFreeItem(r.item, r.tier, r.uniqueId); }; }
                         else { screenDiv.onclick = (e) => { e.stopPropagation(); promptAddToBase(r.item, r.tier, r.uniqueId); }; }
                         content.appendChild(screenDiv);
                     });
                 }
-
-                const maxTierStars = Math.max(...results.map(r => r.tier.stars || 1));
-                if (maxTierStars >= 6 && !isInstant) { const flash = document.getElementById('rarity-flash'); if(flash) { flash.style.opacity = '0.5'; setTimeout(() => flash.style.opacity = '0', 300); } }
-                
                 results.forEach(res => {
                     if (res.item.name === "Cowgirl Rush") { triggerCowgirlRush(); return; }
                     const hItem = document.createElement('div');
                     hItem.className = 'w-12 h-14 rounded carpet-item-box flex flex-col items-center justify-center border-2 overflow-hidden bg-black flex-shrink-0 relative'; 
                     hItem.setAttribute('data-unique-id', res.uniqueId); 
-                    const cost = res.item.cost || 1; 
-                    const currency = res.item.currency || 'silver';
+                    const cost = res.item.cost || 1, currency = res.item.currency || 'silver';
                     const isSpecialType = ['lucky', 'timeBonus', 'guaranteed', 'currency'].includes(res.item.type);
                     const isFree = (cost <= 1 && currency === 'silver') || isSpecialType;
                     const currencyIcon = res.item.currency === 'gold' ? GOLD_ICON_HTML : (res.item.currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML); 
                     const priceColor = res.item.currency === 'gold' ? 'text-yellow-400' : (res.item.currency === 'moonstones' ? 'text-purple-400' : 'text-gray-300');
                     let priceDisplay = `${formatNumber(cost)} ${currencyIcon}`; 
                     if (isFree) priceDisplay = "<span class='text-green-400'>FREE</span>";
-                    
-                    // Dynamic Stars for Carpet
-                    const starCount = getItemStars(res.tier.id, res.item.name);
-                    const starColor = res.tier.textColor || '#FFD700';
-                    const stars = getStarHTML(starCount, 'carpet-stars', starColor);
-
-                    hItem.innerHTML = `
-                        <div class="text-2xl relative w-full h-full flex items-center justify-center">
-                            ${res.item.icon}
-                            ${stars}
-                        </div>
-                        <div class="text-[8px] font-black ${priceColor} leading-none mb-1 flex items-center gap-0.5 z-20 bg-black/50 px-1 rounded">${priceDisplay}</div>
-                    `;
+                    const stars = getStarHTML(res.tier.stars || 1, 'carpet-stars');
+                    hItem.innerHTML = `<div class="text-2xl relative w-full h-full flex items-center justify-center">${res.item.icon}${stars}</div><div class="text-[8px] font-black ${priceColor} leading-none mb-1 flex items-center gap-0.5 z-20 bg-black/50 px-1 rounded">${priceDisplay}</div>`;
                     hItem.style.borderColor = res.tier.borderColor;
                     if (isFree) { hItem.onclick = () => collectFreeItem(res.item, res.tier, res.uniqueId); }
                     else { hItem.onclick = () => promptAddToBase(res.item, res.tier, res.uniqueId); }
@@ -2724,24 +2485,13 @@
                         while(history.children.length > 25) history.removeChild(history.lastChild);
                     });
                 });
-
                 if(btn && !isInstant) { 
                     const span = btn.querySelector('span');
-                    if (isAutoRainbowActive) {
-                        btn.disabled = true;
-                        if (span) span.innerText = "RAINBOW MODE ACTIVE";
-                        else btn.innerText = "RAINBOW MODE ACTIVE";
-                    } else if (isAutoFestivalActive) {
-                        btn.disabled = true;
-                        if (span) span.innerText = "LANTERN FESTIVAL ACTIVE";
-                        else btn.innerText = "LANTERN FESTIVAL ACTIVE";
-                    } else {
-                        btn.disabled = false;
-                        if (span) span.innerText = "DRAW AGAIN";
-                        else btn.innerText = "DRAW AGAIN";
-                    }
+                    if (isAutoRainbowActive) { btn.disabled = true; if (span) span.innerText = "RAINBOW MODE ACTIVE"; } 
+                    else if (isAutoFestivalActive) { btn.disabled = true; if (span) span.innerText = "LANTERN FESTIVAL ACTIVE"; } 
+                    else { btn.disabled = false; if (span) span.innerText = "DRAW AGAIN"; }
                 }
-                if (isInstant) { playSound('shutter'); const hasHighTier = results.some(r => (r.tier.stars || 1) >= 7); if(hasHighTier) setTimeout(() => playSound('wow'), 200); }
+                if (isInstant) { playSound('shutter'); if(results.some(r => (r.tier.stars || 1) >= 7)) setTimeout(() => playSound('wow'), 200); }
                 else { playSound('pop'); }
                 saveGame();
             }, delay);
@@ -2750,228 +2500,56 @@
         function showFloatingText(text, x, y, color = "#FFF") {
             const el = document.createElement('div');
             el.className = 'currency-pop-text brand-font font-black pointer-events-none flex items-center gap-1';
-            el.style.left = x + 'px';
-            el.style.top = y + 'px';
-            el.style.color = color;
-            el.innerHTML = text;
-            document.body.appendChild(el);
-            setTimeout(() => el.remove(), 1400);
+            el.style.left = x + 'px'; el.style.top = y + 'px'; el.style.color = color; el.innerHTML = text;
+            document.body.appendChild(el); setTimeout(() => el.remove(), 1400);
         }
 
         function collectFreeItem(item, tier, uniqueId) {
-            const itemData = { 
-                ...item, tierColor: tier.borderColor, tierName: tier.name, tierId: tier.id, cost: 0,
-                currency: item.currency || 'silver', sell: item.sell || 1, income: item.income || 1, goldIncome: item.goldIncome || 0, type: item.type || 'character'
-            };
-            const elements = document.querySelectorAll(`[data-unique-id="${uniqueId}"]`);
-            const rect = elements[0] ? elements[0].getBoundingClientRect() : { left: window.innerWidth/2, top: window.innerHeight/2 };
-            
+            const itemData = { ...item, tierColor: tier.borderColor, tierName: tier.name, tierId: tier.id, cost: 0, currency: item.currency || 'silver', sell: item.sell || 1, income: item.income || 1, goldIncome: item.goldIncome || 0, type: item.type || 'character' };
+            const elements = document.querySelectorAll(`[data-unique-id="${uniqueId}"]`), rect = elements[0] ? elements[0].getBoundingClientRect() : { left: window.innerWidth/2, top: window.innerHeight/2 };
             elements.forEach(el => el.classList.add('animate-collect-zoom'));
-            
             let success = true;
             if (itemData.type === 'currency') { 
-                if (itemData.currencyType) {
-                    currencies[itemData.currencyType] += (itemData.value || 1);
-                    let icon = itemData.currencyType === 'gold' ? GOLD_ICON_HTML : (itemData.currencyType === 'silver' ? SILVER_ICON_HTML : (itemData.currencyType === 'moonstones' ? MOONSTONE_ICON_HTML : (itemData.currencyType === 'stars' ? '🌟' : '💎')));
-                    showFloatingText(`+${formatNumber(itemData.value || 1)} ${icon}`, rect.left, rect.top, "#FFD700");
-                }
+                if (itemData.currencyType) { currencies[itemData.currencyType] += (itemData.value || 1); let icon = itemData.currencyType === 'gold' ? GOLD_ICON_HTML : (itemData.currencyType === 'silver' ? SILVER_ICON_HTML : (itemData.currencyType === 'moonstones' ? MOONSTONE_ICON_HTML : (itemData.currencyType === 'stars' ? '🌟' : '💎'))); showFloatingText(`+${formatNumber(itemData.value || 1)} ${icon}`, rect.left, rect.top, "#FFD700"); }
                 playSound('ching'); 
             } 
-            else if (itemData.type === 'lucky') { if (itemData.luckyType) inventory[itemData.luckyType]++; playSound('laser'); }
+            else if (itemData.type === 'lucky') { 
+                if (itemData.luckyType) { inventory[itemData.luckyType]++; if (itemData.luckyType === 'lucky') addPowerCrystals(1, rect.left, rect.top); else if (itemData.luckyType === 'grand') addPowerCrystals(2, rect.left, rect.top); else if (itemData.luckyType === 'crazy') addPowerCrystals(5, rect.left, rect.top); playSound('laser'); }
+            }
             else if (itemData.type === 'timeBonus') { if (itemData.bonusType) inventory.timeBonus[itemData.bonusType]++; playSound('laser'); }
             else if (itemData.type === 'guaranteed') { if (itemData.specialType) inventory.special[itemData.specialType]++; playSound('heaven'); }
             else {
-                const emptyIdx = baseInventory.indexOf(null);
-                const maxSlots = getMaxBaseSlots();
-                if(emptyIdx === -1 || emptyIdx >= maxSlots) { 
-                    elements.forEach(el => el.classList.remove('animate-collect-zoom')); 
-                    success = false; 
-                }
-                else { 
-                    baseInventory[emptyIdx] = itemData; 
-                    playSound('heaven'); 
-                    handleCollection(itemData); 
-                }
+                const emptyIdx = baseInventory.indexOf(null), maxSlots = getMaxBaseSlots();
+                if(emptyIdx === -1 || emptyIdx >= maxSlots) { elements.forEach(el => el.classList.remove('animate-collect-zoom')); success = false; }
+                else { baseInventory[emptyIdx] = itemData; playSound('heaven'); handleCollection(itemData); }
             }
-
-            if (success) {
-                updateStatsUI(); 
-                saveGame();
-                setTimeout(() => {
-                    elements.forEach(el => el.remove());
-                    const history = document.getElementById('rot-history');
-                    if (history && history.children.length === 0) history.innerHTML = '<div id="carpet-placeholder" class="text-white/30 font-black brand-font uppercase text-xs tracking-widest w-full text-center">Draw to Walk the Red Carpet</div>';
-                }, 300);
-            }
+            if (success) { updateStatsUI(); saveGame(); setTimeout(() => { elements.forEach(el => el.remove()); const history = document.getElementById('rot-history'); if (history && history.children.length === 0) history.innerHTML = '<div id="carpet-placeholder" class="text-white/30 font-black brand-font uppercase text-xs tracking-widest w-full text-center">Draw to Walk the Red Carpet</div>'; }, 300); }
         }
 
-        function purchaseItem(cat, type, curr, cost) {
-            if(currencies[curr] >= cost) {
-                currencies[curr] -= cost;
-                if(cat === 'lucky') inventory[type]++;
-                if(cat === 'time') inventory.timeBonus[type]++;
-                if(cat === 'special') inventory.special[type]++;
-                playSound('buy'); 
-                updateStatsUI(); 
-                saveGame();
-            }
-        }
-
-        function handleCollection(itemData) { 
-            if(!collectedItemsMap[itemData.name]) { 
-                collectedItemsMap[itemData.name] = true; 
-                initCollection(); 
-                checkTierCompletions();
-                const highTiers = ['BRAINROT_GOD', 'SECRET', 'GOAT'];
-                if (highTiers.includes(itemData.tierId)) {
-                    showGlobalBroadcast(itemData.name, itemData.tierColor);
-                }
-            } 
-        }
-
-        function checkTierCompletions() {
-            Object.keys(MAXXER_REWARDS).forEach(rarity => {
-                if (rewards[rarity]) return; 
-                const tierItems = itemDatabase[rarity];
-                if (!tierItems) return;
-                const isComplete = tierItems.every(it => collectedItemsMap[it.name] === true);
-                if (isComplete) {
-                    awardMaxxer(rarity);
-                }
-            });
-        }
-
-        function awardMaxxer(rarity) {
-            rewards[rarity] = true;
-            const data = MAXXER_REWARDS[rarity];
-            const modal = document.getElementById('reward-modal');
-            const content = document.getElementById('reward-content');
-            document.getElementById('reward-rarity-text').innerText = `ALL ${rarity.replace('_', ' ')} BRAINROT COLLECTED!`;
-            document.getElementById('reward-item-icon').innerText = data.icon;
-            document.getElementById('reward-item-name').innerText = data.name.toUpperCase();
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                content.classList.remove('scale-95', 'opacity-0');
-                content.classList.add('scale-100', 'opacity-100');
-            }, 10);
-            playSound('heaven');
-            updateStatsUI();
-            saveGame();
-        }
-
-        function closeRewardModal() {
-            const m = document.getElementById('reward-modal'), c = document.getElementById('reward-content');
-            c.classList.add('scale-95', 'opacity-0'); setTimeout(() => { m.classList.add('hidden'); }, 500);
-        }
-
-        function showCollectionLore(tierId, itemName) {
-            const tier = tierConfig.find(t => t.id === tierId);
-            const item = itemDatabase[tierId].find(i => i.name === itemName);
-            if(item && tier) showLoreModal(item, tier);
-        }
-
-        function initCollection() {
-            const grid = document.getElementById('collection-grid'); if(!grid) return;
-            grid.innerHTML = '';
-            tierConfig.slice().reverse().forEach(tier => {
-                if (!['COMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'BRAINROT_GOD', 'SECRET', 'GOAT'].includes(tier.id)) return;
-                const sec = document.createElement('div');
-                sec.className = `rounded-xl border-2 p-4 mb-4 ${tier.bg || 'bg-gray-900/40'}`;
-                sec.style.borderColor = tier.borderColor;
-                const items = itemDatabase[tier.id] || [];
-                const itemsHtml = items.map(it => {
-                    const isCollected = collectedItemsMap[it.name] === true;
-                    const safeName = it.name.replace(/'/g, "\\'");
-                    
-                    // Dynamic Stars for Collection
-                    const starCount = getItemStars(tier.id, it.name);
-                    const starColor = tier.textColor || '#FFD700';
-                    const stars = getStarHTML(starCount, 'collection-stars', starColor);
-
-                    return `<div onclick="${isCollected ? `showCollectionLore('${tier.id}', '${safeName}')` : ''}" class="w-10 h-10 rounded bg-black flex items-center justify-center text-xl cursor-pointer transition-transform hover:scale-110 active:scale-95 relative ${isCollected ? '' : 'opacity-20 grayscale'}">
-                        ${isCollected ? it.icon : '❓'}
-                        ${isCollected ? stars : ''}
-                    </div>`;
-                }).join('');
-                sec.innerHTML = `<h4 class="font-black mb-2" style="color:${tier.textColor}">${tier.name}</h4><div class="flex flex-wrap gap-2">${itemsHtml}</div>`;
-                grid.appendChild(sec);
-            });
-        }
-
+        function purchaseItem(cat, type, curr, cost) { if(currencies[curr] >= cost) { currencies[curr] -= cost; if(cat === 'lucky') inventory[type]++; if(cat === 'time') inventory.timeBonus[type]++; if(cat === 'special') inventory.special[type]++; playSound('buy'); updateStatsUI(); saveGame(); } }
+        function handleCollection(itemData) { if(!collectedItemsMap[itemData.name]) { collectedItemsMap[itemData.name] = true; initCollection(); checkTierCompletions(); if (['BRAINROT_GOD', 'SECRET', 'GOAT'].includes(itemData.tierId)) { showGlobalBroadcast(itemData.name, itemData.tierColor); } } }
+        function checkTierCompletions() { Object.keys(MAXXER_REWARDS).forEach(rarity => { if (rewards[rarity]) return; const tierItems = itemDatabase[rarity]; if (!tierItems) return; if (tierItems.every(it => collectedItemsMap[it.name] === true)) { awardMaxxer(rarity); } }); }
+        function awardMaxxer(rarity) { rewards[rarity] = true; const data = MAXXER_REWARDS[rarity]; const modal = document.getElementById('reward-modal'), content = document.getElementById('reward-content'); document.getElementById('reward-rarity-text').innerText = `ALL ${rarity.replace('_', ' ')} BRAINROT COLLECTED!`; document.getElementById('reward-item-icon').innerText = data.icon; document.getElementById('reward-item-name').innerText = data.name.toUpperCase(); modal.classList.remove('hidden'); setTimeout(() => { content.classList.remove('scale-95', 'opacity-0'); content.classList.add('scale-100', 'opacity-100'); }, 10); playSound('heaven'); updateStatsUI(); saveGame(); }
+        function closeRewardModal() { const m = document.getElementById('reward-modal'), c = document.getElementById('reward-content'); c.classList.add('scale-95', 'opacity-0'); setTimeout(() => { m.classList.add('hidden'); }, 500); }
+        function showCollectionLore(tierId, itemName) { const tier = tierConfig.find(t => t.id === tierId), item = itemDatabase[tierId].find(i => i.name === itemName); if(item && tier) showLoreModal(item, tier); }
+        function initCollection() { const grid = document.getElementById('collection-grid'); if(!grid) return; grid.innerHTML = ''; tierConfig.slice().reverse().forEach(tier => { if (!['COMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'BRAINROT_GOD', 'SECRET', 'GOAT'].includes(tier.id)) return; const sec = document.createElement('div'); sec.className = `rounded-xl border-2 p-4 mb-4 ${tier.bg || 'bg-gray-900/40'}`; sec.style.borderColor = tier.borderColor; const items = itemDatabase[tier.id] || []; const itemsHtml = items.map(it => { const isCollected = collectedItemsMap[it.name] === true, safeName = it.name.replace(/'/g, "\\'"), stars = getStarHTML(tier.stars || 1, 'collection-stars'); return `<div onclick="${isCollected ? `showCollectionLore('${tier.id}', '${safeName}')` : ''}" class="w-10 h-10 rounded bg-black flex items-center justify-center text-xl cursor-pointer transition-transform hover:scale-110 active:scale-95 relative ${isCollected ? '' : 'opacity-20 grayscale'}">${isCollected ? it.icon : '❓'}${isCollected ? stars : ''}</div>`; }).join(''); sec.innerHTML = `<h4 class="font-black mb-2" style="color:${tier.textColor}">${tier.name}</h4><div class="flex flex-wrap gap-2">${itemsHtml}</div>`; grid.appendChild(sec); }); }
         function saveGame() { localStorage.setItem('brainrotCollectorV6', JSON.stringify({ collectedItems: collectedItemsMap, inventory, currencies, rewards, base: baseInventory, accumulatedSilver, accumulatedGold })); }
-
-        function loadGame() { const data = localStorage.getItem('brainrotCollectorV6'); if(data) { const s = JSON.parse(data); collectedItemsMap = s.collectedItems || {}; inventory = s.inventory || inventory; if (!inventory.upgrades) inventory.upgrades = { expander1: false, expander2: false }; currencies = s.currencies || currencies; baseInventory = s.base || baseInventory; const maxSlots = getMaxBaseSlots(); while(baseInventory.length < maxSlots) baseInventory.push(null); rewards = s.rewards || {}; accumulatedSilver = s.accumulatedSilver || 0; accumulatedGold = s.accumulatedGold || 0; } else { currencies.silver = 10; } if (currencies.silver === undefined) currencies.silver = 10; initCollection(); updateStatsUI(); }
-
-        function resetGame() { baseInventory = new Array(15).fill(null); currencies = { stars: 0, diamonds: 0, moonstones: 0, gold: 0, silver: 10 }; collectedItemsMap = {}; inventory = { lucky: 0, grand: 0, crazy: 0, special: { god: 0, secret: 0, goat: 0, ultimate: 0, admin: 0 }, timeBonus: { x2: 0, x4: 0, x10: 0, x20: 0 }, upgrades: { expander1: false, expander2: false } }; rewards = {}; localStorage.removeItem('brainrotCollectorV6'); location.reload(); }
-
-        function activateDevMode() { currencies = { stars: 100, diamonds: 100, moonstones: 100, gold: 1000, silver: 50000000000000 }; showFloatingText(`+DEV BOOSTER ACTIVE`, window.innerWidth/2, window.innerHeight/2, "#39ff14"); updateStatsUI(); saveGame(); }
-
-        function showLoreModal(item, tier, inventoryIndex = -1) { const m = document.getElementById('lore-modal'), c = document.getElementById('lore-content'); document.getElementById('lore-icon').innerHTML = item.icon; document.getElementById('lore-name').innerText = item.name; document.getElementById('lore-rarity').innerText = tier.name; document.getElementById('lore-text').innerText = item.description || "[DATA CORRUPTED]"; const buyCurrencyIcon = item.currency === 'gold' ? GOLD_ICON_HTML : (item.currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML); document.getElementById('lore-buy-val').innerHTML = `${formatNumber(item.cost || 1)} ${buyCurrencyIcon}`; const sellCurrencyIcon = item.currency === 'gold' ? GOLD_ICON_HTML : SILVER_ICON_HTML; document.getElementById('lore-sell-val').innerHTML = `${formatNumber(item.sell || 1)} ${sellCurrencyIcon}`; let incomeHtml = `${formatNumber(item.income || 0)} ${SILVER_ICON_HTML}`; if (item.goldIncome > 0) incomeHtml += `<br>${formatNumber(item.goldIncome)} ${GOLD_ICON_HTML}`; document.getElementById('lore-income-val').innerHTML = incomeHtml; const btnContainer = document.getElementById('sell-btn-container'); if (inventoryIndex > -1) { const currencyIcon = item.currency === 'gold' ? GOLD_ICON_HTML : SILVER_ICON_HTML, sellValue = formatNumber(item.sell || 1); btnContainer.innerHTML = `<button onclick="sellItem(${inventoryIndex})" class="w-full py-3 bg-red-600 text-white font-black uppercase rounded hover:bg-red-500 shadow-[0_0_15px_rgba(220,38,38,0.5)] flex items-center justify-center gap-1">SELL (+${sellValue} ${currencyIcon})</button>`; } else { btnContainer.innerHTML = ''; } m.classList.remove('hidden'); setTimeout(() => { c.classList.remove('scale-95', 'opacity-0'); c.classList.add('scale-100', 'opacity-100'); }, 10); }
-
+        function loadGame() { const data = localStorage.getItem('brainrotCollectorV6'); if(data) { const s = JSON.parse(data); collectedItemsMap = s.collectedItems || {}; inventory = s.inventory || inventory; if (!inventory.upgrades) inventory.upgrades = { expander1: false, expander2: false }; currencies = s.currencies || currencies; if (currencies.powerCrystals === undefined) currencies.powerCrystals = 0; baseInventory = s.base || baseInventory; const maxSlots = getMaxBaseSlots(); while(baseInventory.length < maxSlots) baseInventory.push(null); rewards = s.rewards || {}; accumulatedSilver = s.accumulatedSilver || 0; accumulatedGold = s.accumulatedGold || 0; } else { currencies.silver = 10; currencies.powerCrystals = 0; } initCollection(); updateStatsUI(); }
+        function resetGame() { baseInventory = new Array(15).fill(null); currencies = { stars: 0, diamonds: 0, moonstones: 0, gold: 0, silver: 10, powerCrystals: 0 }; collectedItemsMap = {}; inventory = { lucky: 0, grand: 0, crazy: 0, special: { god: 0, secret: 0, goat: 0, ultimate: 0, admin: 0 }, timeBonus: { x2: 0, x4: 0, x10: 0, x20: 0 }, upgrades: { expander1: false, expander2: false } }; rewards = {}; localStorage.removeItem('brainrotCollectorV6'); location.reload(); }
+        function activateDevMode() { currencies = { stars: 100, diamonds: 100, moonstones: 100, gold: 1000, silver: 50000000000000, powerCrystals: 100 }; showFloatingText(`+DEV BOOSTER ACTIVE`, window.innerWidth/2, window.innerHeight/2, "#39ff14"); updateStatsUI(); saveGame(); }
+        function showLoreModal(item, tier, inventoryIndex = -1) { const m = document.getElementById('lore-modal'), c = document.getElementById('lore-content'); document.getElementById('lore-icon').innerHTML = item.icon; document.getElementById('lore-name').innerText = item.name; document.getElementById('lore-rarity').innerText = tier.name; document.getElementById('lore-text').innerText = item.description || "[DATA CORRUPTED]"; const buyCurrencyIcon = item.currency === 'gold' ? GOLD_ICON_HTML : (item.currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML); document.getElementById('lore-buy-val').innerHTML = `${formatNumber(item.cost || 1)} ${buyCurrencyIcon}`; const sellCurrencyIcon = item.currency === 'gold' ? GOLD_ICON_HTML : SILVER_ICON_HTML; document.getElementById('lore-sell-val').innerHTML = `${formatNumber(item.sell || 1)} ${sellCurrencyIcon}`; let incomeHtml = `${formatNumber(item.income || 0)} ${SILVER_ICON_HTML}`; if (item.goldIncome > 0) incomeHtml += `<br>${formatNumber(item.goldIncome)} ${GOLD_ICON_HTML}`; document.getElementById('lore-income-val').innerHTML = incomeHtml; const btnContainer = document.getElementById('sell-btn-container'); if (inventoryIndex > -1) { const sellValue = formatNumber(item.sell || 1); btnContainer.innerHTML = `<button onclick="sellItem(${inventoryIndex})" class="w-full py-3 bg-red-600 text-white font-black uppercase rounded hover:bg-red-500 shadow-[0_0_15px_rgba(220,38,38,0.5)] flex items-center justify-center gap-1">SELL (+${sellValue} ${item.currency === 'gold' ? GOLD_ICON_HTML : SILVER_ICON_HTML})</button>`; } else { btnContainer.innerHTML = ''; } m.classList.remove('hidden'); setTimeout(() => { c.classList.remove('scale-95', 'opacity-0'); c.classList.add('scale-100', 'opacity-100'); }, 10); }
         function closeLoreModal() { const m = document.getElementById('lore-modal'), c = document.getElementById('lore-content'); c.classList.add('scale-95', 'opacity-0'); setTimeout(() => { m.classList.add('hidden'); }, 300); }
-
         function sellItem(index) { const item = baseInventory[index]; if (item) { const currency = item.currency || 'silver', value = item.sell || 1, icon = currency === 'gold' ? GOLD_ICON_HTML : (currency === 'moonstones' ? MOONSTONE_ICON_HTML : SILVER_ICON_HTML); baseInventory[index] = null; currencies[currency] += value; showFloatingText(`+${formatNumber(value)} ${icon}`, window.innerWidth / 2, window.innerHeight / 2, currency === 'gold' ? '#FBBF24' : (currency === 'moonstones' ? '#A855F7' : '#9CA3AF')); playSound('buy'); updateStatsUI(); saveGame(); closeLoreModal(); } }
-
         function collectIncome() { let collected = false; const collectBtn = document.getElementById('global-collect-btn'), rect = collectBtn.getBoundingClientRect(); if (accumulatedSilver > 0) { currencies.silver += accumulatedSilver; showFloatingText(`+${formatNumber(accumulatedSilver)} ${SILVER_ICON_HTML}`, rect.left, rect.top, "#9CA3AF"); accumulatedSilver = 0; collected = true; } if (accumulatedGold > 0) { currencies.gold += accumulatedGold; showFloatingText(`+${formatNumber(accumulatedGold)} ${GOLD_ICON_HTML}`, rect.left, rect.top + 20, "#FBBF24"); accumulatedGold = 0; collected = true; } if (collected) { playSound('ching'); updateStatsUI(); saveGame(); } }
-
         function sortBase() { const items = baseInventory.filter(i => i !== null); items.sort((a, b) => (b.cost || 0) - (a.cost || 0)); const maxSlots = getMaxBaseSlots(), newBase = new Array(maxSlots).fill(null); items.forEach((item, index) => { if(index < maxSlots) newBase[index] = item; }); baseInventory = newBase; renderBaseUI(); saveGame(); playSound('pop'); }
-
-        window.activateRot = function(type) { if (inventory[type] > 0) { if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory(); inventory[type]--; const playSection = document.getElementById('play'); if (playSection) playSection.scrollIntoView({ behavior: 'smooth' }); playSound('rolling'); let draws = 1, luck = 1; if (type === 'lucky') { draws = 1; luck = 10; } else if (type === 'grand') { draws = 2; luck = 20; } else if (type === 'crazy') { draws = 3; luck = 40; } window.pullRot(true, draws, luck); updateStatsUI(); } };
-
-        window.activateTimeBonus = function(mult) { const key = `x${mult}`; if (inventory.timeBonus[key] > 0) { if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory(); inventory.timeBonus[key]--; applyLuckBonus(mult, 60000); const playSection = document.getElementById('play'); if (playSection) playSection.scrollIntoView({ behavior: 'smooth' }); playSound('laser'); updateStatsUI(); } };
-
+        window.activateRot = function(type) { if (inventory[type] > 0) { if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory(); inventory[type]--; const playSection = document.getElementById('play'); if (playSection) playSection.scrollIntoView({ behavior: 'smooth' }); playSound('rolling'); let luck = (type === 'lucky') ? 10 : (type === 'grand' ? 20 : 40); window.pullRot(true, (type === 'crazy' ? 3 : (type === 'grand' ? 2 : 1)), luck); updateStatsUI(); } };
+        window.activateTimeBonus = function(mult) { if (inventory.timeBonus[`x${mult}`] > 0) { if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory(); inventory.timeBonus[`x${mult}`]--; applyLuckBonus(mult, 60000); playSound('laser'); updateStatsUI(); } };
         function applyLuckBonus(mult, duration) { activeTimeBonus = { value: mult, endTime: Date.now() + duration }; const badge = document.getElementById('multiplier-badge'), badgeText = document.getElementById('multiplier-text'); if (mult > 1) { playSound('thunder'); badge.classList.remove('hidden', 'animate-luck-pop'); void badge.offsetWidth; badge.classList.add('animate-luck-pop'); badgeText.innerText = `LUCK x${mult} ACTIVE!`; } else { badge.classList.add('hidden'); } if (duration > 0) { setTimeout(() => { if (Date.now() >= activeTimeBonus.endTime) { activeTimeBonus = { value: 1, endTime: 0 }; badge.classList.add('hidden'); } }, duration); } }
-
-        function triggerCowgirlRush() { const rushModal = document.createElement('div'); rushModal.className = 'fixed inset-0 z-[200] flex items-center justify-center pointer-events-none'; rushModal.innerHTML = `<div class="animate-bounce text-9xl relative z-10 filter drop-shadow-[0_0_20px_#EC4899]">🤠</div><div class="absolute inset-0 bg-pink-500/20 animate-pulse mix-blend-overlay"></div><h1 class="absolute mt-40 text-white font-black text-6xl md:text-8xl drop-shadow-[0_0_20px_#EC4899] animate-ping whitespace-nowrap">COWGIRL RUSH!</h1>`; document.body.appendChild(rushModal); playSound('heaven'); applyLuckBonus(2, 30000); setTimeout(() => { rushModal.remove(); }, 3000); }
-        
-        window.activateSpecial = function(type) { 
-            if (inventory.special[type] > 0) { 
-                if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory(); 
-                inventory.special[type]--; 
-                
-                // --- SPECIAL ITEM LOGIC ---
-                if (type === 'ultimate') {
-                    // Refill Item
-                    addCrystals(50, 'consumable');
-                    playSound('heaven');
-                    showGlobalBroadcast("CRYSTAL REFILL +50", "#00ffff");
-                } else if (type === 'admin') {
-                    // Admin Item
-                    addCrystals(100, 'consumable'); // Triggers Glitch Mode instantly via logic
-                    playSound('thunder');
-                    showGlobalBroadcast("ADMIN OVERRIDE: GLITCH MODE", "#ff0000");
-                } else {
-                    // Guaranteed Rarity Items
-                    forcedTierId = (type === 'god') ? 'BRAINROT_GOD' : (type === 'secret' ? 'SECRET' : 'GOAT'); 
-                    const playSection = document.getElementById('play'); 
-                    if (playSection) playSection.scrollIntoView({ behavior: 'smooth' }); 
-                    playSound('heaven'); 
-                    const content = document.getElementById('rot-content'); 
-                    content.innerHTML = `<div class="text-4xl animate-pulse text-yellow-400 font-bold">NEXT DRAW GUARANTEED!</div>`; 
-                }
-                
-                updateStatsUI(); 
-            } 
-        };
-
-        function updateTimers() { const now = new Date(), hour = now.getHours(), min = now.getMinutes(), sec = now.getSeconds(); const festivalCountdownEl = document.getElementById('festival-countdown'), rainbowCountdownEl = document.getElementById('rainbow-countdown'); const isFestivalTime = (hour % 2 === 0 && min < 5); if (isFestivalTime) { if (!isAutoFestivalActive) { isAutoFestivalActive = true; playSound('thunder'); if (audioLib.elevator.paused) toggleMusic(); } const remMin = 4 - min, remSec = 59 - sec; festivalCountdownEl.innerText = `ENDS: ${String(remMin).padStart(2, '0')}:${String(remSec).padStart(2, '0')}`; festivalCountdownEl.classList.add('text-pink-500', 'animate-pulse'); } else { if (isAutoFestivalActive) { isAutoFestivalActive = false; if (!audioLib.elevator.paused) toggleMusic(); } let nextHour = (hour % 2 !== 0) ? hour + 1 : (min >= 5 ? hour + 2 : hour); if (nextHour >= 24) nextHour = 0; const nextDate = new Date(); nextDate.setHours(nextHour, 0, 0, 0); if (nextHour <= hour && min >= 5) nextDate.setDate(nextDate.getDate() + 1); const diff = nextDate - now, h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000); festivalCountdownEl.innerText = `NEXT: ${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`; festivalCountdownEl.classList.remove('text-pink-500', 'animate-pulse'); } const isRainbowTime = (hour % 2 !== 0 && min < 5); if (isRainbowTime) { if (!isAutoRainbowActive) { isAutoRainbowActive = true; playSound('thunder'); if (audioLib.disco.paused) toggleDisco(); } const remMin = 4 - min, remSec = 59 - sec; rainbowCountdownEl.innerText = `ENDS: ${String(remMin).padStart(2, '0')}:${String(remSec).padStart(2, '0')}`; rainbowCountdownEl.classList.add('text-white', 'animate-pulse'); } else { if (isAutoRainbowActive) { isAutoRainbowActive = false; if (!audioLib.disco.paused) toggleDisco(); } let nextHour = (hour % 2 === 0) ? hour + 1 : (min >= 5 ? hour + 2 : hour); if (nextHour >= 24) nextHour = 1; const nextDate = new Date(); nextDate.setHours(nextHour, 0, 0, 0); if (nextHour <= hour && min >= 5) nextDate.setDate(nextDate.getDate() + 1); const diff = nextDate - now, h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000); rainbowCountdownEl.innerText = `NEXT: ${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`; rainbowCountdownEl.classList.remove('text-white', 'animate-pulse'); } }
-
-        var activeTimeSeconds = 0;
-        setInterval(() => { 
-            let silverInc = 0, goldInc = 0; 
-            baseInventory.forEach(item => { if (item) { silverInc += (item.income || 0); goldInc += (item.goldIncome || 0); } }); 
-            if (silverInc > 0 || goldInc > 0) { accumulatedSilver += silverInc; accumulatedGold += goldInc; updateStatsUI(); saveGame(); } 
-            updateTimers(); 
-            
-            // Crystal Logic: +5 every 5 minutes (300 seconds)
-            activeTimeSeconds++;
-            if (activeTimeSeconds % 300 === 0) {
-                addCrystals(5, 'time');
-            }
-        }, 1000);
-
+        function triggerCowgirlRush() { const rushModal = document.createElement('div'); rushModal.className = 'fixed inset-0 z-[200] flex items-center justify-center pointer-events-none'; rushModal.innerHTML = `<div class="animate-bounce text-9xl relative z-10 filter drop-shadow-[0_0_20px_#EC4899]">🤠</div><div class="absolute inset-0 bg-pink-500/20 animate-pulse mix-blend-overlay"></div><h1 class="absolute mt-40 text-white font-black text-6xl md:text-8xl drop-shadow-[0_0_20px_#EC4899] animate-ping whitespace-nowrap">COWGIRL RUSH!</h1>`; document.body.appendChild(rushModal); playSound('heaven'); addPowerCrystals(5); applyLuckBonus(2, 30000); setTimeout(() => { rushModal.remove(); }, 3000); }
+        window.activateSpecial = function(type) { if (inventory.special[type] > 0) { if (!document.getElementById('inventory-menu').classList.contains('hidden')) toggleInventory(); inventory.special[type]--; forcedTierId = (type === 'god') ? 'BRAINROT_GOD' : (type === 'secret' ? 'SECRET' : 'GOAT'); playSound('heaven'); document.getElementById('rot-content').innerHTML = `<div class="text-4xl animate-pulse text-yellow-400 font-bold">NEXT DRAW GUARANTEED!</div>`; updateStatsUI(); } };
+        function updateTimers() { const now = new Date(), hour = now.getHours(), min = now.getMinutes(), sec = now.getSeconds(), festivalCountdownEl = document.getElementById('festival-countdown'), rainbowCountdownEl = document.getElementById('rainbow-countdown'); if (Date.now() - lastFiveMinuteAward >= 300000) { addPowerCrystals(5); lastFiveMinuteAward = Date.now(); } const isFestivalTime = (hour % 2 === 0 && min < 5); if (isFestivalTime) { if (!isAutoFestivalActive) { isAutoFestivalActive = true; playSound('thunder'); if (audioLib.elevator.paused) toggleMusic(); } const remMin = 4 - min, remSec = 59 - sec; festivalCountdownEl.innerText = `ENDS: ${String(remMin).padStart(2, '0')}:${String(remSec).padStart(2, '0')}`; festivalCountdownEl.classList.add('text-pink-500', 'animate-pulse'); } else { if (isAutoFestivalActive) { isAutoFestivalActive = false; if (!audioLib.elevator.paused) toggleMusic(); } let nextHour = (hour % 2 !== 0) ? hour + 1 : (min >= 5 ? hour + 2 : hour); if (nextHour >= 24) nextHour = 0; const nextDate = new Date(); nextDate.setHours(nextHour, 0, 0, 0); if (nextHour <= hour && min >= 5) nextDate.setDate(nextDate.getDate() + 1); const diff = nextDate - now, h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000); festivalCountdownEl.innerText = `NEXT: ${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`; festivalCountdownEl.classList.remove('text-pink-500', 'animate-pulse'); } const isRainbowTime = (hour % 2 !== 0 && min < 5); if (isRainbowTime) { if (!isAutoRainbowActive) { isAutoRainbowActive = true; playSound('thunder'); if (audioLib.disco.paused) toggleDisco(); } const remMin = 4 - min, remSec = 59 - sec; rainbowCountdownEl.innerText = `ENDS: ${String(remMin).padStart(2, '0')}:${String(remSec).padStart(2, '0')}`; rainbowCountdownEl.classList.add('text-white', 'animate-pulse'); } else { if (isAutoRainbowActive) { isAutoRainbowActive = false; if (!audioLib.disco.paused) toggleDisco(); } let nextHour = (hour % 2 === 0) ? hour + 1 : (min >= 5 ? hour + 2 : hour); if (nextHour >= 24) nextHour = 1; const nextDate = new Date(); nextDate.setHours(nextHour, 0, 0, 0); if (nextHour <= hour && min >= 5) nextDate.setDate(nextDate.getDate() + 1); const diff = nextDate - now, h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000); rainbowCountdownEl.innerText = `NEXT: ${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`; rainbowCountdownEl.classList.remove('text-white', 'animate-pulse'); } }
+        setInterval(() => { let silverInc = 0, goldInc = 0; baseInventory.forEach(item => { if (item) { silverInc += (item.income || 0); goldInc += (item.goldIncome || 0); } }); if (silverInc > 0 || goldInc > 0) { accumulatedSilver += silverInc; accumulatedGold += goldInc; updateStatsUI(); saveGame(); } updateTimers(); }, 1000);
         function initSakura() { const container = document.getElementById('sakura-container'); if(!container) return; setInterval(() => { const petal = document.createElement('div'); petal.innerText = '🌸'; petal.className = 'sakura-petal text-pink-300/80 drop-shadow-lg'; const size = Math.random() * 15 + 10, left = Math.random() * 100, duration = Math.random() * 5 + 5; petal.style.fontSize = `${size}px`; petal.style.left = `${left}%`; petal.style.animationDuration = `${duration}s`; container.appendChild(petal); setTimeout(() => { petal.remove(); }, duration * 1000); }, 400); }
-
         document.addEventListener('DOMContentLoaded', () => { loadGame(); initSakura(); updateTimers(); setTimeout(() => { if (!liveRollInterval) toggleLiveRoll(); }, 500); });
     </script>
 </body>
