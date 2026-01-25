@@ -2552,9 +2552,5 @@
         function initSakura() { const container = document.getElementById('sakura-container'); if(!container) return; setInterval(() => { const petal = document.createElement('div'); petal.innerText = '🌸'; petal.className = 'sakura-petal text-pink-300/80 drop-shadow-lg'; const size = Math.random() * 15 + 10, left = Math.random() * 100, duration = Math.random() * 5 + 5; petal.style.fontSize = `${size}px`; petal.style.left = `${left}%`; petal.style.animationDuration = `${duration}s`; container.appendChild(petal); setTimeout(() => { petal.remove(); }, duration * 1000); }, 400); }
         document.addEventListener('DOMContentLoaded', () => { loadGame(); initSakura(); updateTimers(); setTimeout(() => { if (!liveRollInterval) toggleLiveRoll(); }, 500); });
     </script>
-
-    <div style="display: none !important;">
-        <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=1tZoI62HRlSxKCBi8T3rhxr4ao3_GM8kupic9K4Ip0s"></script>
-    </div>
 </body>
 </html>
