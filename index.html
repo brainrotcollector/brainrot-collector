@@ -1764,7 +1764,7 @@
             heaven: new Audio('https://actions.google.com/sounds/v1/cartoon/harp_strum.ogg'),
             rolling: new Audio('https://www.soundjay.com/misc/sounds/slot-machine-wheel-1.mp3'),
             ching: new Audio('https://www.myinstants.com/media/sounds/ka-ching.mp3'),
-            buy: new Audio('https://www.myinstants.com/media/sounds/coin.mp3'),
+            buy: new Audio('https://www.soundjay.com/misc/sounds/coin-drop-1.mp3'),
             shutter: new Audio('https://www.myinstants.com/media/sounds/camera-shutter-click-03.mp3'), 
             ambience: new Audio('https://actions.google.com/sounds/v1/crowds/battle_crowd_celebrate.ogg'), 
             wow: new Audio('https://www.myinstants.com/media/sounds/wow-11.mp3'), 
@@ -1785,16 +1785,28 @@
         // --- HELPER FOR STARS ---
         function getStarHTML(count, className = '') {
             let stars = '';
-            if (count === 4) stars = '★<br>★★★';
+            // Visual Balance Logic:
+            // 3: 1 top, 2 bottom
+            // 4: 2 top, 2 bottom (staggered left)
+            // 5: 2 top, 3 bottom (top centered)
+            // 6: 3 top, 3 bottom (staggered left)
+            // 7: 3 top, 4 bottom
+            // 8: 4 top, 4 bottom (staggered left)
+            // 9: 4 top, 5 bottom
+            
+            if (count === 3) stars = '★<br>★★';
+            else if (count === 4) stars = '★★&nbsp;<br>★★';
             else if (count === 5) stars = '★★<br>★★★';
-            else if (count === 6) stars = '★★★<br>★★★';
+            else if (count === 6) stars = '★★★&nbsp;<br>★★★';
             else if (count === 7) stars = '★★★<br>★★★★';
-            else if (count === 8) stars = '★★★★<br>★★★★';
+            else if (count === 8) stars = '★★★★&nbsp;<br>★★★★';
             else if (count === 9) stars = '★★★★<br>★★★★★';
             else {
                 for(let i=0; i<count; i++) { stars += '★'; }
             }
-            return `<div class="star-rating ${className} !flex !flex-col !items-center !justify-center !gap-0 !leading-[0.8] text-center" style="text-shadow: 1px 1px 0 #000;">
+            
+            // Flex column to stack rows, centered text
+            return `<div class="star-rating ${className} !flex !flex-col !items-center !justify-center !gap-0 !leading-[0.85] text-center" style="text-shadow: 1px 1px 0 #000;">
                         <span>${stars}</span>
                     </div>`;
         }
@@ -2261,12 +2273,11 @@
                 const item = baseInventory[i];
                 slot.className = `base-slot ${item ? 'filled' : ''}`;
                 if(item) {
-                    const tier = tierConfig.find(t => t.id === item.tierId);
-                    const stars = tier ? tier.stars : 1;
-                    slot.innerHTML = item.icon + getStarHTML(stars, 'collection-stars');
+                    const tier = tierConfig.find(t => t.id === item.tierId) || { stars: 1, name: item.tierName || 'COMMON' };
+                    slot.innerHTML = item.icon + getStarHTML(tier.stars, 'collection-stars');
                     slot.style.borderColor = item.tierColor;
                     slot.title = item.name;
-                    slot.onclick = () => showLoreModal(item, {name: item.tierName, stars: stars}, i);
+                    slot.onclick = () => showLoreModal(item, tier, i);
                 } else { slot.innerHTML = '<span class="opacity-10 text-xs">EMPTY</span>'; }
                 grid.appendChild(slot);
             }
@@ -2282,7 +2293,7 @@
             };
             pendingItemUniqueId = uniqueId; 
             const m = document.getElementById('base-prompt-modal'), c = document.getElementById('base-prompt-content');
-            document.getElementById('prompt-icon').innerHTML = item.icon;
+            document.getElementById('prompt-icon').innerHTML = `<div class="relative inline-block">${item.icon}${getStarHTML(tier.stars || 1, 'draw-stars')}</div>`;
             document.getElementById('prompt-name').innerText = item.name;
             const promptText = document.getElementById('prompt-text-action');
             if(promptText) {
