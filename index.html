@@ -1785,8 +1785,20 @@
         // --- HELPER FOR STARS ---
         function getStarHTML(count, className = '') {
             let stars = '';
-            for(let i=0; i<count; i++) { stars += '★'; }
-            return `<div class="star-rating ${className}"><span>${stars}</span></div>`;
+            if (count === 4) {
+                stars = '★★<br>★★';
+            } else if (count === 5) {
+                stars = '★★<br>★★★';
+            } else if (count === 6) {
+                stars = '★★★<br>★★★';
+            } else if (count === 7) {
+                stars = '★★★<br>★★★★';
+            } else if (count === 8) {
+                stars = '★★★★<br>★★★★';
+            } else {
+                for(let i=0; i<count; i++) { stars += '★'; }
+            }
+            return `<div class="star-rating ${className} !flex-col !items-end text-right"><span>${stars}</span></div>`;
         }
 
         function toggleAdminPanelUI() {
